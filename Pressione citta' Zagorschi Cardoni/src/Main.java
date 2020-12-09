@@ -1,3 +1,6 @@
 public class Main {
-    public int ciao=1;
+
+    public static void main(String[] args) {
+        
+    }
 }
