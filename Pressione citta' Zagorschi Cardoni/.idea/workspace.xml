@@ -50,8 +50,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/json-simple-1.1.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
@@ -79,13 +79,17 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="602" y="197" key="FileChooserDialogImpl" timestamp="1607446953024">
+    <state x="652" y="135" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1607533536141">
       <screen x="0" y="0" width="1646" height="886" />
     </state>
-    <state x="602" y="197" key="FileChooserDialogImpl/0.0.1646.886@0.0.1646.886" timestamp="1607446953024" />
-    <state x="302" y="16" key="SettingsEditor" timestamp="1607502408265">
+    <state x="652" y="135" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1646.886@0.0.1646.886" timestamp="1607533536141" />
+    <state x="602" y="197" key="FileChooserDialogImpl" timestamp="1607533533882">
       <screen x="0" y="0" width="1646" height="886" />
     </state>
-    <state x="302" y="16" key="SettingsEditor/0.0.1646.886@0.0.1646.886" timestamp="1607502408265" />
+    <state x="602" y="197" key="FileChooserDialogImpl/0.0.1646.886@0.0.1646.886" timestamp="1607533533882" />
+    <state x="302" y="16" key="SettingsEditor" timestamp="1607533541562">
+      <screen x="0" y="0" width="1646" height="886" />
+    </state>
+    <state x="302" y="16" key="SettingsEditor/0.0.1646.886@0.0.1646.886" timestamp="1607533541562" />
   </component>
 </project>
