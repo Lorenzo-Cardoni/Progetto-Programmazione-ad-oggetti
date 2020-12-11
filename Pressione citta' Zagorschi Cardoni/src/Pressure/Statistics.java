@@ -18,10 +18,13 @@ public class Statistics {
     };
     void createStatistics(){
         for(int i=0;i<this.pressure.length;i++){
-            if(pressure.value>val_max)val_max=pressure.value;
-            if(pressure.value<val_min)val_min=pressure.value;
-            average+=pressure.value;
+            if(pressure.value[i]>val_max)val_max=pressure.value[i];
+            if(pressure.value[i]<val_min)val_min=pressure.value[i];
+            average+=pressure.value[i];
         }
         average/=pressure.length;
+        for(int i=0;i<this.pressure.length;i++){
+            variance+=((pressure.value[i]-average)*(pressure.value[i]-average))/average;
+        }
     }
 }
