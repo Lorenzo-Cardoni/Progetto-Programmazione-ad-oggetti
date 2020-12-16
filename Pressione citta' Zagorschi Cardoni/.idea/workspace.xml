@@ -5,7 +5,7 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
@@ -35,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/json-simple-1.1.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -72,10 +72,10 @@
       <screen x="0" y="0" width="1646" height="886" />
     </state>
     <state x="502" y="178" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1646.886@0.0.1646.886" timestamp="1607936687589" />
-    <state x="602" y="197" key="FileChooserDialogImpl" timestamp="1607533533882">
+    <state x="602" y="197" key="FileChooserDialogImpl" timestamp="1608132908899">
       <screen x="0" y="0" width="1646" height="886" />
     </state>
-    <state x="602" y="197" key="FileChooserDialogImpl/0.0.1646.886@0.0.1646.886" timestamp="1607533533882" />
+    <state x="602" y="197" key="FileChooserDialogImpl/0.0.1646.886@0.0.1646.886" timestamp="1608132908899" />
     <state x="302" y="16" key="SettingsEditor" timestamp="1607705008445">
       <screen x="0" y="0" width="1646" height="886" />
     </state>
