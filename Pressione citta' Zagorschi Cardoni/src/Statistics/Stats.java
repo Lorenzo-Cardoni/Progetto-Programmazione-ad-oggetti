@@ -18,7 +18,7 @@ public class Stats {
         this.nameCity = nameCity;
         this.pressure = pressure;
     }
-
+    /*
     public void createStatistics(){
         for(int i=0 ; i < this.pressure.length ; i++){
             if(pressure.value[i] > val_max)
@@ -32,5 +32,5 @@ public class Stats {
         for(int i=0;i<this.pressure.length;i++){
             variance+=((pressure.value[i]-average)*(pressure.value[i]-average))/average;
         }
-    }
+    }*/
 }

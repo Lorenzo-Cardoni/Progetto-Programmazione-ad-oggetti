@@ -10,12 +10,14 @@ public class Api {
         this.cityName=cityName;
     }
     String cityName;
+    public boolean done;
     static String apiKey="39b2f77fcfc40aa96026fc4d80eb9bb0";
     URL url = new URL("http://api.openweathermap.org/data/2.5/weather?id=2172797&appid=" + apiKey);
     HttpURLConnection con;
     {
         try {
             con = (HttpURLConnection) url.openConnection();
+            done=true;
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
