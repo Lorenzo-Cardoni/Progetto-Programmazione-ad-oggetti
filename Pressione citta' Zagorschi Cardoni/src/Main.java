@@ -1,19 +1,16 @@
 import Service.Api;
 
 import javax.swing.*;
+import java.awt.*;
 import java.net.MalformedURLException;
 
 public class Main {
-
     public static void main(String[] args) {
-        Api api = null;
         try {
-            api = new Api();
+            Api api=new Api();
+            System.out.println(api.callApi("Pesaro"));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        System.out.println(api.done);
-        JOptionPane.showMessageDialog(null, "My Goodness, this is so concise");
-
     }
 }
