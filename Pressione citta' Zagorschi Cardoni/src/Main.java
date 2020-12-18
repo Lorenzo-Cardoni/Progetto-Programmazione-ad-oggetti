@@ -1,5 +1,4 @@
 import Service.Api;
-
 import javax.swing.*;
 import java.awt.*;
 import java.net.MalformedURLException;
