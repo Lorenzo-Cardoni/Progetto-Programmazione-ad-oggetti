@@ -9,7 +9,7 @@ import java.net.URL;
 import java.net.http.HttpResponse;
 
 public class Api {
-    public Api() throws MalformedURLException {}
+    public Api() {}
     //Variables
     String cityName;
     float pression;
@@ -17,7 +17,7 @@ public class Api {
     static String apiKey="&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
     URL url = null;
     HttpURLConnection con;
-    String data;
+    String data="";
     //Methods
 
     //Call api knowing city name
