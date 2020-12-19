@@ -3,17 +3,14 @@ package Filters;
 import Model.Pressure;
 import Statistics.Stats;
 
-import java.time.LocalTime;
 import java.time.LocalDate;
 import java.util.Vector;
 
-//utilizzare la classe abstract.
 /**
- *  Questa classe filtra le pressioni da adesso ad una data scelta dall'utente.
- *
+ *  Questa classe filtra le pressioni in base al nome della citta' e alla data di inizio del periodo e della fine.
  *
  */
-public class FilterPressureStandard extends Filter {
+public class FilterPressureCustomized extends Filter{
 
     /**
      *  Vettore con le pressioni filtrate.
@@ -37,21 +34,12 @@ public class FilterPressureStandard extends Filter {
      */
     private LocalDate endPeriod;
 
-    CalculateDay date = new CalculateDay();
-
-
-    public FilterPressureStandard(int day, String name){
+    public FilterPressureCustomized(String date1, String date2, String name){
         super(name);
-        this.startPeriod = date.getDate(day);
-        this.endPeriod = LocalDate.now();
+        this.startPeriod = LocalDate.parse(date1);
+        this.endPeriod = LocalDate.parse(date2);
     }
 
-    /**
-     *  Questa classe filtra le pressioni in base al nome della citta' e alla data di inizio del periodo.
-     *
-     * @param pressures vettore in input che contiene tutti i valori delle pressioni.
-     * @return In output ottengo una stringa con i valori delle statistiche
-     */
     @Override
     public String filtersPressure(Vector<Pressure> pressures) {
 
@@ -71,7 +59,7 @@ public class FilterPressureStandard extends Filter {
              *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
              *  Si e' utilizzato un metodo della libreria time di java.
              */
-            if(pressures.get(i).getNameCity() == cityName && localDate.isAfter(startPeriod))
+            if(pressures.get(i).getNameCity() == cityName && localDate.isAfter(startPeriod) && localDate.isBefore(endPeriod))
                 this.pressureFiltred.add(pressures.get(i));
 
         }

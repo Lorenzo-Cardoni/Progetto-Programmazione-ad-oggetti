@@ -1,10 +1,26 @@
 package Filters;
 import Model.Pressure;
 
+import java.time.LocalDate;
 import java.util.Vector;
 
-public interface Filter {
+public abstract class Filter {
 
-    public String filtersPressure(Vector<Pressure> pressures);
+    private Vector<Pressure> pressureFiltred = new Vector<Pressure>();
+
+    private String cityName;
+
+    private LocalDate startPeriod;
+
+    private LocalDate endPeriod;
+
+    public Filter(String name){
+
+        this.cityName = name;
+
+
+    }
+
+    public  abstract String filtersPressure(Vector<Pressure> pressures);
 
 }

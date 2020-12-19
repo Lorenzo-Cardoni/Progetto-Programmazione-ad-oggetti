@@ -10,12 +10,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto la classe filtro standard.">
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto commenti alla classe filtroStandard.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Pressure/City.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Pressure/Pressure.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Pressure/Statistics.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Pressure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pressure.java" afterDir="false" />
@@ -55,7 +56,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Università/Progr. ad oggetti/IdeaProjects/opera-d'arte" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -161,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608394119220</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Aggiunto commenti alla classe filtroStandard.">
+      <created>1608394861236</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608394861237</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,6 +196,7 @@
     <MESSAGE value="Aggiunti metodi chiamata api classe Api, test funzionamento dal main" />
     <MESSAGE value="Sistamata classe Stats." />
     <MESSAGE value="Aggiunto la classe filtro standard." />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto la classe filtro standard." />
+    <MESSAGE value="Aggiunto commenti alla classe filtroStandard." />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto commenti alla classe filtroStandard." />
   </component>
 </project>
