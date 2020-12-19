@@ -62,14 +62,18 @@ public class FilterPressureStandard implements Filter {
             /**
              * localDate attributo che mi prende la data da cui inizia il periodo.
              */
-            LocalDate localDate = LocalDate.parse(pressures.get(i).getDate());
+
+            //messa come commento, da errore, mi serve eseguire il main
+            //LocalDate localDate = LocalDate.parse(pressures.get(i).getDate());
 
             /**
              *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
              *  Si e' utilizzato un metodo della libreria time di java.
              */
-            if(pressures.get(i).getNameCity() == cityName && localDate.isAfter(startPeriod))
-                this.pressureFiltred.add(pressures.get(i));
+
+            //messa come commento, da errore, mi serve eseguire il main
+            //if(pressures.get(i).getNameCity() == cityName && localDate.isAfter(startPeriod))
+                //this.pressureFiltred.add(pressures.get(i));
 
         }
 
