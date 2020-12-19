@@ -10,19 +10,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto commenti alla classe filtroStandard.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Pressure/City.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Pressure/Pressure.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Pressure/Statistics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/Filter.java" afterDir="false" />
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto classe con filtro personalizzabile">
       <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Pressure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pressure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pressure/City.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pressure/Pressure.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pressure/Statistics.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608394861237</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Aggiunto classe con filtro personalizzabile">
+      <created>1608411025193</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1608411025193</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +194,7 @@
     <MESSAGE value="Sistamata classe Stats." />
     <MESSAGE value="Aggiunto la classe filtro standard." />
     <MESSAGE value="Aggiunto commenti alla classe filtroStandard." />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto commenti alla classe filtroStandard." />
+    <MESSAGE value="Aggiunto classe con filtro personalizzabile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto classe con filtro personalizzabile" />
   </component>
 </project>

@@ -56,27 +56,26 @@ public class FilterPressureStandard extends Filter {
     public String filtersPressure(Vector<Pressure> pressures) {
 
         /**
+         * supportDate attributo che mi prende la data da cui inizia il periodo.
+         *
+         */
+
+        LocalDate supportDate;
+        /**
          * Ciclo for che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
          *
          */
         for(int i=0; i < pressures.size(); i++){
 
-            /**
-             * localDate attributo che mi prende la data da cui inizia il periodo.
-             *
-             */
-
-            //messa come commento, da errore, mi serve eseguire il main
-            //LocalDate localDate = LocalDate.parse(pressures.get(i).getDate());
+            supportDate = LocalDate.parse(pressures.get(i).getDate());
 
             /**
              *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
              *  Si e' utilizzato un metodo della libreria time di java.
              */
 
-            //messa come commento, da errore, mi serve eseguire il main
-            //if(pressures.get(i).getNameCity() == cityName && localDate.isAfter(startPeriod))
-                //this.pressureFiltred.add(pressures.get(i));
+            if(pressures.get(i).getNameCity().equals(cityName) && supportDate.isAfter(this.startPeriod))
+                this.pressureFiltred.add(pressures.get(i));
 
         }
 
@@ -92,10 +91,6 @@ public class FilterPressureStandard extends Filter {
          */
         statistics.createStats();
 
-        /**
-         * Output di tipo stringa composto dai metodi della classe Stats.
-         *
-         */
         return "Minimum value is "+statistics.getVal_min()+"\nMaximum value is "+statistics.getVal_max()+
                 "\nAvarege is "+statistics.getAverage()+"\nVariance is "+statistics.getVariance();
     }
