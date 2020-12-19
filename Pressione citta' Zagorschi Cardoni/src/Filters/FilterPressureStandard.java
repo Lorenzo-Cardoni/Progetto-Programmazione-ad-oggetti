@@ -2,8 +2,6 @@ package Filters;
 
 import Model.Pressure;
 import Statistics.Stats;
-
-import java.time.LocalTime;
 import java.time.LocalDate;
 import java.util.Vector;
 

@@ -43,24 +43,26 @@ public class FilterPressureCustomized extends Filter{
     @Override
     public String filtersPressure(Vector<Pressure> pressures) {
 
+        LocalDate supportDate;
+
         /**
-         * Ciclo for che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
+         * for each che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
          *
          */
-        for(int i=0; i < pressures.size(); i++){
+        for (Pressure pressure : pressures) {
 
             /**
              * localDate attributo che mi prende la data da cui inizia il periodo.
              *
              */
-            LocalDate localDate = LocalDate.parse(pressures.get(i).getDate());
+            supportDate = LocalDate.parse(pressure.getDate());
 
             /**
              *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
              *  Si e' utilizzato un metodo della libreria time di java.
              */
-            if(pressures.get(i).getNameCity() == cityName && localDate.isAfter(startPeriod) && localDate.isBefore(endPeriod))
-                this.pressureFiltred.add(pressures.get(i));
+            if (pressure.getNameCity().equals(cityName) && supportDate.isAfter(this.startPeriod) && supportDate.isBefore(this.endPeriod))
+                this.pressureFiltred.add(pressure);
 
         }
 

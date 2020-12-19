@@ -10,7 +10,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto classe con filtro personalizzabile">
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modificato filtro standard.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Pressure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pressure.java" afterDir="false" />
     </list>
@@ -166,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608411025193</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Modificato filtro standard.">
+      <created>1608411682435</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608411682435</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +204,7 @@
     <MESSAGE value="Aggiunto la classe filtro standard." />
     <MESSAGE value="Aggiunto commenti alla classe filtroStandard." />
     <MESSAGE value="Aggiunto classe con filtro personalizzabile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto classe con filtro personalizzabile" />
+    <MESSAGE value="Modificato filtro standard." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificato filtro standard." />
   </component>
 </project>
