@@ -3,8 +3,7 @@ import Model.Pressure;
 import java.util.Vector;
 
 public class Stats {
-    private String nameCity;
-    private String duration;
+
     private Vector<Pressure> pressure;
     private float val_min = 0;
     private float val_max = 0;
@@ -14,10 +13,10 @@ public class Stats {
 
     //Il vettore pressure sara' generato da un'altra classe.
 
-    public Stats(String nameCity , String duration , Vector <Pressure> pressure){
-        this.duration = duration;
-        this.nameCity = nameCity;
+    public Stats( Vector <Pressure> pressure){
+
         this.pressure = pressure;
+
     }
 
     public void createStats() {
@@ -41,8 +40,8 @@ public class Stats {
 
     public float getVariance(){
 
-        for(int i = 0; i < pressure.size(); i++){
-            this.variance += (pressure.get(i).getValue()-this.average)*(pressure.get(i).getValue()-this.average);
+        for(int j = 0; j < pressure.size(); j++){
+            this.variance += (pressure.get(j).getValue()-this.average)*(pressure.get(j).getValue()-this.average);
         }
 
         return this.variance /= this.count;
