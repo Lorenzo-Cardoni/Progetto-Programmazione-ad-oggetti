@@ -13,7 +13,7 @@ public class Stats {
 
     //Il vettore pressure sara' generato da un'altra classe.
 
-    public Stats( Vector <Pressure> pressure){
+    public Stats(Vector <Pressure> pressure){
 
         this.pressure = pressure;
 

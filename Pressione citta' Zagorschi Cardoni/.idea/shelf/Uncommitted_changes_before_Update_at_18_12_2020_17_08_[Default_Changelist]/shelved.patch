@@ -1,0 +1,526 @@
+Index: src/Statistics/Stats.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Statistics;\r\n\r\nimport Model.Pressure;\r\n\r\npublic class Stats {\r\n    private String nameCity;\r\n    private String duration;\r\n    private Pressure[] pressure;\r\n    private float val_min;\r\n    private float val_max;\r\n    private float average;\r\n    private float variance;\r\n\r\n    public Stats(){};\r\n\r\n    public Stats(String nameCity , String duration , Pressure[] pressure){\r\n        this.duration = duration;\r\n        this.nameCity = nameCity;\r\n        this.pressure = pressure;\r\n    }\r\n    /*\r\n    public void createStatistics(){\r\n        for(int i=0 ; i < this.pressure.length ; i++){\r\n            if(pressure.value[i] > val_max)\r\n                val_max=pressure.value[i];\r\n            if(pressure.value[i]<val_min)\r\n                val_min=pressure.value[i];\r\n            average+=pressure.value[i];\r\n        }\r\n        average /= pressure.length;\r\n\r\n        for(int i=0;i<this.pressure.length;i++){\r\n            variance+=((pressure.value[i]-average)*(pressure.value[i]-average))/average;\r\n        }\r\n    }*/\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Statistics/Stats.java b/src/Statistics/Stats.java
+--- a/src/Statistics/Stats.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ b/src/Statistics/Stats.java	(date 1608307352342)
+@@ -18,7 +18,7 @@
+         this.nameCity = nameCity;
+         this.pressure = pressure;
+     }
+-    /*
++
+     public void createStatistics(){
+         for(int i=0 ; i < this.pressure.length ; i++){
+             if(pressure.value[i] > val_max)
+@@ -32,5 +32,5 @@
+         for(int i=0;i<this.pressure.length;i++){
+             variance+=((pressure.value[i]-average)*(pressure.value[i]-average))/average;
+         }
+-    }*/
++    }
+ }
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Service.Api;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.net.MalformedURLException;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        try {\r\n            Api api=new Api();\r\n            System.out.println(api.callApi(\"Pesaro\"));\r\n        } catch (MalformedURLException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ b/src/Main.java	(date 1608307352351)
+@@ -1,16 +1,6 @@
+-import Service.Api;
+-
+-import javax.swing.*;
+-import java.awt.*;
+-import java.net.MalformedURLException;
+-
+ public class Main {
++
+     public static void main(String[] args) {
+-        try {
+-            Api api=new Api();
+-            System.out.println(api.callApi("Pesaro"));
+-        } catch (MalformedURLException e) {
+-            e.printStackTrace();
+-        }
++
+     }
+ }
+Index: src/GUI/SelctionCity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class SelctionCity {\r\n\r\n    public SelctionCity() {\r\n\r\n        JPanel panel = new JPanel();\r\n        JFrame frame = new JFrame();\r\n        /**\r\n         * Imposta la dimensione della finestra.\r\n         */\r\n        frame.setSize(400, 400);\r\n        /**\r\n         *  Specifica che la chiusura della finestra deve far terminare il programma.\r\n         */\r\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n        /**\r\n         * Specifica che la finestra deve essere centrata.\r\n         */\r\n        frame.setLocationRelativeTo(null);\r\n\r\n        /**\r\n         * Visualizza la finestra.\r\n         */\r\n        frame.setVisible(true);\r\n        frame.add(panel);\r\n\r\n        /**\r\n         * Inizializzo la casella di input dove verra' inserito il nome\r\n         * della citta'.\r\n         */\r\n        JLabel label = new JLabel(\"Name city\");\r\n        label.setBounds(10,20,80,25);\r\n        panel.add(label);\r\n\r\n        JTextField nameCityText = new JTextField(20);\r\n        nameCityText.setBounds(100,20,165,25);\r\n        panel.add(nameCityText);\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/SelctionCity.java b/src/GUI/SelctionCity.java
+--- a/src/GUI/SelctionCity.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ b/src/GUI/SelctionCity.java	(date 1608307352360)
+@@ -1,44 +1,62 @@
+ package GUI;
+ 
+ import javax.swing.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
+ 
+-public class SelctionCity {
++public class SelctionCity extends JFrame implements ActionListener {
+ 
+     public SelctionCity() {
+ 
+-        JPanel panel = new JPanel();
+-        JFrame frame = new JFrame();
++
+         /**
+          * Imposta la dimensione della finestra.
+          */
+-        frame.setSize(400, 400);
++        setSize(400, 400);
+         /**
+          *  Specifica che la chiusura della finestra deve far terminare il programma.
+          */
+-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
+         /**
+          * Specifica che la finestra deve essere centrata.
+          */
+-        frame.setLocationRelativeTo(null);
++        setLocationRelativeTo(null);
++
+ 
+-        /**
+-         * Visualizza la finestra.
+-         */
+-        frame.setVisible(true);
+-        frame.add(panel);
++
+ 
+         /**
+          * Inizializzo la casella di input dove verra' inserito il nome
+          * della citta'.
+          */
+-        JLabel label = new JLabel("Name city");
+-        label.setBounds(10,20,80,25);
+-        panel.add(label);
++        JLabel citylabel = new JLabel("Name city");
++        citylabel.setBounds(10,20,80,25);
++        add(citylabel);
+ 
+         JTextField nameCityText = new JTextField(20);
+         nameCityText.setBounds(100,20,165,25);
+-        panel.add(nameCityText);
++        add(nameCityText);
++
++        JButton search = new JButton("Search");
++        search.setBounds(10,80,80,25);
++        search.addActionListener(new SelctionCity());
++        add(search);
++
++
++
++        /**
++         * Visualizza la finestra.
++         */
++        setVisible(true);
++
++
+ 
+     }
+ 
++    //Impostare la verifica del nome inserito dall'utente.
++    @Override
++    public void actionPerformed(ActionEvent e) {
++
++    }
+ }
+Index: src/Pressure/Statistics.java
+===================================================================
+diff --git a/src/Pressure/Statistics.java b/src/Pressure/Statistics.java
+deleted file mode 100644
+--- a/src/Pressure/Statistics.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ /dev/null	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
+@@ -1,34 +0,0 @@
+-package Pressure;
+-
+-public class Statistics {
+-    private String nameCity;
+-    private String duration;
+-    private Pressure[] pressure;
+-    private float val_min;
+-    private float val_max;
+-    private float average;
+-    private float variance;
+-
+-    public Statistics(){};
+-
+-    public Statistics(String nameCity , String duration , Pressure[] pressure){
+-        this.duration = duration;
+-        this.nameCity = nameCity;
+-        this.pressure = pressure;
+-    }
+-    /*
+-    public void createStatistics(){
+-        for(int i=0 ; i < this.pressure.length ; i++){
+-            if(pressure.value[i] > val_max)
+-                val_max=pressure.value[i];
+-            if(pressure.value[i]<val_min)
+-                val_min=pressure.value[i];
+-            average+=pressure.value[i];
+-        }
+-        average /= pressure.length;
+-
+-        for(int i=0;i<this.pressure.length;i++){
+-            variance+=((pressure.value[i]-average)*(pressure.value[i]-average))/average;
+-        }
+-    }*/
+-}
+Index: src/Pressure/Pressure.java
+===================================================================
+diff --git a/src/Pressure/Pressure.java b/src/Pressure/Pressure.java
+deleted file mode 100644
+--- a/src/Pressure/Pressure.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ /dev/null	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
+@@ -1,25 +0,0 @@
+-package Pressure;
+-
+-public class Pressure {
+-    private float value;
+-    private float time;
+-    private String nameCity;
+-
+-    public Pressure(float valuePressure, float time, String nameCity){
+-        this.value = valuePressure;
+-        this.time = time;
+-        this.nameCity = nameCity;
+-    }
+-
+-    public float getValue(){
+-        return this.value;
+-    }
+-
+-    public float getTime(){
+-        return this.time;
+-    }
+-
+-    public String getNameCity(){
+-        return this.nameCity;
+-    }
+-}
+Index: src/Main/Main.java
+===================================================================
+diff --git a/src/Main/Main.java b/src/Main/Main.java
+deleted file mode 100644
+--- a/src/Main/Main.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ /dev/null	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
+@@ -1,9 +0,0 @@
+-package Main;
+-
+-public class Main {
+-
+-    public static void main(String[] args) {
+-        System.out.println(api.callApi("Pesaro"));
+-
+-    }
+-}
+Index: src/GUI/GetStats.java
+===================================================================
+diff --git a/src/GUI/GetStats.java b/src/GUI/GetStats.java
+deleted file mode 100644
+--- a/src/GUI/GetStats.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ /dev/null	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
+@@ -1,4 +0,0 @@
+-package GUI;
+-
+-public class GetStats {
+-}
+Index: src/Pressure/City.java
+===================================================================
+diff --git a/src/Pressure/City.java b/src/Pressure/City.java
+deleted file mode 100644
+--- a/src/Pressure/City.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ /dev/null	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
+@@ -1,25 +0,0 @@
+-package Pressure;
+-
+-public class City {
+-    private String cityname;
+-    private String region;
+-    private int postalCode;
+-
+-    public City(String cityname, String nameregion, int postalCode){
+-        this.cityname = cityname;
+-        this.region = nameregion;
+-        this.postalCode = postalCode;
+-    }
+-
+-    public String getCityname(){
+-        return this.cityname;
+-    }
+-
+-    public String getRegion(){
+-        return this.region;
+-    }
+-
+-    public int getPostalCode(){
+-        return this.postalCode;
+-    }
+-}
+Index: src/GUI/GetInformation.java
+===================================================================
+diff --git a/src/GUI/GetInformation.java b/src/GUI/GetInformation.java
+deleted file mode 100644
+--- a/src/GUI/GetInformation.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ /dev/null	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
+@@ -1,4 +0,0 @@
+-package GUI;
+-
+-public class GetInformation {
+-}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand />\r\n    <select>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </select>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c8633d02-6b56-4fde-8f62-11596602f44e\" name=\"Default Changelist\" comment=\"Aggiunti metodi chiamata api classe Api, test funzionamento dal main\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Main/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ChangesViewManager\">\r\n    <option name=\"groupingKeys\">\r\n      <option value=\"directory\" />\r\n    </option>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1lNnOzN91nD8eUueS1jdr9OuPdL\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"vcs.Git\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"Pressione citta' Zagorschi Cardoni\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Progetto Pressione Meteo\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main.Main\" />\r\n      <module name=\"Pressione citta' Zagorschi Cardoni\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c8633d02-6b56-4fde-8f62-11596602f44e\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1607446391392</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1607446391392</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Aggiunta classi api e json\">\r\n      <created>1608218763274</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608218763274</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Aggiunta classi api e json\">\r\n      <created>1608221477148</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608221477148</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"modifica classi api e json\">\r\n      <created>1608223951869</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608223951869</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"modifica classi api e json\">\r\n      <created>1608224155528</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608224155528</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"modifica classi api e json\">\r\n      <created>1608224671118</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608224671118</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Aggiunti metodi chiamata api classe Api, test funzionamento dal main\">\r\n      <created>1608305287958</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608305287958</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"7\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\r\n                <map>\r\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Aggiunta classi api e json\" />\r\n    <MESSAGE value=\"modifica classi api e json\" />\r\n    <MESSAGE value=\"Aggiunti metodi chiamata api classe Api, test funzionamento dal main\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Aggiunti metodi chiamata api classe Api, test funzionamento dal main\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ b/.idea/workspace.xml	(date 1608307604044)
+@@ -10,9 +10,11 @@
+     </select>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunti metodi chiamata api classe Api, test funzionamento dal main">
++    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="modifica classi api e json">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Service/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Api.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -35,7 +37,9 @@
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+   </component>
+   <component name="ProjectId" id="1lNnOzN91nD8eUueS1jdr9OuPdL" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="1" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -114,14 +118,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1608224671118</updated>
+     </task>
+-    <task id="LOCAL-00006" summary="Aggiunti metodi chiamata api classe Api, test funzionamento dal main">
+-      <created>1608305287958</created>
+-      <option name="number" value="00006" />
+-      <option name="presentableId" value="LOCAL-00006" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1608305287958</updated>
+-    </task>
+-    <option name="localTasksCounter" value="7" />
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -145,7 +142,6 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Aggiunta classi api e json" />
+     <MESSAGE value="modifica classi api e json" />
+-    <MESSAGE value="Aggiunti metodi chiamata api classe Api, test funzionamento dal main" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti metodi chiamata api classe Api, test funzionamento dal main" />
++    <option name="LAST_COMMIT_MESSAGE" value="modifica classi api e json" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/GUI/ShowStats.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/ShowStats.java b/src/GUI/ShowStats.java
+new file mode 100644
+--- /dev/null	(date 1608307352411)
++++ b/src/GUI/ShowStats.java	(date 1608307352411)
+@@ -0,0 +1,4 @@
++package GUI;
++
++public class ShowStats {
++}
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1608307352404)
++++ b/.idea/.gitignore	(date 1608307352404)
+@@ -0,0 +1,28 @@
++# Created by .ignore support plugin (hsz.mobi)
++### Java template
++# Compiled class file
++*.class
++
++# Log file
++*.log
++
++# BlueJ files
++*.ctxt
++
++# Mobile Tools for Java (J2ME)
++.mtj.tmp/
++
++# Package Files #
++*.jar
++*.war
++*.nar
++*.ear
++*.zip
++*.tar.gz
++*.rar
++
++# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
++hs_err_pid*
++
++*.xml
++*.iml
+\ No newline at end of file
+Index: src/GUI/SelectionInformation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\npublic class SelectionInformation {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/SelectionInformation.java b/src/GUI/SelectionInformation.java
+--- a/src/GUI/SelectionInformation.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ b/src/GUI/SelectionInformation.java	(date 1608307369108)
+@@ -1,4 +1,41 @@
+ package GUI;
+ 
+-public class SelectionInformation {
++import javax.swing.*;
++import java.awt.event.ActionListener;
++
++public class SelectionInformation extends JFrame {
++
++    public SelectionInformation(){
++
++        /**
++         * Imposta la dimensione della finestra.
++         */
++        setSize(400, 400);
++
++        /**
++         *  Specifica che la chiusura della finestra deve far terminare il programma.
++         */
++        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
++        /**
++         * Specifica che la finestra deve essere centrata.
++         */
++        setLocationRelativeTo(null);
++
++        JButton current_pressure = new JButton("Current pressure");
++        current_pressure.setBounds(10,80,80,25);
++        current_pressure.addActionListener(new ShowInformation());
++        add(current_pressure);
++
++        JButton statsPressure = new JButton("Stats of pressure");
++        statsPressure.setBounds(20,80,80,25);
++        statsPressure.addActionListener(new SelectionPeriod());
++        add(statsPressure);
++
++        /**
++         * Visualizza la finestra.
++         */
++        setVisible(true);
++
++    }
+ }
+Index: src/GUI/ShowInformation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/ShowInformation.java b/src/GUI/ShowInformation.java
+new file mode 100644
+--- /dev/null	(date 1608307352393)
++++ b/src/GUI/ShowInformation.java	(date 1608307352393)
+@@ -0,0 +1,13 @@
++package GUI;
++
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++
++public class ShowInformation implements ActionListener {
++
++
++    @Override
++    public void actionPerformed(ActionEvent e) {
++
++    }
++}
+Index: src/GUI/SelectionPeriod.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\npublic class SelectionPeriod {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/SelectionPeriod.java b/src/GUI/SelectionPeriod.java
+--- a/src/GUI/SelectionPeriod.java	(revision cdd78e399e524de1751b11767bdb2b5ec1297039)
++++ b/src/GUI/SelectionPeriod.java	(date 1608307369118)
+@@ -1,4 +1,38 @@
+ package GUI;
+ 
+-public class SelectionPeriod {
++import javax.swing.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++
++public class SelectionPeriod extends JFrame implements ActionListener {
++
++    public SelectionPeriod(){
++
++        /**
++         * Imposta la dimensione della finestra.
++         */
++        setSize(400, 400);
++
++        /**
++         *  Specifica che la chiusura della finestra deve far terminare il programma.
++         */
++        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++
++        /**
++         * Specifica che la finestra deve essere centrata.
++         */
++        setLocationRelativeTo(null);
++
++        JButton daily = new JButton("Daily");
++        daily.setBounds(10,80,80,25);
++        daily.addActionListener();
++
++
++
++    }
++
++    @Override
++    public void actionPerformed(ActionEvent e) {
++
++    }
+ }

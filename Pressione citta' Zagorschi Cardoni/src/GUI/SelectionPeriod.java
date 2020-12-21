@@ -1,12 +1,8 @@
 package GUI;
 
-import Filters.CalculateDay;
-import Model.Pressure;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
 
 public class SelectionPeriod extends JFrame implements ActionListener {
     private String cityName;

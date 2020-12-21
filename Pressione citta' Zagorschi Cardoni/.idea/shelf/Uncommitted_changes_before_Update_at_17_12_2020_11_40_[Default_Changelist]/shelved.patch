@@ -1,0 +1,378 @@
+Index: src/Statistics/Stats.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Statistics;\r\n\r\nimport Model.Pressure;\r\n\r\npublic class Stats {\r\n    private String nameCity;\r\n    private String duration;\r\n    private Pressure[] pressure;\r\n    private float val_min;\r\n    private float val_max;\r\n    private float average;\r\n    private float variance;\r\n\r\n    public Stats(){};\r\n\r\n    public Stats(String nameCity , String duration , Pressure[] pressure){\r\n        this.duration = duration;\r\n        this.nameCity = nameCity;\r\n        this.pressure = pressure;\r\n    }\r\n\r\n    public void createStatistics(){\r\n        for(int i=0 ; i < this.pressure.length ; i++){\r\n            if(pressure.value[i] > val_max)\r\n                val_max=pressure.value[i];\r\n            if(pressure.value[i]<val_min)\r\n                val_min=pressure.value[i];\r\n            average+=pressure.value[i];\r\n        }\r\n        average /= pressure.length;\r\n\r\n        for(int i=0;i<this.pressure.length;i++){\r\n            variance+=((pressure.value[i]-average)*(pressure.value[i]-average))/average;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Statistics/Stats.java b/src/Statistics/Stats.java
+--- a/src/Statistics/Stats.java	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
++++ b/src/Statistics/Stats.java	(date 1608201130994)
+@@ -3,6 +3,7 @@
+ import Model.Pressure;
+ 
+ public class Stats {
++
+     private String nameCity;
+     private String duration;
+     private Pressure[] pressure;
+@@ -11,26 +12,31 @@
+     private float average;
+     private float variance;
+ 
+-    public Stats(){};
+ 
+     public Stats(String nameCity , String duration , Pressure[] pressure){
+         this.duration = duration;
+         this.nameCity = nameCity;
+         this.pressure = pressure;
+     }
+-
++    /*
+     public void createStatistics(){
+         for(int i=0 ; i < this.pressure.length ; i++){
+-            if(pressure.value[i] > val_max)
+-                val_max=pressure.value[i];
++            if(pressure.value[i] > this.val_max)
++                this.val_max = pressure.value[i];
++
+             if(pressure.value[i]<val_min)
+                 val_min=pressure.value[i];
++
+             average+=pressure.value[i];
+         }
++
+         average /= pressure.length;
+ 
+-        for(int i=0;i<this.pressure.length;i++){
+-            variance+=((pressure.value[i]-average)*(pressure.value[i]-average))/average;
++        for(int i=0; i<this.pressure.length; i++){
++            variance += ((pressure.value[i]-average)*(pressure.value[i]-average))/average;
+         }
++     }
+     }
+-}
++    }
++    */
++}
+\ No newline at end of file
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class Main {\r\n\r\n    public static void main(String[] args) {\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
++++ b/src/Main.java	(date 1608201641950)
+@@ -1,3 +1,5 @@
++import GUI.SelctionCity;
++
+ public class Main {
+ 
+     public static void main(String[] args) {
+Index: src/Pressure/City.java
+===================================================================
+diff --git a/src/Pressure/City.java b/src/Pressure/City.java
+deleted file mode 100644
+--- a/src/Pressure/City.java	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
++++ /dev/null	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
+@@ -1,25 +0,0 @@
+-package Pressure;
+-
+-public class City {
+-    private String cityname;
+-    private String region;
+-    private int postalCode;
+-
+-    public City(String cityname, String nameregion, int postalCode){
+-        this.cityname = cityname;
+-        this.region = nameregion;
+-        this.postalCode = postalCode;
+-    }
+-
+-    public String getCityname(){
+-        return this.cityname;
+-    }
+-
+-    public String getRegion(){
+-        return this.region;
+-    }
+-
+-    public int getPostalCode(){
+-        return this.postalCode;
+-    }
+-}
+Index: src/Pressure/Statistics.java
+===================================================================
+diff --git a/src/Pressure/Statistics.java b/src/Pressure/Statistics.java
+deleted file mode 100644
+--- a/src/Pressure/Statistics.java	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
++++ /dev/null	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
+@@ -1,34 +0,0 @@
+-package Pressure;
+-
+-public class Statistics {
+-    private String nameCity;
+-    private String duration;
+-    private Pressure[] pressure;
+-    private float val_min;
+-    private float val_max;
+-    private float average;
+-    private float variance;
+-
+-    public Statistics(){};
+-
+-    public Statistics(String nameCity , String duration , Pressure[] pressure){
+-        this.duration = duration;
+-        this.nameCity = nameCity;
+-        this.pressure = pressure;
+-    }
+-
+-    public void createStatistics(){
+-        for(int i=0 ; i < this.pressure.length ; i++){
+-            if(pressure.value[i] > val_max)
+-                val_max=pressure.value[i];
+-            if(pressure.value[i]<val_min)
+-                val_min=pressure.value[i];
+-            average+=pressure.value[i];
+-        }
+-        average /= pressure.length;
+-
+-        for(int i=0;i<this.pressure.length;i++){
+-            variance+=((pressure.value[i]-average)*(pressure.value[i]-average))/average;
+-        }
+-    }
+-}
+Index: src/Pressure/Pressure.java
+===================================================================
+diff --git a/src/Pressure/Pressure.java b/src/Pressure/Pressure.java
+deleted file mode 100644
+--- a/src/Pressure/Pressure.java	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
++++ /dev/null	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
+@@ -1,25 +0,0 @@
+-package Pressure;
+-
+-public class Pressure {
+-    private float value;
+-    private float time;
+-    private String nameCity;
+-
+-    public Pressure(float valuePressure, float time, String nameCity){
+-        this.value = valuePressure;
+-        this.time = time;
+-        this.nameCity = nameCity;
+-    }
+-
+-    public float getValue(){
+-        return this.value;
+-    }
+-
+-    public float getTime(){
+-        return this.time;
+-    }
+-
+-    public String getNameCity(){
+-        return this.nameCity;
+-    }
+-}
+Index: src/Main/Main.java
+===================================================================
+diff --git a/src/Main/Main.java b/src/Main/Main.java
+deleted file mode 100644
+--- a/src/Main/Main.java	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
++++ /dev/null	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
+@@ -1,8 +0,0 @@
+-package Main;
+-
+-public class Main {
+-
+-    public static void main(String[] args) {
+-
+-    }
+-}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand />\r\n    <select>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </select>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c8633d02-6b56-4fde-8f62-11596602f44e\" name=\"Default Changelist\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1lNnOzN91nD8eUueS1jdr9OuPdL\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c8633d02-6b56-4fde-8f62-11596602f44e\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1607446391392</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1607446391392</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"652\" y=\"135\" key=\"#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog\" timestamp=\"1607533536141\">\r\n      <screen x=\"0\" y=\"0\" width=\"1646\" height=\"886\" />\r\n    </state>\r\n    <state x=\"652\" y=\"135\" key=\"#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1646.886@0.0.1646.886\" timestamp=\"1607533536141\" />\r\n    <state x=\"502\" y=\"178\" key=\"#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog\" timestamp=\"1607936687589\">\r\n      <screen x=\"0\" y=\"0\" width=\"1646\" height=\"886\" />\r\n    </state>\r\n    <state x=\"502\" y=\"178\" key=\"#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1646.886@0.0.1646.886\" timestamp=\"1607936687589\" />\r\n    <state x=\"602\" y=\"197\" key=\"FileChooserDialogImpl\" timestamp=\"1608132908899\">\r\n      <screen x=\"0\" y=\"0\" width=\"1646\" height=\"886\" />\r\n    </state>\r\n    <state x=\"602\" y=\"197\" key=\"FileChooserDialogImpl/0.0.1646.886@0.0.1646.886\" timestamp=\"1608132908899\" />\r\n    <state x=\"302\" y=\"16\" key=\"SettingsEditor\" timestamp=\"1607705008445\">\r\n      <screen x=\"0\" y=\"0\" width=\"1646\" height=\"886\" />\r\n    </state>\r\n    <state x=\"302\" y=\"16\" key=\"SettingsEditor/0.0.1646.886@0.0.1646.886\" timestamp=\"1607705008445\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision d2d63a74904311b04fdf285197b42393815f1a8b)
++++ b/.idea/workspace.xml	(date 1608201172799)
+@@ -1,7 +1,21 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="BranchesTreeState">
+-    <expand />
++    <expand>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </expand>
+     <select>
+       <path>
+         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+@@ -10,12 +24,30 @@
+     </select>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="" />
++    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/bin/Pressure/City.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/bin/Pressure/Pressure.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/bin/Pressure/Statistics.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Pressure/City.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Pressure/Pressure.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Pressure/Statistics.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Statistics/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics/Stats.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
++  <component name="ChangesViewManager" show_ignored="true">
++    <option name="groupingKeys">
++      <option value="directory" />
++    </option>
++  </component>
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+@@ -27,7 +59,9 @@
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+   </component>
+   <component name="ProjectId" id="1lNnOzN91nD8eUueS1jdr9OuPdL" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="1" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -35,10 +69,25 @@
+   <component name="PropertiesComponent">
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Programmazione-Ad-Oggetti-master/Programmazione-Ad-Oggetti-master/ProgettoOOP" />
+     <property name="project.structure.last.edited" value="Modules" />
+     <property name="project.structure.proportion" value="0.0" />
+     <property name="project.structure.side.proportion" value="0.0" />
++    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
++  </component>
++  <component name="RunManager">
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Main" />
++      <module name="Pressione citta' Zagorschi Cardoni" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Main" />
++      </list>
++    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+@@ -49,6 +98,14 @@
+       <option name="presentableId" value="Default" />
+       <updated>1607446391392</updated>
+     </task>
++    <task id="LOCAL-00001" summary="Sistemato git intellij">
++      <created>1608135893887</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1608135893887</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -63,22 +120,8 @@
+     </option>
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+-  <component name="WindowStateProjectService">
+-    <state x="652" y="135" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1607533536141">
+-      <screen x="0" y="0" width="1646" height="886" />
+-    </state>
+-    <state x="652" y="135" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1646.886@0.0.1646.886" timestamp="1607533536141" />
+-    <state x="502" y="178" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1607936687589">
+-      <screen x="0" y="0" width="1646" height="886" />
+-    </state>
+-    <state x="502" y="178" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1646.886@0.0.1646.886" timestamp="1607936687589" />
+-    <state x="602" y="197" key="FileChooserDialogImpl" timestamp="1608132908899">
+-      <screen x="0" y="0" width="1646" height="886" />
+-    </state>
+-    <state x="602" y="197" key="FileChooserDialogImpl/0.0.1646.886@0.0.1646.886" timestamp="1608132908899" />
+-    <state x="302" y="16" key="SettingsEditor" timestamp="1607705008445">
+-      <screen x="0" y="0" width="1646" height="886" />
+-    </state>
+-    <state x="302" y="16" key="SettingsEditor/0.0.1646.886@0.0.1646.886" timestamp="1607705008445" />
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Sistemato git intellij" />
++    <option name="LAST_COMMIT_MESSAGE" value="Sistemato git intellij" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1608133527380)
++++ b/.idea/.gitignore	(date 1608133527380)
+@@ -0,0 +1,28 @@
++# Created by .ignore support plugin (hsz.mobi)
++### Java template
++# Compiled class file
++*.class
++
++# Log file
++*.log
++
++# BlueJ files
++*.ctxt
++
++# Mobile Tools for Java (J2ME)
++.mtj.tmp/
++
++# Package Files #
++*.jar
++*.war
++*.nar
++*.ear
++*.zip
++*.tar.gz
++*.rar
++
++# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
++hs_err_pid*
++
++*.xml
++*.iml
+\ No newline at end of file

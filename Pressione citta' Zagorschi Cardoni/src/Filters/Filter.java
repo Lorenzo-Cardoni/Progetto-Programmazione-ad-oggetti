@@ -2,6 +2,7 @@ package Filters;
 import Model.Pressure;
 
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.Vector;
 
 public abstract class Filter {
@@ -21,6 +22,6 @@ public abstract class Filter {
 
     }
 
-    public  abstract String filtersPressure(Vector<Pressure> pressures);
+    public  abstract String filtersPressure(Map<String, Vector<Pressure>> pressures);
 
 }
