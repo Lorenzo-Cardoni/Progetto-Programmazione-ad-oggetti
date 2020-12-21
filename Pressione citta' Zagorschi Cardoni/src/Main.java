@@ -1,16 +1,14 @@
-import Service.Api;
-
-import javax.swing.*;
-import java.awt.*;
-import java.net.MalformedURLException;
+import GUI.SelectionCity;
 
 public class Main {
     public static void main(String[] args) {
-        try {
+        /*try {
             Api api=new Api();
             System.out.println(api.callApi("Pesaro"));
         } catch (MalformedURLException e) {
             e.printStackTrace();
-        }
+        }*/
+
+        SelectionCity window1 = new SelectionCity("City Name");
     }
 }

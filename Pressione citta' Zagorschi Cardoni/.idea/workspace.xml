@@ -10,8 +10,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Sistemata GUI.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="package nuovi.">
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Api.java" afterDir="false" />
     </list>
@@ -190,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608551008076</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="package nuovi.">
+      <created>1608558826795</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1608558826795</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,7 +228,8 @@
     <MESSAGE value="Modificato filtro standard." />
     <MESSAGE value="Modificato filtro custom." />
     <MESSAGE value="Sistemata GUI." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sistemata GUI." />
+    <MESSAGE value="package nuovi." />
+    <option name="LAST_COMMIT_MESSAGE" value="package nuovi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
