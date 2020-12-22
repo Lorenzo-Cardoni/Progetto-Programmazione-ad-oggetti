@@ -1,0 +1,143 @@
+Index: src/Service/Api.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Service;\r\nimport java.io.BufferedReader;\r\nimport java.io.IOException;\r\nimport java.io.InputStream;\r\nimport java.io.InputStreamReader;\r\nimport java.net.HttpURLConnection;\r\nimport java.net.MalformedURLException;\r\nimport java.net.URL;\r\nimport java.net.http.HttpResponse;\r\n\r\npublic class Api {\r\n    public Api() {}\r\n    //Variables\r\n    String cityName;\r\n    float pression;\r\n    public boolean done;\r\n    static String apiKey=\"&appid=39b2f77fcfc40aa96026fc4d80eb9bb0\";\r\n    URL url = null;\r\n    HttpURLConnection con;\r\n    String data=\"\";\r\n    //Methods\r\n\r\n    //Call api knowing city name\r\n    public String callApi(String city){\r\n        this.cityName = \"q=\" + city;\r\n        try {\r\n            url = new URL(\"http://api.openweathermap.org/data/2.5/weather?\"+cityName+apiKey);\r\n            con = (HttpURLConnection) url.openConnection();\r\n            if(con.getResponseCode() == HttpURLConnection.HTTP_OK){\r\n                InputStream inputStream = con.getInputStream();\r\n                BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));\r\n                String inputLine;\r\n                while ((inputLine = in.readLine()) != null)\r\n                    data+=inputLine;\r\n                in.close();\r\n            }\r\n        }\r\n        catch (IOException ioException) {\r\n            ioException.printStackTrace();\r\n        }\r\n        return data;\r\n    }\r\n\r\n    //Set city name\r\n    public void setCityname(String cityName){\r\n         this.cityName=cityName;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Service/Api.java b/src/Service/Api.java
+--- a/src/Service/Api.java	(revision c936cc70fa382e315838c2db93b7ecd9a4a38fa5)
++++ b/src/Service/Api.java	(date 1608629056513)
+@@ -4,9 +4,7 @@
+ import java.io.InputStream;
+ import java.io.InputStreamReader;
+ import java.net.HttpURLConnection;
+-import java.net.MalformedURLException;
+ import java.net.URL;
+-import java.net.http.HttpResponse;
+ 
+ public class Api {
+     public Api() {}
+@@ -26,12 +24,15 @@
+         try {
+             url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
+             con = (HttpURLConnection) url.openConnection();
++
+             if(con.getResponseCode() == HttpURLConnection.HTTP_OK){
+                 InputStream inputStream = con.getInputStream();
+                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                 String inputLine;
++
+                 while ((inputLine = in.readLine()) != null)
+                     data+=inputLine;
++
+                 in.close();
+             }
+         }
+Index: src/GUI/SelectionCity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\nimport Model.Pressure;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.Vector;\r\n\r\npublic class SelectionCity extends JFrame implements ActionListener {\r\n\r\n    private SelectionInformation window2;\r\n    private JLabel citylabel;\r\n    private JTextField nameCityText;\r\n    private JLabel citylabel2;\r\n    private JTextField nameCityText2;\r\n    private JButton search;\r\n    private Map<String, Vector<Pressure>> pressures = new HashMap<String, Vector<Pressure>>();\r\n\r\n    public SelectionCity(String title) {\r\n\r\n        /**\r\n         *  crea il JFrame\r\n         *\r\n         */\r\n        super(title);\r\n        /**\r\n         * Imposta la dimensione della finestra.\r\n         */\r\n        this.setSize(300, 200);\r\n        /**\r\n         *  Specifica che la chiusura della finestra deve far terminare il programma.\r\n         */\r\n        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n\r\n        /**\r\n         * Specifica che la finestra deve essere centrata.\r\n         */\r\n        this.setLocationRelativeTo(null);\r\n\r\n        JPanel panel = new JPanel();\r\n        this.add(panel);\r\n\r\n\r\n        /**\r\n         * Inizializzo la casella di input dove verra' inserito il nome\r\n         * della citta'.\r\n         *\r\n         */\r\n        citylabel = new JLabel(\"Name city 1\");\r\n        citylabel.setBounds(10,20,80,25);\r\n        panel.add(citylabel);\r\n\r\n        nameCityText = new JTextField(20);\r\n        nameCityText.setBounds(100,20,80,25);\r\n        panel.add(nameCityText);\r\n\r\n        /*citylabel2 = new JLabel(\"Name city 2\");\r\n        citylabel2.setBounds(10,20,80,25);\r\n        panel.add(citylabel2);\r\n\r\n        nameCityText2 = new JTextField(20);\r\n        nameCityText2.setBounds(100,20,80,25);\r\n        panel.add(nameCityText2);\r\n        */\r\n        search = new JButton(\"Search\");\r\n        search.setBounds(10,80,80,25);\r\n        search.addActionListener(this);\r\n        panel.add(search);\r\n\r\n\r\n\r\n        /**\r\n         * Visualizza la finestra.\r\n         */\r\n        this.setVisible(true);\r\n\r\n\r\n\r\n    }\r\n\r\n\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n\r\n        String cityName = nameCityText.getText();\r\n        if(this.pressures.containsKey(cityName)) {\r\n\r\n            this.setVisible(false);\r\n\r\n            this.window2 = new SelectionInformation(\"Selection information\", cityName);\r\n            window2.setVisible(true);\r\n        }\r\n\r\n        JOptionPane.showMessageDialog(null, cityName+\" non e' presente in lista\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/SelectionCity.java b/src/GUI/SelectionCity.java
+--- a/src/GUI/SelectionCity.java	(revision c936cc70fa382e315838c2db93b7ecd9a4a38fa5)
++++ b/src/GUI/SelectionCity.java	(date 1608652104789)
+@@ -86,14 +86,14 @@
+     public void actionPerformed(ActionEvent e) {
+ 
+         String cityName = nameCityText.getText();
+-        if(this.pressures.containsKey(cityName)) {
++        //if(this.pressures.containsKey(cityName)) {
+ 
+             this.setVisible(false);
+ 
+             this.window2 = new SelectionInformation("Selection information", cityName);
+             window2.setVisible(true);
+-        }
++       // }
+ 
+-        JOptionPane.showMessageDialog(null, cityName+" non e' presente in lista");
++        //JOptionPane.showMessageDialog(null, cityName+" non e' presente in lista");
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"BranchesTreeState\">\r\n    <expand />\r\n    <select>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </select>\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c8633d02-6b56-4fde-8f62-11596602f44e\" name=\"Default Changelist\" comment=\"Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/bin/Filters/Filter.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/bin/Filters/Filter.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/bin/Filters/FilterPressureStandard.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/bin/GUI/SelectionCity.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/bin/GUI/SelectionCity.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/bin/GUI/SelectionPeriod.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/bin/GUI/SelectionPeriod.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/bin/GUI/ShowStats.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/bin/GUI/ShowStats.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/bin/Test/FilterPressureCustomizedTest.class\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Filters/Filter.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Filters/Filter.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/SelectionCity.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/SelectionCity.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/SelectionPeriod.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/SelectionPeriod.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Service/Api.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Service/Api.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Service/Json.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Service/Json.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ChangesViewManager\">\r\n    <option name=\"groupingKeys\">\r\n      <option value=\"directory\" />\r\n    </option>\r\n  </component>\r\n  <component name=\"CodeInsightWorkspaceSettings\">\r\n    <option name=\"optimizeImportsOnTheFly\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"JUnit5 Test Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1lNnOzN91nD8eUueS1jdr9OuPdL\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <OptionsSetting value=\"false\" id=\"Update\" />\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"Downloaded.Files.Path.Enabled\" value=\"false\" />\r\n    <property name=\"Repository.Attach.Annotations\" value=\"false\" />\r\n    <property name=\"Repository.Attach.JavaDocs\" value=\"false\" />\r\n    <property name=\"Repository.Attach.Sources\" value=\"false\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW\" value=\"true\" />\r\n    <property name=\"UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH\" value=\"245\" />\r\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\" value=\"JUnit5\" />\r\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\" value=\"\" />\r\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers\" value=\"true\" />\r\n    <property name=\"create.test.in.the.same.root\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$USER_HOME$/Desktop/Università/progetto Pr backup/Pressione citta' Zagorschi Cardoni\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"vcs.Git\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"Statistics\" />\r\n      <recent name=\"Test\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"Pressione citta' Zagorschi Cardoni\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Progetto Pressione Meteo\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main.Main\" />\r\n      <module name=\"Pressione citta' Zagorschi Cardoni\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c8633d02-6b56-4fde-8f62-11596602f44e\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1607446391392</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1607446391392</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Aggiunta classi api e json\">\r\n      <created>1608218763274</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608218763274</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Aggiunta classi api e json\">\r\n      <created>1608221477148</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608221477148</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"modifica classi api e json\">\r\n      <created>1608223951869</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608223951869</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"modifica classi api e json\">\r\n      <created>1608224155528</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608224155528</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"modifica classi api e json\">\r\n      <created>1608224671118</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608224671118</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Aggiunti metodi chiamata api classe Api, test funzionamento dal main\">\r\n      <created>1608305287958</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608305287958</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Aggiunti metodi chiamata api classe Api, test funzionamento dal main\">\r\n      <created>1608307337454</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608307337454</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Aggiunti metodi chiamata api classe Api, test funzionamento dal main\">\r\n      <created>1608307467917</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608307467917</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Sistamata classe Stats.\">\r\n      <created>1608385516841</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608385516841</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Aggiunto la classe filtro standard.\">\r\n      <created>1608394119220</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608394119220</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Aggiunto commenti alla classe filtroStandard.\">\r\n      <created>1608394861236</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608394861237</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Aggiunto classe con filtro personalizzabile\">\r\n      <created>1608411025193</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608411025193</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Modificato filtro standard.\">\r\n      <created>1608411682435</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608411682435</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Modificato filtro custom.\">\r\n      <created>1608415379996</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608415379996</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Sistemata GUI.\">\r\n      <created>1608551008076</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608551008076</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"package nuovi.\">\r\n      <created>1608558826795</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608558826795</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"test\">\r\n      <created>1608559027308</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608559027308</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized\">\r\n      <created>1608570548469</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608570548469</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"19\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"CUSTOM_BOOLEAN_PROPERTIES\">\r\n                <map>\r\n                  <entry key=\"Show.Git.Branches\" value=\"true\" />\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Aggiunta classi api e json\" />\r\n    <MESSAGE value=\"modifica classi api e json\" />\r\n    <MESSAGE value=\"Aggiunti metodi chiamata api classe Api, test funzionamento dal main\" />\r\n    <MESSAGE value=\"Sistamata classe Stats.\" />\r\n    <MESSAGE value=\"Aggiunto la classe filtro standard.\" />\r\n    <MESSAGE value=\"Aggiunto commenti alla classe filtroStandard.\" />\r\n    <MESSAGE value=\"Aggiunto classe con filtro personalizzabile\" />\r\n    <MESSAGE value=\"Modificato filtro standard.\" />\r\n    <MESSAGE value=\"Modificato filtro custom.\" />\r\n    <MESSAGE value=\"Sistemata GUI.\" />\r\n    <MESSAGE value=\"package nuovi.\" />\r\n    <MESSAGE value=\"test\" />\r\n    <MESSAGE value=\"Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.lang.NullPointerException\" package=\"java.lang\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision c936cc70fa382e315838c2db93b7ecd9a4a38fa5)
++++ b/.idea/workspace.xml	(date 1608656546583)
+@@ -10,19 +10,9 @@
+     </select>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized">
++    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modificato gui">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/bin/Filters/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/Filter.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/bin/Filters/FilterPressureStandard.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowStats.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/bin/Test/FilterPressureCustomizedTest.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/Filter.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionCity.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Service/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Api.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Service/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Json.java" afterDir="false" />
+     </list>
+@@ -238,7 +228,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1608570548469</updated>
+     </task>
+-    <option name="localTasksCounter" value="19" />
++    <task id="LOCAL-00019" summary="Modificato gui">
++      <created>1608645159413</created>
++      <option name="number" value="00019" />
++      <option name="presentableId" value="LOCAL-00019" />
++      <option name="project" value="LOCAL" />
++      <updated>1608645159413</updated>
++    </task>
++    <option name="localTasksCounter" value="20" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -273,7 +270,8 @@
+     <MESSAGE value="package nuovi." />
+     <MESSAGE value="test" />
+     <MESSAGE value="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized" />
++    <MESSAGE value="Modificato gui" />
++    <option name="LAST_COMMIT_MESSAGE" value="Modificato gui" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: src/Service/Json.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Service;\r\nimport java.io.IOException;\r\nimport com.google.gson.JsonObject;\r\nimport com.google.gson.JsonParser;\r\nimport com.google.gson.JsonArray;\r\n\r\npublic class Json   {\r\n    String pressure, city;\r\n    public Json(){}\r\n    public String getPressure(String info){\r\n        JsonObject jsonObject = new JsonParser().parse(info).getAsJsonObject();\r\n        pressure = jsonObject.getAsJsonObject(\"main\").get(\"pressure\").getAsString();\r\n        city = jsonObject.get(\"name\").getAsString();\r\n        return \"Citta': \" + city + \" Pressione: \" + pressure;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Service/Json.java b/src/Service/Json.java
+--- a/src/Service/Json.java	(revision c936cc70fa382e315838c2db93b7ecd9a4a38fa5)
++++ b/src/Service/Json.java	(date 1608558989593)
+@@ -1,4 +1,4 @@
+-package Service;
++/*package Service;
+ import java.io.IOException;
+ import com.google.gson.JsonObject;
+ import com.google.gson.JsonParser;
+@@ -14,3 +14,4 @@
+         return "Citta': " + city + " Pressione: " + pressure;
+     }
+ }
++*/
+\ No newline at end of file

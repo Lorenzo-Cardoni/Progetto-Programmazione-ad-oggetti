@@ -1,0 +1,280 @@
+Index: src/GUI/SelectionPeriod.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\n\r\npublic class SelectionPeriod extends JFrame implements ActionListener {\r\n    private String cityName;\r\n    private JPanel panel;\r\n    private JLabel startDateLabel;\r\n    private JLabel endDateLabel;\r\n    private JTextField startDateText;\r\n    private JTextField endDateText;\r\n    private JButton calculate;\r\n    private ShowStats window4;\r\n\r\n    public SelectionPeriod(String title, String name){\r\n\r\n        super(title);\r\n        /**\r\n         * Imposta la dimensione della finestra.\r\n         */\r\n        setSize(600, 400);\r\n\r\n        /**\r\n         *  Specifica che la chiusura della finestra deve far terminare il programma.\r\n         */\r\n        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n\r\n        /**\r\n         * Specifica che la finestra deve essere centrata.\r\n         */\r\n        setLocationRelativeTo(null);\r\n\r\n        panel = new JPanel();\r\n        this.add(panel);\r\n\r\n        this.cityName = name;\r\n\r\n        startDateLabel = new JLabel(\"Period start date\");\r\n        startDateLabel.setBounds(10,20,80,25);\r\n        panel.add(startDateLabel);\r\n\r\n        startDateText = new JTextField(20);\r\n        startDateText.setBounds(100,20,80,25);\r\n        panel.add(startDateText);\r\n\r\n        endDateLabel = new JLabel(\"Period end date\");\r\n        endDateLabel.setBounds(10,40,80,25);\r\n        panel.add(endDateLabel);\r\n\r\n        endDateText = new JTextField(20);\r\n        endDateText.setBounds(100,40,80,25);\r\n        panel.add(endDateText);\r\n\r\n        calculate = new JButton(\"Calculate\");\r\n        calculate.setBounds(10,80,80,25);\r\n        calculate.addActionListener(this);\r\n        panel.add(calculate);\r\n\r\n        this.setVisible(false);\r\n\r\n    }\r\n\r\n    @Override\r\n    public void actionPerformed(ActionEvent e) {\r\n        String date1 = startDateText.getText();\r\n        String date2 = endDateText.getText();\r\n\r\n\r\n        this.window4 = new ShowStats(this.cityName, date1, date2);\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/SelectionPeriod.java b/src/GUI/SelectionPeriod.java
+--- a/src/GUI/SelectionPeriod.java	(revision 8fa5b10838c1073f996d04bbad97ca904b1fad0e)
++++ b/src/GUI/SelectionPeriod.java	(date 1608671033808)
+@@ -5,70 +5,53 @@
+ import java.awt.event.ActionListener;
+ 
+ public class SelectionPeriod extends JFrame implements ActionListener {
++
+     private String cityName;
+-    private JPanel panel;
+-    private JLabel startDateLabel;
+-    private JLabel endDateLabel;
+-    private JTextField startDateText;
+-    private JTextField endDateText;
+-    private JButton calculate;
+-    private ShowStats window4;
++    private SelectionDate window5;
+ 
+-    public SelectionPeriod(String title, String name){
++    public SelectionPeriod(String title,String name){
+ 
+         super(title);
+-        /**
+-         * Imposta la dimensione della finestra.
+-         */
+-        setSize(600, 400);
+ 
+-        /**
+-         *  Specifica che la chiusura della finestra deve far terminare il programma.
+-         */
+-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
++        this.setSize(400,125);
+ 
+         /**
+          * Specifica che la finestra deve essere centrata.
+          */
+-        setLocationRelativeTo(null);
++        this.setLocationRelativeTo(null);
+ 
+-        panel = new JPanel();
++        JPanel panel = new JPanel();
+         this.add(panel);
+ 
+         this.cityName = name;
+ 
+-        startDateLabel = new JLabel("Period start date");
+-        startDateLabel.setBounds(10,20,80,25);
+-        panel.add(startDateLabel);
+-
+-        startDateText = new JTextField(20);
+-        startDateText.setBounds(100,20,80,25);
+-        panel.add(startDateText);
++        JButton daily = new JButton("This day");
++        daily.addActionListener(new ShowStatsStandard(0, this.cityName));
++        panel.add(daily);
+ 
+-        endDateLabel = new JLabel("Period end date");
+-        endDateLabel.setBounds(10,40,80,25);
+-        panel.add(endDateLabel);
++        JButton weekly = new JButton("This week");
++        weekly.addActionListener(new ShowStatsStandard(7, this.cityName));
++        panel.add(weekly);
+ 
+-        endDateText = new JTextField(20);
+-        endDateText.setBounds(100,40,80,25);
+-        panel.add(endDateText);
++        JButton monthly = new JButton("This month");
++        monthly.addActionListener(new ShowStatsStandard(31, this.cityName));
++        panel.add(monthly);
+ 
+-        calculate = new JButton("Calculate");
+-        calculate.setBounds(10,80,80,25);
+-        calculate.addActionListener(this);
+-        panel.add(calculate);
++        JButton customPeriod = new JButton("Custom period");
++        customPeriod.addActionListener(this);
++        panel.add(customPeriod);
+ 
+-        this.setVisible(false);
++        /**
++         * Visualizza la finestra.
++         *
++         */
++        setVisible(false);
++    }
+ 
+-    }
+ 
+     @Override
+     public void actionPerformed(ActionEvent e) {
+-        String date1 = startDateText.getText();
+-        String date2 = endDateText.getText();
+-
+-
+-        this.window4 = new ShowStats(this.cityName, date1, date2);
+-
++        this.window5 = new SelectionDate("Selection date",this.cityName);
++        this.window5.setVisible(true);
+     }
+ }
+Index: src/Service/Api.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Service;\r\nimport java.io.BufferedReader;\r\nimport java.io.IOException;\r\nimport java.io.InputStream;\r\nimport java.io.InputStreamReader;\r\nimport java.net.HttpURLConnection;\r\nimport java.net.URL;\r\n\r\npublic class Api {\r\n    public Api() {}\r\n    //Variables\r\n    String cityName;\r\n    float pression;\r\n    public boolean done;\r\n    static String apiKey=\"&appid=39b2f77fcfc40aa96026fc4d80eb9bb0\";\r\n    URL url = null;\r\n    HttpURLConnection con;\r\n    String data=\"\";\r\n    //Methods\r\n\r\n    //Call api knowing city name\r\n    public String callApi(String city){\r\n        this.cityName = \"q=\" + city;\r\n        try {\r\n            url = new URL(\"http://api.openweathermap.org/data/2.5/weather?\"+cityName+apiKey);\r\n            con = (HttpURLConnection) url.openConnection();\r\n            if(con.getResponseCode() == HttpURLConnection.HTTP_OK){\r\n                InputStream inputStream = con.getInputStream();\r\n                BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));\r\n                String inputLine;\r\n                while ((inputLine = in.readLine()) != null)\r\n                    data+=inputLine;\r\n                in.close();\r\n            }\r\n        }\r\n        catch (IOException ioException) {\r\n            ioException.printStackTrace();\r\n        }\r\n        return data;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Service/Api.java b/src/Service/Api.java
+--- a/src/Service/Api.java	(revision 8fa5b10838c1073f996d04bbad97ca904b1fad0e)
++++ b/src/Service/Api.java	(date 1608656550401)
+@@ -24,12 +24,15 @@
+         try {
+             url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
+             con = (HttpURLConnection) url.openConnection();
++
+             if(con.getResponseCode() == HttpURLConnection.HTTP_OK){
+                 InputStream inputStream = con.getInputStream();
+                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                 String inputLine;
++
+                 while ((inputLine = in.readLine()) != null)
+                     data+=inputLine;
++
+                 in.close();
+             }
+         }
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Service.Api;\r\nimport Service.Json;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        Api api=new Api();\r\n        Json json=new Json();\r\n        System.out.println(json.getPressure(api.callApi(\"Pesaro\")));\r\n\r\n        //SelectionCity window1 = new SelectionCity(\"City Name\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision 8fa5b10838c1073f996d04bbad97ca904b1fad0e)
++++ b/src/Main.java	(date 1608656861564)
+@@ -1,12 +1,11 @@
+-import Service.Api;
+-import Service.Json;
++import GUI.SelectionCity;
+ 
+ public class Main {
+     public static void main(String[] args) {
+-        Api api=new Api();
++        /*Api api=new Api();
+         Json json=new Json();
+         System.out.println(json.getPressure(api.callApi("Pesaro")));
+-
+-        //SelectionCity window1 = new SelectionCity("City Name");
++*/
++        SelectionCity window1 = new SelectionCity("City Name");
+     }
+ }
+Index: src/Service/Json.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Service;\r\n\r\nimport Model.Pressure;\r\nimport com.google.gson.Gson;\r\nimport com.google.gson.JsonObject;\r\nimport com.google.gson.JsonParser;\r\n\r\nimport static java.lang.Float.parseFloat;\r\n\r\npublic class Json   {\r\n    String city;\r\n    float pressure;\r\n    Pressure objectPressure = new Pressure();\r\n    Gson gson=new Gson();\r\n    public Json(){}\r\n    public String getPressure(String info){\r\n        JsonObject jsonObject = new JsonParser().parse(info).getAsJsonObject();\r\n        pressure =parseFloat(jsonObject.getAsJsonObject(\"main\").get(\"pressure\").getAsString());\r\n        city = jsonObject.get(\"name\").getAsString();\r\n        objectPressure.value=pressure;\r\n        objectPressure.nameCity=city;\r\n        //gson.toJson(objectPressure, new FileWriter(filePath));\r\n        return \"Citta': \" + city + \" Pressione: \" + pressure;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Service/Json.java b/src/Service/Json.java
+--- a/src/Service/Json.java	(revision 8fa5b10838c1073f996d04bbad97ca904b1fad0e)
++++ b/src/Service/Json.java	(date 1608656927398)
+@@ -1,25 +1,14 @@
+ package Service;
+ 
+-import Model.Pressure;
+-import com.google.gson.Gson;
+-import com.google.gson.JsonObject;
+-import com.google.gson.JsonParser;
+-
+-import static java.lang.Float.parseFloat;
+-
+ public class Json   {
+-    String city;
+-    float pressure;
+-    Pressure objectPressure = new Pressure();
+-    Gson gson=new Gson();
++   /* String pressure, city;
+     public Json(){}
+     public String getPressure(String info){
+         JsonObject jsonObject = new JsonParser().parse(info).getAsJsonObject();
+-        pressure =parseFloat(jsonObject.getAsJsonObject("main").get("pressure").getAsString());
++        pressure = jsonObject.getAsJsonObject("main").get("pressure").getAsString();
+         city = jsonObject.get("name").getAsString();
+-        objectPressure.value=pressure;
+-        objectPressure.nameCity=city;
+-        //gson.toJson(objectPressure, new FileWriter(filePath));
+         return "Citta': " + city + " Pressione: " + pressure;
++
+     }
++    */
+ }
+Index: src/GUI/SelectionDate.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/SelectionDate.java b/src/GUI/SelectionDate.java
+new file mode 100644
+--- /dev/null	(date 1608671033815)
++++ b/src/GUI/SelectionDate.java	(date 1608671033815)
+@@ -0,0 +1,70 @@
++package GUI;
++
++import javax.swing.*;
++import java.awt.event.ActionEvent;
++import java.awt.event.ActionListener;
++
++public class SelectionDate extends JFrame implements ActionListener {
++    private String cityName;
++    private JPanel panel;
++    private JLabel startDateLabel;
++    private JLabel endDateLabel;
++    private JTextField startDateText;
++    private JTextField endDateText;
++    private JButton calculate;
++    private ShowStatsCustomized window4;
++
++    public SelectionDate(String title, String name){
++
++        super(title);
++        /**
++         * Imposta la dimensione della finestra.
++         */
++        setSize(650, 100);
++
++
++        /**
++         * Specifica che la finestra deve essere centrata.
++         */
++        setLocationRelativeTo(null);
++
++        panel = new JPanel();
++        this.add(panel);
++
++        this.cityName = name;
++
++        startDateLabel = new JLabel("Period start date");
++        startDateLabel.setBounds(10,20,80,25);
++        panel.add(startDateLabel);
++
++        startDateText = new JTextField(20);
++        startDateText.setBounds(100,20,80,25);
++        panel.add(startDateText);
++
++        endDateLabel = new JLabel("Period end date");
++        endDateLabel.setBounds(10,40,80,25);
++        panel.add(endDateLabel);
++
++        endDateText = new JTextField(20);
++        endDateText.setBounds(100,40,80,25);
++        panel.add(endDateText);
++
++        calculate = new JButton("Calculate");
++        calculate.setBounds(10,80,80,25);
++        calculate.addActionListener(this);
++        panel.add(calculate);
++
++        this.setVisible(false);
++
++    }
++
++    @Override
++    public void actionPerformed(ActionEvent e) {
++        String date1 = startDateText.getText();
++        String date2 = endDateText.getText();
++
++
++        this.window4 = new ShowStatsCustomized(this.cityName, date1, date2);
++
++    }
++}
