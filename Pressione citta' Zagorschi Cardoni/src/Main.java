@@ -1,14 +1,12 @@
-import GUI.SelectionCity;
+import Service.Api;
+import Service.Json;
 
 public class Main {
     public static void main(String[] args) {
-        /*try {
-            Api api=new Api();
-            System.out.println(api.callApi("Pesaro"));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }*/
+        Api api=new Api();
+        Json json=new Json();
+        System.out.println(json.getPressure(api.callApi("Pesaro")));
 
-        SelectionCity window1 = new SelectionCity("City Name");
+        //SelectionCity window1 = new SelectionCity("City Name");
     }
 }
