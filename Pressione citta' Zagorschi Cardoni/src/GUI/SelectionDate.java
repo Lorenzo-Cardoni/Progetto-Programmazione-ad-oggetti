@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SelectionPeriod extends JFrame implements ActionListener {
+public class SelectionDate extends JFrame implements ActionListener {
     private String cityName;
     private JPanel panel;
     private JLabel startDateLabel;
@@ -12,9 +12,9 @@ public class SelectionPeriod extends JFrame implements ActionListener {
     private JTextField startDateText;
     private JTextField endDateText;
     private JButton calculate;
-    private ShowStats window4;
+    private ShowStatsCustomized window4;
 
-    public SelectionPeriod(String title, String name){
+    public SelectionDate(String title, String name){
 
         super(title);
         /**
@@ -68,7 +68,7 @@ public class SelectionPeriod extends JFrame implements ActionListener {
         String date2 = endDateText.getText();
 
 
-        this.window4 = new ShowStats(this.cityName, date1, date2);
+        this.window4 = new ShowStatsCustomized(this.cityName, date1, date2);
 
     }
 }

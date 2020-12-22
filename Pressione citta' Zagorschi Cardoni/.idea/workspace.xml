@@ -10,8 +10,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modifica classe json e pressure">
+    <list default="true" id="71997766-ffea-4227-bcae-2ebabe4f73ec" name="Default Changelist" comment="Aggiunto altre opzioni di scelta per le stats.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Json.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
