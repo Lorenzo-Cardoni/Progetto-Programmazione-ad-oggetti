@@ -10,18 +10,21 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="test">
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Filters/CalculateDay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/CalculateDay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Filters/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/Filter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Filters/FilterPressureStandard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowStats.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Test/FilterPressureCustomizedTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionCity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ShowStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowStats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Api.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Json.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Statistics/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics/Stats.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +72,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Università/progetto Pr backup/Pressione citta' Zagorschi Cardoni" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -85,7 +88,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Pressione citta' Zagorschi Cardoni" />
       <method v="2">
@@ -99,11 +102,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -233,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608559027308</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized">
+      <created>1608570548469</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1608570548469</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,7 +272,8 @@
     <MESSAGE value="Sistemata GUI." />
     <MESSAGE value="package nuovi." />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

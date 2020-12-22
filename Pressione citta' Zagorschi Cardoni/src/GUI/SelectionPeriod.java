@@ -68,7 +68,6 @@ public class SelectionPeriod extends JFrame implements ActionListener {
         String date2 = endDateText.getText();
 
 
-
         this.window4 = new ShowStats(this.cityName, date1, date2);
 
     }

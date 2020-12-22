@@ -4,7 +4,6 @@ import Model.Pressure;
 import Statistics.Stats;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
@@ -20,7 +19,6 @@ public class FilterPressureCustomized extends Filter{
      */
     private Vector<Pressure> pressureFiltred = new Vector<Pressure>();
 
-    private Map<String, Vector<Pressure>> pressures = new HashMap<String, Vector<Pressure>>();
 
     /**
      *  Nome della citta' da filtrare.
@@ -53,21 +51,28 @@ public class FilterPressureCustomized extends Filter{
          * for each che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
          *
          */
-        for (Pressure pressure : pressures.get(this.cityName)) {
+        for(Pressure pressure : pressures.get(this.cityName)) {
+            try {
 
-            /**
-             * localDate attributo che mi prende la data da cui inizia il periodo.
-             *
-             */
-            supportDate = LocalDate.parse(pressure.getDate());
+                /**
+                 * localDate attributo che mi prende la data da cui inizia il periodo.
+                 *
+                 */
+                supportDate = LocalDate.parse(pressure.getDate());
 
-            /**
-             *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
-             *  Si e' utilizzato un metodo della libreria time di java.
-             */
-            if (supportDate.isAfter(this.startPeriod) && supportDate.isBefore(this.endPeriod))
-                this.pressureFiltred.add(pressure);
-
+                /**
+                 *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
+                 *  Si e' utilizzato un metodo della libreria time di java.
+                 */
+                if (supportDate.isAfter(this.startPeriod) && supportDate.isBefore(this.endPeriod))
+                    this.pressureFiltred.add(pressure);
+            }
+            catch (Exception e)
+            {
+                System.out.println("ERRORE.");
+                System.out.println("MESSAGGIO: " + e.getMessage());
+                System.out.println("CAUSA: " + e.getCause());
+            }
         }
 
         /**

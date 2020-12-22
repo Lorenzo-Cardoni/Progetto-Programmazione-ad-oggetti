@@ -22,6 +22,6 @@ public abstract class Filter {
 
     }
 
-    public  abstract String filtersPressure(Map<String, Vector<Pressure>> pressures);
+    public  abstract String filtersPressure(Map<String,Vector<Pressure>> pressures);
 
 }
