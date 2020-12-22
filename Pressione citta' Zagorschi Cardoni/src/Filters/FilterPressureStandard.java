@@ -1,0 +1,95 @@
+package Filters;
+
+import Model.Pressure;
+import Statistics.Stats;
+import Utils.CalculateDay;
+
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.Vector;
+
+public class FilterPressureStandard extends Filter{
+
+
+    /**
+     *  Vettore con le pressioni filtrate.
+     *
+     */
+    private Vector<Pressure> pressureFiltred = new Vector<Pressure>();
+
+    /**
+     *  Nome della citta' da filtrare.
+     *
+     */
+    private String cityName;
+
+    /**
+     *  Data di inizio periodo.
+     */
+    private LocalDate startPeriod;
+
+    /**
+     *  Data di fine periodo.
+     */
+
+    private CalculateDay calculateDay = new CalculateDay();
+
+    public FilterPressureStandard(int days, String name){
+        super(name);
+        this.startPeriod = this.calculateDay.getDate(days);
+
+    }
+
+    @Override
+    public String filtersPressure(Map<String, Vector<Pressure>> pressures) {
+        LocalDate supportDate;
+
+        /**
+         * for each che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
+         *
+         */
+        for(Pressure pressure : pressures.get(this.cityName)) {
+            try {
+
+                /**
+                 * localDate attributo che mi prende la data da cui inizia il periodo.
+                 *
+                 */
+                supportDate = LocalDate.parse(pressure.getDate());
+
+                /**
+                 *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
+                 *  Si e' utilizzato un metodo della libreria time di java.
+                 */
+                if (supportDate.isAfter(this.startPeriod))
+                    this.pressureFiltred.add(pressure);
+            }
+            catch (Exception e)
+            {
+                System.out.println("ERRORE.");
+                System.out.println("MESSAGGIO: " + e.getMessage());
+                System.out.println("CAUSA: " + e.getCause());
+            }
+        }
+
+        /**
+         * crea un riferimento alla classe dove risiedono i metodi delle statistiche.
+         *
+         */
+        Stats statistics = new Stats(this.pressureFiltred);
+
+        /**
+         * crea le varie statistiche.
+         *
+         */
+        statistics.createStats();
+
+        /**
+         * Output di tipo stringa composto dai metodi della classe Stats.
+         *
+         */
+        return "Minimum value is "+statistics.getVal_min()+"\nMaximum value is "+statistics.getVal_max()+
+                "\nAvarege is "+statistics.getAverage()+"\nVariance is "+statistics.getVariance();
+
+    }
+}

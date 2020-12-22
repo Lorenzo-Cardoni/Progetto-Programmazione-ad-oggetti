@@ -1,6 +1,7 @@
 package GUI;
 
-import Filters.FilterPressureCustomized;
+
+import Filters.FilterPressureStandard;
 import Model.Pressure;
 
 import javax.swing.*;
@@ -10,21 +11,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-public class ShowStats implements ActionListener {
+public class ShowStatsStandard implements ActionListener {
 
     private String cityName;
-    private String startDate;
-    private String endDate;
+    private int days;
 
-    private FilterPressureCustomized filter;
+    private FilterPressureStandard filter;
     private Map<String, Vector<Pressure>> pressures = new HashMap<String, Vector<Pressure>>();
 
-    public ShowStats(String name, String date1, String date2){
+    public ShowStatsStandard(int days, String name){
         this.cityName = name;
-        this.startDate = date1;
-        this.endDate = date2;
+        this.days = days;
 
-        filter = new FilterPressureCustomized(this.startDate, this.endDate, this.cityName);
+        filter = new FilterPressureStandard(this.days, this.cityName);
     }
 
     @Override

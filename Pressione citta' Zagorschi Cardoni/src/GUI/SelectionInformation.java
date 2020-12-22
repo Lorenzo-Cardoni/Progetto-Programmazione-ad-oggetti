@@ -1,6 +1,7 @@
 package GUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,6 +10,7 @@ public class SelectionInformation extends JFrame implements ActionListener {
     private String cityName;
     private float pressureValue;
     private SelectionPeriod window3;
+    private JPanel panel1;
 
     public SelectionInformation(String title, String name){
 
@@ -17,7 +19,8 @@ public class SelectionInformation extends JFrame implements ActionListener {
          * Imposta la dimensione della finestra.
          *
          */
-        this.setSize(350, 200);
+        this.setSize(500, 100);
+
 
         /**
          *  Specifica che la chiusura della finestra deve far terminare il programma.
@@ -36,14 +39,12 @@ public class SelectionInformation extends JFrame implements ActionListener {
         this.cityName = name;
 
         JButton current_pressure = new JButton("Current pressure");
-        current_pressure.setBounds(10,20,80,25);
         current_pressure.addActionListener(new ShowInformation(this.cityName));
-        panel.add(current_pressure);
+        panel.add(current_pressure, BorderLayout.WEST);
 
         JButton statsPressure = new JButton("Stats of pressure");
-        statsPressure.setBounds(10,40,80,25);
         statsPressure.addActionListener(this);
-        panel.add(statsPressure);
+        panel.add(statsPressure, BorderLayout.EAST);
 
         /**
          * Visualizza la finestra.

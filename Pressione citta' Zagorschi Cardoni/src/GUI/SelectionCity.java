@@ -14,8 +14,6 @@ public class SelectionCity extends JFrame implements ActionListener {
     private SelectionInformation window2;
     private JLabel citylabel;
     private JTextField nameCityText;
-    private JLabel citylabel2;
-    private JTextField nameCityText2;
     private JButton search;
     private Map<String, Vector<Pressure>> pressures = new HashMap<String, Vector<Pressure>>();
 
@@ -29,7 +27,7 @@ public class SelectionCity extends JFrame implements ActionListener {
         /**
          * Imposta la dimensione della finestra.
          */
-        this.setSize(300, 200);
+        this.setSize(500, 100);
         /**
          *  Specifica che la chiusura della finestra deve far terminare il programma.
          */
@@ -49,22 +47,12 @@ public class SelectionCity extends JFrame implements ActionListener {
          * della citta'.
          *
          */
-        citylabel = new JLabel("Name city 1");
-        citylabel.setBounds(10,20,80,25);
+        citylabel = new JLabel("Name city ");
         panel.add(citylabel);
 
         nameCityText = new JTextField(20);
-        nameCityText.setBounds(100,20,80,25);
         panel.add(nameCityText);
 
-        /*citylabel2 = new JLabel("Name city 2");
-        citylabel2.setBounds(10,20,80,25);
-        panel.add(citylabel2);
-
-        nameCityText2 = new JTextField(20);
-        nameCityText2.setBounds(100,20,80,25);
-        panel.add(nameCityText2);
-        */
         search = new JButton("Search");
         search.setBounds(10,80,80,25);
         search.addActionListener(this);
@@ -77,8 +65,6 @@ public class SelectionCity extends JFrame implements ActionListener {
          */
         this.setVisible(true);
 
-
-
     }
 
 
@@ -86,14 +72,14 @@ public class SelectionCity extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String cityName = nameCityText.getText();
-        if(this.pressures.containsKey(cityName)) {
+        //if(this.pressures.containsKey(cityName)) {
 
             this.setVisible(false);
 
             this.window2 = new SelectionInformation("Selection information", cityName);
             window2.setVisible(true);
-        }
+        //}
 
-        JOptionPane.showMessageDialog(null, cityName+" non e' presente in lista");
+       //JOptionPane.showMessageDialog(null,"City not found");
     }
 }

@@ -12,10 +12,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionCity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ShowStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowStatsCustomized.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Pressure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pressure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Api.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Json.java" afterDir="false" />
     </list>
@@ -35,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,15 +66,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="245" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/gson-2.8.6.jar" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Università/progetto Pr backup/Pressione citta' Zagorschi Cardoni" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
