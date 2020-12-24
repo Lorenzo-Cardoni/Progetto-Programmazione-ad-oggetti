@@ -1,31 +1,38 @@
 package Service;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Api {
+    /**
+     * Costruttore
+     */
     public Api() {}
-    //Variables
-    String cityName;
-    float pression;
-    public boolean done;
-    static String apiKey="&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
-    URL url = null;
+
+    /**
+     * Dichiarazione variabili e oggetti
+     * @param city
+     * @return
+     */
+    String cityName="";
+    URL url;
     HttpURLConnection con;
     String data="";
-    //Methods
+    static String apiKey="&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
 
-    //Call api knowing city name
+    /**
+     * Chiamata api Get con parametro nome citta', ritorna una stringa contenente dati formattati in Json
+     * @param city
+     * @return
+     */
     public String callApi(String city){
         this.cityName = "q=" + city;
         try {
             url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
             con = (HttpURLConnection) url.openConnection();
             if(con.getResponseCode() == HttpURLConnection.HTTP_OK){
-                InputStream inputStream = con.getInputStream();
                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String inputLine;
                 while ((inputLine = in.readLine()) != null)

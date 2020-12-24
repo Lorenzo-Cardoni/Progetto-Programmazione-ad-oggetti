@@ -7,22 +7,46 @@ import com.google.gson.JsonParser;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import static java.lang.Float.parseFloat;
 
 public class Json   {
+    /**
+     *     dichiarazione variabili/oggetti
+     */
+    private LocalDateTime date;
     String city;
     float pressure;
     Pressure objectPressure = new Pressure();
-    Gson gson = new Gson();
+
+    /**
+     * Costruttore
+     */
     public Json(){}
-    public String getPressure(String info){
+
+    /**
+     * crea un oggetto Json e lo riempie con informazioni utili
+     * stampa su file informazioni relative alla pressione
+     * @param info
+     * @return
+     */
+    public void parseInfo(String info){
         //
-        JsonObject jsonObject = new JsonParser().parse(info).getAsJsonObject();
-        pressure = parseFloat(jsonObject.getAsJsonObject("main").get("pressure").getAsString());
-        city = jsonObject.get("name").getAsString();
+        JsonObject jsonObject = new JsonObject();
+        JsonObject tempJsonObject = new JsonParser().parse(info).getAsJsonObject();
+        //
+        pressure = parseFloat(tempJsonObject.getAsJsonObject("main").get("pressure").getAsString());
+        city = tempJsonObject.get("name").getAsString();
+        date = LocalDateTime.now();
+        //
         objectPressure.value=pressure;
         objectPressure.nameCity=city;
+        objectPressure.date=date;
+        //
+        jsonObject.addProperty("city", city);
+        jsonObject.addProperty("pressure", pressure);
+        jsonObject.addProperty("date" , date.toString());
         //
         try {
             FileWriter writer = new FileWriter("Output.json");
@@ -31,6 +55,5 @@ public class Json   {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "AAAAAAAAAAAAAAA";
     }
 }
