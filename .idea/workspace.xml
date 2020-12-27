@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0ed3e31-665e-411e-8c57-964461c174e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/Filters/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/Filters/Filter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/Filters/FilterPressureCustomized.class" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/Filters/FilterPressureCustomized.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/Filters/FilterPressureStandard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/GUI/SelectionCity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/GUI/SelectionPeriod.class" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/GUI/SelectionPeriod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/GUI/ShowStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/GUI/ShowStats.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/bin/Test/FilterPressureCustomizedTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/Filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/Filters/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/Filters/FilterPressureCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/Filters/FilterPressureCustomized.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/GUI/SelectionCity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/GUI/SelectionPeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/GUI/SelectionPeriod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/Service/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/Service/Api.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/Service/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni/src/Service/Json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,5 +32,17 @@
       <updated>1608640141572</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

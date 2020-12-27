@@ -5,8 +5,10 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
 import static java.lang.Float.parseFloat;
@@ -27,7 +29,7 @@ public class Json   {
 
     /**
      * crea un oggetto Json e lo riempie con informazioni utili
-     * stampa su file informazioni relative alla pressione
+     * stampa su file le informazioni relative alla pressione
      * @param info
      * @return
      */
@@ -48,12 +50,17 @@ public class Json   {
         jsonObject.addProperty("pressure", pressure);
         jsonObject.addProperty("date" , date.toString());
         //
-        try {
-            FileWriter writer = new FileWriter("Output.json");
-            new Gson().toJson(jsonObject, writer);
-            writer.close();
+
+
+        try(FileWriter fw = new FileWriter("Output.json", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter out = new PrintWriter(bw))
+        {
+            fw.write("\n");
+            new Gson().toJson(jsonObject, fw);
+            //out.println("the text");
         } catch (IOException e) {
-            e.printStackTrace();
+            //exception handling left as an exercise for the reader
         }
     }
 }
