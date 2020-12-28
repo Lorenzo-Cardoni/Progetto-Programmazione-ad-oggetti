@@ -3,7 +3,6 @@ package Utils;
 import Model.Pressure;
 
 import java.time.LocalDate;
-import java.util.Map;
 import java.util.Vector;
 
 public class FiltersUtil {
@@ -14,7 +13,8 @@ public class FiltersUtil {
     private Vector<Pressure> pressureFiltred = new Vector<Pressure>();
 
 
-    public Vector<Pressure> getPressureFiltred(Map<String, Vector<Pressure>> allPressures, LocalDate startPeriod, LocalDate endPeriod, String cityName) {
+    public Vector<Pressure> getPressureFiltred(Vector<Pressure> allPressures, LocalDate startPeriod, LocalDate endPeriod)
+    {
 
         LocalDate supportDate;
 
@@ -24,10 +24,9 @@ public class FiltersUtil {
          * for each che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
          *
          */
-        if(allPressures.containsKey(cityName)) {
             try {
 
-                for (Object o : allPressures.get(cityName)) {
+                for (Object o : allPressures) {
                     if (o == null) {
                         System.out.println("Pressure not found");
                         return this.pressureFiltred;
@@ -47,7 +46,7 @@ public class FiltersUtil {
                          *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
                          *  Si e' utilizzato un metodo della libreria time di java.
                          */
-                        if (supportDate.isAfter(startPeriod) && supportDate.isBefore(endPeriod))
+                        if (supportDate.isAfter(startPeriod.minusDays(1)) && supportDate.isBefore(endPeriod.plusDays(1)))
                             this.pressureFiltred.add(pressure);
                     }
                 }
@@ -56,7 +55,7 @@ public class FiltersUtil {
                 System.out.println("MESSAGGIO: " + e.getMessage());
                 System.out.println("CAUSA: " + e.getCause());
             }
-        }
+
         return this.pressureFiltred;
     }
 }

@@ -24,12 +24,12 @@ public class ShowStatsCustomized implements ActionListener {
         this.startDate = date1;
         this.endDate = date2;
 
-        filter = new FilterPressureCustomized(this.startDate, this.endDate, this.cityName);
+        //filter = new FilterPressureCustomized(this.startDate, this.endDate, this.cityName);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+" sono:\n"
-                +this.filter.filtersPressure(this.pressures));
+                +this.filter.filtersPressure());
     }
 }

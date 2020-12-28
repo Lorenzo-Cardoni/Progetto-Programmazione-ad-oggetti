@@ -5,6 +5,7 @@ import Statistics.Stats;
 import Utils.FiltersUtil;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
@@ -12,7 +13,7 @@ import java.util.Vector;
  *  Questa classe filtra le pressioni in base al nome della citta' e alla data di inizio del periodo e della fine.
  *
  */
-public class FilterPressureCustomized extends Filter{
+public class FilterPressureCustomized implements Filter{
 
     /**
      *  Vettore con le pressioni filtrate.
@@ -39,19 +40,25 @@ public class FilterPressureCustomized extends Filter{
 
     private FiltersUtil utils;
 
+    private Vector <Pressure> pressures = new Vector<>();
 
-    public FilterPressureCustomized(String date1, String date2, String name){
-        super(name);
+    private Map<String, Vector<Pressure>> allPressures = new HashMap<>();
+
+
+    public FilterPressureCustomized(String date1, String date2, String name, Map<String, Vector<Pressure>> allPressures){
+        this.cityName = name;
         this.startPeriod = LocalDate.parse(date1);
         this.endPeriod = LocalDate.parse(date2);
         this.utils = new FiltersUtil();
+        this.allPressures = allPressures;
     }
 
-    @Override
-    public String filtersPressure(Map<String, Vector<Pressure>> pressures) {
 
+    public String filtersPressure() {
 
-        this.pressureFiltred = this.utils.getPressureFiltred(pressures,this.startPeriod,this.endPeriod,this.cityName);
+        this.pressures = this.allPressures.get(this.cityName);
+
+        this.pressureFiltred = this.utils.getPressureFiltred(this.pressures,this.startPeriod,this.endPeriod);
 
         /**
          * crea un riferimento alla classe dove risiedono i metodi delle statistiche.

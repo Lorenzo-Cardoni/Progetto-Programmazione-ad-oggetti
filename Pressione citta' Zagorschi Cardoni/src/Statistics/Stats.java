@@ -37,10 +37,13 @@ public class Stats {
 
             this.count++;
         }
+
+        this.average /= this.count;
+
     }
 
     public float getAverage(){
-        return this.average /= this.count;
+        return this.average;
     }
 
     public float getVariance(){

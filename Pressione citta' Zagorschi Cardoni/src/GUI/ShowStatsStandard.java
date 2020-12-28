@@ -23,12 +23,12 @@ public class ShowStatsStandard implements ActionListener {
         this.cityName = name;
         this.days = days;
 
-        filter = new FilterPressureStandard(this.days, this.cityName);
+        //filter = new FilterPressureStandard(this.days, this.cityName);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+" sono:\n"
-                +this.filter.filtersPressure(this.pressures));
+                +this.filter.filtersPressure());
     }
 }

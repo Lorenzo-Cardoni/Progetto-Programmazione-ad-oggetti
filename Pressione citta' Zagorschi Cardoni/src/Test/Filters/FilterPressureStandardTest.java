@@ -1,6 +1,6 @@
-package Test;
+package Test.Filters;
 
-import Filters.FilterPressureCustomized;
+import Filters.FilterPressureStandard;
 import Model.Pressure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,13 +10,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class FilterPressureCustomizedTest {
+class FilterPressureStandardTest {
 
-    private FilterPressureCustomized filtro;
+    private FilterPressureStandard filtro;
 
-    private Map<String,Vector<Pressure>> allPressures = new HashMap<String, Vector<Pressure>>();
+    private Map<String, Vector<Pressure>> allPressures = new HashMap<>();
+
     private Vector<Pressure> pressures1 = new Vector<>();
     private Vector<Pressure> pressures2 = new Vector<>();
 
@@ -27,7 +28,7 @@ class FilterPressureCustomizedTest {
 
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
 
         this.p1 = new Pressure(1000,"19:00", "2020-12-23","Agugliano" );
         this.p2 = new Pressure(1100,"21:00", "2020-12-27","Agugliano" );
@@ -43,8 +44,7 @@ class FilterPressureCustomizedTest {
         this.allPressures.put("Agugliano",this.pressures1);
         this.allPressures.put("Polverigi",this.pressures2);
 
-        this.filtro = new FilterPressureCustomized("2020-12-23","2020-12-27","Agugliano");
-
+        this.filtro = new FilterPressureStandard(7,"Agugliano",this.allPressures);
     }
 
     @AfterEach
@@ -52,8 +52,8 @@ class FilterPressureCustomizedTest {
     }
 
     @Test
-    public void testFiltersPressure() {
-        assertEquals("Minimum value is 1000\nMaximum value is 1100\nAvarege is 1050\nVariance is 2500",
-                this.filtro.filtersPressure(this.allPressures));
+    public void testfiltersPressure() {
+        assertEquals("Minimum value is 1000.0\nMaximum value is 1100.0\nAvarege is 1050.0\nVariance is 2500.0",
+                this.filtro.filtersPressure());
     }
 }

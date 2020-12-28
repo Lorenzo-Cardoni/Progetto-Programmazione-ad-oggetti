@@ -3,12 +3,14 @@ package Filters;
 import Model.Pressure;
 import Statistics.Stats;
 import Utils.CalculateDay;
+import Utils.FiltersUtil;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-public class FilterPressureStandard extends Filter{
+public class FilterPressureStandard implements Filter {
 
 
     /**
@@ -29,51 +31,33 @@ public class FilterPressureStandard extends Filter{
      */
     private LocalDate startPeriod;
 
-    /**
-     *  Data di fine periodo.
-     */
+    private LocalDate endPeriod;
+
+    private Vector <Pressure> pressures = new Vector<>();
 
     private CalculateDay calculateDay = new CalculateDay();
 
+    private FiltersUtil util;
 
-    public FilterPressureStandard(int days, String name){
-        super(name);
+    private Map<String, Vector<Pressure>> allPressures = new HashMap<>();
+
+
+    public FilterPressureStandard(int days, String name, Map<String, Vector<Pressure>> allPressures){
+        this.cityName = name;
         this.startPeriod = this.calculateDay.getDate(days);
+        this.endPeriod = LocalDate.now();
+        this.util = new FiltersUtil();
+        this.allPressures = allPressures;
     }
 
+
     @Override
-    public String filtersPressure(Map <String, Vector<Pressure>> pressures) {
+    public String filtersPressure() {
 
-        LocalDate supportDate;
+        this.pressures = this.allPressures.get(this.cityName);
 
-        /**
-         * for each che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
-         *
-         */
+        this.pressureFiltred = this.util.getPressureFiltred(this.pressures, this.startPeriod, this.endPeriod);
 
-        for(Pressure pressure : pressures.get(this.cityName)) {
-            try {
-
-                /**
-                 * localDate attributo che mi prende la data da cui inizia il periodo.
-                 *
-                 */
-                supportDate = LocalDate.parse(pressure.getDate());
-
-                /**
-                 *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
-                 *  Si e' utilizzato un metodo della libreria time di java.
-                 */
-                if (supportDate.isAfter(this.startPeriod))
-                    this.pressureFiltred.add(pressure);
-            }
-            catch (Exception e)
-            {
-                System.out.println("ERRORE.");
-                System.out.println("MESSAGGIO: " + e.getMessage());
-                System.out.println("CAUSA: " + e.getCause());
-            }
-        }
 
         /**
          * crea un riferimento alla classe dove risiedono i metodi delle statistiche.

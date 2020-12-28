@@ -1,6 +1,6 @@
-package Test;
+package Test.Filters;
 
-import Filters.FilterPressureStandard;
+import Filters.FilterPressureCustomized;
 import Model.Pressure;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,11 +12,11 @@ import java.util.Vector;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class FilterPressureStandardTest {
+class FilterPressureCustomizedTest {
 
-    private FilterPressureStandard filtro;
+    private FilterPressureCustomized filtro;
 
-    private Map<String, Vector<Pressure>> allPressures;
+    private Map<String,Vector<Pressure>> allpressures = new HashMap<String, Vector<Pressure>>();
     private Vector<Pressure> pressures1 = new Vector<>();
     private Vector<Pressure> pressures2 = new Vector<>();
 
@@ -27,9 +27,7 @@ class FilterPressureStandardTest {
 
 
     @BeforeEach
-    void setUp() {
-
-        this.allPressures = new HashMap<String, Vector<Pressure>>();
+    public void setUp() {
 
         this.p1 = new Pressure(1000,"19:00", "2020-12-23","Agugliano" );
         this.p2 = new Pressure(1100,"21:00", "2020-12-27","Agugliano" );
@@ -41,11 +39,12 @@ class FilterPressureStandardTest {
         this.pressures1.add(this.p2);
 
         this.pressures2.add(this.p3);
+        this.pressures2.add(this.p4);
 
-        this.allPressures.put("Agugliano",this.pressures1);
-        this.allPressures.put("Polverigi",this.pressures2);
+        this.allpressures.put("Agugliano",this.pressures1);
+        this.allpressures.put("Polverigi",this.pressures2);
 
-        this.filtro = new FilterPressureStandard(7,"Agugliano");
+        this.filtro = new FilterPressureCustomized("2020-12-23","2020-12-27","Agugliano",this.allpressures);
     }
 
     @AfterEach
@@ -53,8 +52,14 @@ class FilterPressureStandardTest {
     }
 
     @Test
-    public void testfiltersPressure() {
-        assertEquals("Le statistiche della pressione nella citta' Agugliano sono:\nMinimum value is 1000\nMaximum value is 1100\nAvarege is 1050\nVariance is 2500",
-                this.filtro.filtersPressure(this.allPressures));
+    public void testFiltersPressure() {
+
+        System.out.println("For Loop:");
+        for (Map.Entry me : allpressures.entrySet()) {
+            System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
+        }
+
+        assertEquals("Minimum value is 1000.0\nMaximum value is 1100.0\nAvarege is 1050.0\nVariance is 2500.0",
+                this.filtro.filtersPressure());
     }
 }

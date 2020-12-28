@@ -1,4 +1,4 @@
-package Test;
+package Test.Statistics;
 
 import Model.Pressure;
 import Statistics.Stats;
@@ -29,8 +29,9 @@ class StatsTest {
 
     @AfterEach
     void tearDown() {
-
     }
+
+
 
     @Test
     public void testGetValueMin(){ assertEquals(1000, this.s1.getVal_min()); }
@@ -41,9 +42,7 @@ class StatsTest {
     }
 
     @Test
-    public void testGetAvarege(){
-        assertEquals(1050, this.s1.getAverage());
-    }
+    public void testGetAvarege(){ assertEquals(1050, this.s1.getAverage());  }
 
     @Test
     public void testGetVariance() {
