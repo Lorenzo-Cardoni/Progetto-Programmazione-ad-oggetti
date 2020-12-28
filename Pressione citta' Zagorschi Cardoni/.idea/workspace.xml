@@ -10,36 +10,32 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modifica varie">
-      <change afterPath="$PROJECT_DIR$/src/Test/Filters/FiltersUtilTest.java" afterDir="false" />
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modifica classe json e pressure">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2020_16_58_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2020_17_02_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_18_12_2020_17_08_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_12_2020_09_59_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Pressione citta' Zagorschi Cardoni.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Filters/Filter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/Filter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Filters/FilterPressureStandard.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/FilterPressureStandard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowStatsCustomized.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowStatsCustomized.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowStatsStandard.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowStatsStandard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Model/Pressure.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Model/Pressure.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Service/Json.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Statistics/Stats.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Statistics/Stats.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Test/FilterPressureCustomizedTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Test/FilterPressureStandardTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Test/FiltersUtilTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Test/StatsTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Utils/FiltersUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Utils/FiltersUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Test/StatsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Test/StatsTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionCity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ShowStatsCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowStatsCustomized.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ShowStatsStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowStatsStandard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Pressure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pressure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Json.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Statistics/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics/Stats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/FilterPressureCustomizedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Filters/FilterPressureCustomizedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/FilterPressureStandardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Filters/FilterPressureStandardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/FiltersUtilTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/StatsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Statistics/StatsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/FiltersUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/FiltersUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/StatsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/StatsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +53,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -88,36 +84,22 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/src/Test/java" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Programmazione-Ad-Oggetti-master/Programmazione-Ad-Oggetti-master/ProgettoOOP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Filters" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\cardo\Documents\Progetto-Programmazione-ad-oggetti\Pressione citta' Zagorschi Cardoni\src\Main\java" />
-      <recent name="C:\Users\cardo\Documents\Progetto-Programmazione-ad-oggetti\Pressione citta' Zagorschi Cardoni\src\Test\java" />
-      <recent name="C:\Users\cardo\Documents\Progetto-Programmazione-ad-oggetti\Pressione citta' Zagorschi Cardoni\src\Main" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="Statistics" />
-      <recent name="Main" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="Test" />
       <recent name="Statistics" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FilterPressureStandardTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Pressione citta' Zagorschi Cardoni" />
@@ -136,12 +118,12 @@
       <module name="Pressione citta' Zagorschi Cardoni" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Test.Filters.*" />
+          <option name="PATTERN" value="Test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Test.Filters" />
-      <option name="MAIN_CLASS_NAME" value="Test.Filters.FilterPressureCustomizedTest" />
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.FilterPressureCustomizedTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,53 +133,27 @@
       <module name="Pressione citta' Zagorschi Cardoni" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Test.Filters.*" />
+          <option name="PATTERN" value="Test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Test.Filters" />
-      <option name="MAIN_CLASS_NAME" value="Test.Filters.FilterPressureStandardTest" />
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.FilterPressureStandardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FiltersUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Pressione citta' Zagorschi Cardoni" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.Filters.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Test.Filters" />
-      <option name="MAIN_CLASS_NAME" value="Test.Filters.FiltersUtilTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StatsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Pressione citta' Zagorschi Cardoni" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Test.Filters.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Statistics" />
-      <option name="MAIN_CLASS_NAME" value="Statistics.StatsTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Progetto Pressione Meteo" />
+      <item itemvalue="JUnit.FilterPressureStandardTest" />
+      <item itemvalue="JUnit.FilterPressureCustomizedTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FilterPressureStandardTest" />
         <item itemvalue="JUnit.FilterPressureCustomizedTest" />
-        <item itemvalue="JUnit.StatsTest" />
-        <item itemvalue="JUnit.FiltersUtilTest" />
+        <item itemvalue="JUnit.FilterPressureStandardTest" />
       </list>
     </recent_temporary>
   </component>
@@ -343,14 +299,7 @@
       <option name="project" value="LOCAL" />
       <updated>1608652481771</updated>
     </task>
-    <task id="LOCAL-00020" summary="Modifica varie">
-      <created>1609169874104</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1609169874104</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,8 +335,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="Aggiunto HashMap alla classe ShowStat e FilterPressureCustomized" />
     <MESSAGE value="Modifica classe json e pressure" />
-    <MESSAGE value="Modifica varie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifica varie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifica classe json e pressure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

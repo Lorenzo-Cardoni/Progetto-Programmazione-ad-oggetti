@@ -1,4 +1,5 @@
 package Service;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,28 +10,29 @@ public class Api {
     /**
      * Costruttore
      */
-    public Api() {}
-
+    public Api() {
+    }
     /**
      * Dichiarazione variabili e oggetti
+     *
      * @param city
      * @return
      */
-    String cityName="";
-    URL url;
+    String cityName = "";
     HttpURLConnection con;
-    String data="";
-    static String apiKey="&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
+    String data = "";
+    static String apiKey = "&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
 
     /**
      * Chiamata api Get con parametro nome citta', ritorna una stringa contenente dati formattati in Json
+     *
      * @param city
      * @return
      */
-    public String callApi(String city){
+    public void callApi(String city) {
         this.cityName = "q=" + city;
         try {
-            url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
+            URL url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
             con = (HttpURLConnection) url.openConnection();
             if(con.getResponseCode() == HttpURLConnection.HTTP_OK){
                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
@@ -43,6 +45,28 @@ public class Api {
         catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        return data;
+        /*
+        try {
+            String url = "http://api.openweathermap.org/data/2.5/weather?" + cityName + apiKey;
+            URLConnection openConnection = null;
+            openConnection = new URL(url).openConnection();
+            InputStream in = openConnection.getInputStream();
+            String data = "";
+            String line = "";
+            try {
+                InputStreamReader inR = new InputStreamReader(in);
+                BufferedReader buf = new BufferedReader(inR);
+                while ((line = buf.readLine()) != null) {
+                    data += line;
+                }
+            } finally {
+                in.close();
+            }
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
+        Json json = new Json();
+        json.parseJsonString(data);
     }
 }

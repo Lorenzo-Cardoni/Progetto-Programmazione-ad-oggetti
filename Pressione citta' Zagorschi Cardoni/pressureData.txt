@@ -1,0 +1,5 @@
+city=Pesaro;dateTime=2020-12-28T20:33:18.998053900;pressure=989~
+city=Pesaro;dateTime=2020-12-28T20:33:29.177778500;pressure=989~
+city=Pesaro;dateTime=2020-12-28T20:33:32.780045100;pressure=989~
+city=Pesaro;dateTime=2020-12-28T20:34:31.947880900;pressure=989~
+city=Pesaro;dateTime=2020-12-28T20:34:36.968026500;pressure=989~
