@@ -72,14 +72,21 @@ public class SelectionCity extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String cityName = nameCityText.getText();
-        //if(this.pressures.containsKey(cityName)) {
+        try {
+            if (this.pressures.containsKey(cityName)) {
 
-            this.setVisible(false);
+                this.setVisible(false);
 
-            this.window2 = new SelectionInformation("Selection information", cityName);
-            window2.setVisible(true);
-        //}
-
-       //JOptionPane.showMessageDialog(null,"City not found");
+                this.window2 = new SelectionInformation("Selection information", cityName);
+                window2.setVisible(true);
+            }
+        }
+        catch(Exception ecc)
+        {
+            System.out.println("ERRORE.");
+            System.out.println("MESSAGGIO: " + ecc.getMessage());
+            System.out.println("CAUSA: " + ecc.getCause());
+        }
+            JOptionPane.showMessageDialog(null,"City not found");
     }
 }

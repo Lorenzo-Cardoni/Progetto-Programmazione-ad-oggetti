@@ -1,15 +1,12 @@
 package Model;
 
-import java.time.LocalDateTime;
-
 public class Pressure {
     public float value;
     public String time;
     public String nameCity;
-    public LocalDateTime date;
+    public String date;
 
-    public Pressure(){}
-    public Pressure(float valuePressure, String time, LocalDateTime date, String nameCity){
+    public Pressure(float valuePressure, String time, String date, String nameCity){
         this.value = valuePressure;
         this.time = time;
         this.date = date;

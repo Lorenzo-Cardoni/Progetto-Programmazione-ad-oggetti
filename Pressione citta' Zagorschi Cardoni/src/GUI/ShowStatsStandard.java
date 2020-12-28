@@ -29,6 +29,6 @@ public class ShowStatsStandard implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+" sono:\n"
-                +this.filter.filtersPressure( this.pressures));
+                +this.filter.filtersPressure(this.pressures));
     }
 }

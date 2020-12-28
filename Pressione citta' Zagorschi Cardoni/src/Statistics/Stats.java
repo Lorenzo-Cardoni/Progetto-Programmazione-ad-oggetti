@@ -5,8 +5,8 @@ import java.util.Vector;
 public class Stats {
 
     private Vector<Pressure> pressure;
-    private float val_min = 0;
-    private float val_max = 0;
+    private float val_min;
+    private float val_max;
     private float average = 0;
     private float variance = 0;
     private int count =0;
@@ -21,6 +21,11 @@ public class Stats {
 
     public void createStats() {
         for (int i = 0; i < pressure.size(); i++) {
+
+            if(i == 0) {
+                this.val_min = pressure.get(i).getValue();
+                this.val_max = pressure.get(i).getValue();
+            }
 
             if (pressure.get(i).getValue() > this.val_max)
                 this.val_max = pressure.get(i).getValue();
@@ -40,8 +45,10 @@ public class Stats {
 
     public float getVariance(){
 
-        for(int j = 0; j < pressure.size(); j++){
-            this.variance += (pressure.get(j).getValue()-this.average)*(pressure.get(j).getValue()-this.average);
+        this.average = this.getAverage();
+
+        for(Pressure p : pressure){
+            this.variance += (p.getValue()-this.average)*(p.getValue()-this.average);
         }
 
         return this.variance /= this.count;

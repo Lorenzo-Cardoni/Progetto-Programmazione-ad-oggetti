@@ -2,6 +2,7 @@ package Filters;
 
 import Model.Pressure;
 import Statistics.Stats;
+import Utils.FiltersUtil;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -36,44 +37,21 @@ public class FilterPressureCustomized extends Filter{
      */
     private LocalDate endPeriod;
 
+    private FiltersUtil utils;
+
+
     public FilterPressureCustomized(String date1, String date2, String name){
         super(name);
         this.startPeriod = LocalDate.parse(date1);
         this.endPeriod = LocalDate.parse(date2);
+        this.utils = new FiltersUtil();
     }
 
     @Override
     public String filtersPressure(Map<String, Vector<Pressure>> pressures) {
 
-        LocalDate supportDate;
 
-        /**
-         * for each che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
-         *
-         */
-        for(Pressure pressure : pressures.get(this.cityName)) {
-            try {
-
-                /**
-                 * localDate attributo che mi prende la data da cui inizia il periodo.
-                 *
-                 */
-                supportDate = LocalDate.parse(pressure.getDate());
-
-                /**
-                 *  Ciclo if che mi permette di filtrare le pressioni in base al nome e alla data.
-                 *  Si e' utilizzato un metodo della libreria time di java.
-                 */
-                if (supportDate.isAfter(this.startPeriod) && supportDate.isBefore(this.endPeriod))
-                    this.pressureFiltred.add(pressure);
-            }
-            catch (Exception e)
-            {
-                System.out.println("ERRORE.");
-                System.out.println("MESSAGGIO: " + e.getMessage());
-                System.out.println("CAUSA: " + e.getCause());
-            }
-        }
+        this.pressureFiltred = this.utils.getPressureFiltred(pressures,this.startPeriod,this.endPeriod,this.cityName);
 
         /**
          * crea un riferimento alla classe dove risiedono i metodi delle statistiche.

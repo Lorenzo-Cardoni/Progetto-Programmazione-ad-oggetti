@@ -17,6 +17,7 @@ public class FilterPressureStandard extends Filter{
      */
     private Vector<Pressure> pressureFiltred = new Vector<Pressure>();
 
+
     /**
      *  Nome della citta' da filtrare.
      *
@@ -34,20 +35,22 @@ public class FilterPressureStandard extends Filter{
 
     private CalculateDay calculateDay = new CalculateDay();
 
+
     public FilterPressureStandard(int days, String name){
         super(name);
         this.startPeriod = this.calculateDay.getDate(days);
-
     }
 
     @Override
-    public String filtersPressure(Map<String, Vector<Pressure>> pressures) {
+    public String filtersPressure(Map <String, Vector<Pressure>> pressures) {
+
         LocalDate supportDate;
 
         /**
          * for each che mi sfoglia tutto il vettore contenente le pressioni non filtrate.
          *
          */
+
         for(Pressure pressure : pressures.get(this.cityName)) {
             try {
 
