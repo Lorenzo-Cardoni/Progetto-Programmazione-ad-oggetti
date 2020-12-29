@@ -7,9 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Api {
-    /**
-     * Costruttore
-     */
     public Api() {
     }
     /**
@@ -22,13 +19,6 @@ public class Api {
     HttpURLConnection con;
     String data = "";
     static String apiKey = "&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
-
-    /**
-     * Chiamata api Get con parametro nome citta', ritorna una stringa contenente dati formattati in Json
-     *
-     * @param city
-     * @return
-     */
     public void callApi(String city) {
         this.cityName = "q=" + city;
         try {
@@ -45,27 +35,6 @@ public class Api {
         catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        /*
-        try {
-            String url = "http://api.openweathermap.org/data/2.5/weather?" + cityName + apiKey;
-            URLConnection openConnection = null;
-            openConnection = new URL(url).openConnection();
-            InputStream in = openConnection.getInputStream();
-            String data = "";
-            String line = "";
-            try {
-                InputStreamReader inR = new InputStreamReader(in);
-                BufferedReader buf = new BufferedReader(inR);
-                while ((line = buf.readLine()) != null) {
-                    data += line;
-                }
-            } finally {
-                in.close();
-            }
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
         Json json = new Json();
         json.parseJsonString(data);
     }
