@@ -5,7 +5,7 @@ public class Pressure {
     public String time;
     public String nameCity;
     public String date;
-
+    public Pressure(){};
     public Pressure(float valuePressure, String time, String date, String nameCity){
         this.value = valuePressure;
         this.time = time;

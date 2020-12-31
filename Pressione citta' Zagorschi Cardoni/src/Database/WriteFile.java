@@ -22,7 +22,7 @@ public class WriteFile {
         }
         String data = "";
         if (fileExist) data += "\n";
-        data += "city=" + city + ";dateTime=" + dateTime + ";pressure=" + pressure + "~";
+        data += city + ";" + dateTime + ";" + pressure + ";";
 
         FileWriter fr = null;
         try {
