@@ -1,6 +1,8 @@
 package GUI;
 
+import Database.ReadFile;
 import Model.Pressure;
+import Service.ApiController;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +17,8 @@ public class SelectionCity extends JFrame implements ActionListener {
     private JLabel citylabel;
     private JTextField nameCityText;
     private JButton search;
-    private Map<String, Vector<Pressure>> pressures = new HashMap<String, Vector<Pressure>>();
+    private ApiController api = new ApiController();
+    private ReadFile readFile = new ReadFile();
 
     public SelectionCity(String title) {
 
@@ -73,13 +76,17 @@ public class SelectionCity extends JFrame implements ActionListener {
 
         String cityName = nameCityText.getText();
         try {
-            if (this.pressures.containsKey(cityName)) {
+            if(this.api.callApi(cityName) != "ERROR") {
 
                 this.setVisible(false);
 
                 this.window2 = new SelectionInformation("Selection information", cityName);
                 window2.setVisible(true);
+
             }
+            else
+                JOptionPane.showMessageDialog(null,this.api.callApi(cityName)+"\nCity not found");
+
         }
         catch(Exception ecc)
         {
@@ -87,6 +94,6 @@ public class SelectionCity extends JFrame implements ActionListener {
             System.out.println("MESSAGGIO: " + ecc.getMessage());
             System.out.println("CAUSA: " + ecc.getCause());
         }
-            JOptionPane.showMessageDialog(null,"City not found");
+
     }
 }

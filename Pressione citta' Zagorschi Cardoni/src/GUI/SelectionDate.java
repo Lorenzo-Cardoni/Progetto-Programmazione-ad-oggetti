@@ -1,5 +1,8 @@
 package GUI;
 
+import Database.ReadFile;
+import Filters.FilterPressureCustomized;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +16,9 @@ public class SelectionDate extends JFrame implements ActionListener {
     private JTextField endDateText;
     private JButton calculate;
     private ShowStatsCustomized window4;
+
+    private FilterPressureCustomized filter;
+    private ReadFile vectorOfPressure = new ReadFile();
 
     public SelectionDate(String title, String name){
 
@@ -53,7 +59,7 @@ public class SelectionDate extends JFrame implements ActionListener {
         endDateText.setBounds(100,40,80,25);
         panel.add(endDateText);
 
-        calculate = new JButton("Calculate");
+        calculate = new JButton("Search");
         calculate.setBounds(10,80,80,25);
         calculate.addActionListener(this);
         panel.add(calculate);
@@ -67,8 +73,10 @@ public class SelectionDate extends JFrame implements ActionListener {
         String date1 = startDateText.getText();
         String date2 = endDateText.getText();
 
+        filter = new FilterPressureCustomized(date1, date2, vectorOfPressure.readFile(this.cityName));
 
-        this.window4 = new ShowStatsCustomized(this.cityName, date1, date2);
+        JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+" sono:\n"
+                +this.filter.filtersPressure());
 
     }
 }

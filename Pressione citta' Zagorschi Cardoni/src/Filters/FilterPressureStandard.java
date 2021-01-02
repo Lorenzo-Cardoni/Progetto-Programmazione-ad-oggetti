@@ -39,25 +39,19 @@ public class FilterPressureStandard implements Filter {
 
     private FiltersUtil util;
 
-    private Map<String, Vector<Pressure>> allPressures = new HashMap<>();
-
-
-    public FilterPressureStandard(int days, String name, Map<String, Vector<Pressure>> allPressures){
+    public FilterPressureStandard(int days, String name, Vector<Pressure> allPressures){
         this.cityName = name;
         this.startPeriod = this.calculateDay.getDate(days);
         this.endPeriod = LocalDate.now();
         this.util = new FiltersUtil();
-        this.allPressures = allPressures;
+        this.pressures = allPressures;
     }
 
 
     @Override
     public String filtersPressure() {
 
-        this.pressures = this.allPressures.get(this.cityName);
-
         this.pressureFiltred = this.util.getPressureFiltred(this.pressures, this.startPeriod, this.endPeriod);
-
 
         /**
          * crea un riferimento alla classe dove risiedono i metodi delle statistiche.

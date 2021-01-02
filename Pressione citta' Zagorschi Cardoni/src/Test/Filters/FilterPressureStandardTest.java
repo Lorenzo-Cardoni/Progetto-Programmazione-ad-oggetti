@@ -16,8 +16,6 @@ class FilterPressureStandardTest {
 
     private FilterPressureStandard filtro;
 
-    private Map<String, Vector<Pressure>> allPressures = new HashMap<>();
-
     private Vector<Pressure> pressures1 = new Vector<>();
     private Vector<Pressure> pressures2 = new Vector<>();
 
@@ -30,8 +28,8 @@ class FilterPressureStandardTest {
     @BeforeEach
     void setUp() {
 
-        this.p1 = new Pressure(1000,"19:00", "2020-12-23","Agugliano" );
-        this.p2 = new Pressure(1100,"21:00", "2020-12-27","Agugliano" );
+        this.p1 = new Pressure(1000,"19:00", "2020-12-31","Agugliano" );
+        this.p2 = new Pressure(1100,"21:00", "2021-01-02","Agugliano" );
 
         this.p3 = new Pressure(900,"21:00", "2020-12-23","Polverigi" );
         this.p4 = new Pressure(800,"21:00", "2020-12-22","Polverigi" );
@@ -41,10 +39,8 @@ class FilterPressureStandardTest {
 
         this.pressures2.add(this.p3);
 
-        this.allPressures.put("Agugliano",this.pressures1);
-        this.allPressures.put("Polverigi",this.pressures2);
 
-        this.filtro = new FilterPressureStandard(7,"Agugliano",this.allPressures);
+        this.filtro = new FilterPressureStandard(7,"Agugliano",this.pressures1);
     }
 
     @AfterEach

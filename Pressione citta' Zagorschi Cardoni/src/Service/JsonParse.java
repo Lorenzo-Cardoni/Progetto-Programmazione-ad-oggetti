@@ -19,6 +19,7 @@ public class JsonParse {
         wr = new WriteFile();
         wr.saveData(city, pressure, LocalDateTime.now().truncatedTo(ChronoUnit.HOURS));
     }
+
     public String getPressure(){
         return pressure;
     }

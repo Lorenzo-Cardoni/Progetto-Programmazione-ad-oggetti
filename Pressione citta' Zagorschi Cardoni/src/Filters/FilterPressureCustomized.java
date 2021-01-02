@@ -21,13 +21,6 @@ public class FilterPressureCustomized implements Filter{
      */
     private Vector<Pressure> pressureFiltred = new Vector<Pressure>();
 
-
-    /**
-     *  Nome della citta' da filtrare.
-     *
-     */
-    private String cityName;
-
     /**
      *  Data di inizio periodo.
      */
@@ -42,21 +35,16 @@ public class FilterPressureCustomized implements Filter{
 
     private Vector <Pressure> pressures = new Vector<>();
 
-    private Map<String, Vector<Pressure>> allPressures = new HashMap<>();
 
-
-    public FilterPressureCustomized(String date1, String date2, String name, Map<String, Vector<Pressure>> allPressures){
-        this.cityName = name;
+    public FilterPressureCustomized(String date1, String date2, Vector<Pressure> allPressures){
         this.startPeriod = LocalDate.parse(date1);
         this.endPeriod = LocalDate.parse(date2);
         this.utils = new FiltersUtil();
-        this.allPressures = allPressures;
+        this.pressures = allPressures;
     }
 
 
     public String filtersPressure() {
-
-        this.pressures = this.allPressures.get(this.cityName);
 
         this.pressureFiltred = this.utils.getPressureFiltred(this.pressures,this.startPeriod,this.endPeriod);
 
