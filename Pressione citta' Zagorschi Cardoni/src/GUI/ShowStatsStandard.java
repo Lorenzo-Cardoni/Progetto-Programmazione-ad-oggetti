@@ -1,6 +1,7 @@
 package GUI;
 
 
+import Database.ReadFile;
 import Filters.FilterPressureStandard;
 import Model.Pressure;
 
@@ -17,13 +18,13 @@ public class ShowStatsStandard implements ActionListener {
     private int days;
 
     private FilterPressureStandard filter;
-    private Map<String, Vector<Pressure>> pressures = new HashMap<String, Vector<Pressure>>();
+    private ReadFile vectorOfPressure = new ReadFile();
+
 
     public ShowStatsStandard(int days, String name){
         this.cityName = name;
         this.days = days;
-
-        //filter = new FilterPressureStandard(this.days, this.cityName);
+        filter = new FilterPressureStandard(this.days, this.cityName, this.vectorOfPressure.readFile(this.cityName) );
     }
 
     @Override

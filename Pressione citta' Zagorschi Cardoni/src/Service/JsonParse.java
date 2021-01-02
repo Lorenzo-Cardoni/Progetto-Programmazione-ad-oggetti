@@ -15,6 +15,7 @@ public class JsonParse {
         WriteFile wr = new WriteFile();
         wr.saveData(city, pressure, LocalDateTime.now());
     }
+
     public String getPressure(){
         return pressure;
     }

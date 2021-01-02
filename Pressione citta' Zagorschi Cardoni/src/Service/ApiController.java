@@ -38,9 +38,11 @@ public class ApiController {
         catch (IOException ioException) {
             ioException.printStackTrace();
         }
+
          if(cityExist){
              json.parseJsonString(data);
          }
+
          if(cityExist){
              System.out.println(json.getPressure());
              return json.getPressure();

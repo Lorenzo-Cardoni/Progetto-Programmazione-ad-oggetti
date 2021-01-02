@@ -41,10 +41,7 @@ class FilterPressureCustomizedTest {
         this.pressures2.add(this.p3);
         this.pressures2.add(this.p4);
 
-        this.allpressures.put("Agugliano",this.pressures1);
-        this.allpressures.put("Polverigi",this.pressures2);
-
-        this.filtro = new FilterPressureCustomized("2020-12-23","2020-12-27","Agugliano",this.allpressures);
+        this.filtro = new FilterPressureCustomized("2020-12-23","2020-12-27",this.pressures1);
     }
 
     @AfterEach
@@ -53,11 +50,6 @@ class FilterPressureCustomizedTest {
 
     @Test
     public void testFiltersPressure() {
-
-        System.out.println("For Loop:");
-        for (Map.Entry me : allpressures.entrySet()) {
-            System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
-        }
 
         assertEquals("Minimum value is 1000.0\nMaximum value is 1100.0\nAvarege is 1050.0\nVariance is 2500.0",
                 this.filtro.filtersPressure());
