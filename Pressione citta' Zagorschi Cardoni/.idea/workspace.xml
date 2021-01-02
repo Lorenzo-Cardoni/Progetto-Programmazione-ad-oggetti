@@ -10,13 +10,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunta classe per convertire da hashmap a vettore di pressioni, piccole correzioni generali nelle altre classi.">
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modifica classe readfile">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_12_2020_18_02_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Service/Api.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/Api.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Service/Json.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pressureData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pressureData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionCity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Api.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils/ConvertHashMapToVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/ConvertHashMapToVector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +99,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FilterPressureCustomizedTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pressione citta' Zagorschi Cardoni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.Filters.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test.Filters" />
+      <option name="MAIN_CLASS_NAME" value="Test.Filters.FilterPressureCustomizedTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FilterPressureCustomizedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Pressione citta' Zagorschi Cardoni" />
       <extension name="coverage">
@@ -125,14 +144,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FiltersUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pressione citta' Zagorschi Cardoni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.Filters.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test.Filters" />
+      <option name="MAIN_CLASS_NAME" value="Test.Filters.FiltersUtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StatsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pressione citta' Zagorschi Cardoni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.Statistics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test.Statistics" />
+      <option name="MAIN_CLASS_NAME" value="Test.Statistics.StatsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Progetto Pressione Meteo" />
       <item itemvalue="JUnit.FilterPressureStandardTest" />
       <item itemvalue="JUnit.FilterPressureCustomizedTest" />
+      <item itemvalue="JUnit.StatsTest" />
+      <item itemvalue="JUnit.FiltersUtilTest" />
+      <item itemvalue="JUnit.FilterPressureCustomizedTest (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FilterPressureCustomizedTest (1)" />
+        <item itemvalue="JUnit.FiltersUtilTest" />
+        <item itemvalue="JUnit.StatsTest" />
         <item itemvalue="JUnit.FilterPressureCustomizedTest" />
         <item itemvalue="JUnit.FilterPressureStandardTest" />
       </list>
@@ -294,14 +349,7 @@
       <option name="project" value="LOCAL" />
       <updated>1609257331526</updated>
     </task>
-    <task id="LOCAL-00022" summary="Aggiunta classe per convertire da hashmap a vettore di pressioni, piccole correzioni generali nelle altre classi.">
-      <created>1609449855812</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1609449855812</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,8 +387,7 @@
     <MESSAGE value="Modifica classe json e pressure" />
     <MESSAGE value="Modifica Json e Api, Aggiunto package Database" />
     <MESSAGE value="Modifica classe readfile" />
-    <MESSAGE value="Aggiunta classe per convertire da hashmap a vettore di pressioni, piccole correzioni generali nelle altre classi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta classe per convertire da hashmap a vettore di pressioni, piccole correzioni generali nelle altre classi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifica classe readfile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -349,11 +396,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Service/Api.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

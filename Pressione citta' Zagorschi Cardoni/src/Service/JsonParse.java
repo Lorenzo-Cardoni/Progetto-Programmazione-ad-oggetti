@@ -3,11 +3,9 @@ package Service;
 import Database.WriteFile;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
-public class Json  {
+public class JsonParse {
     public void parseJsonString(String info){
         String pressure;
         String city;
@@ -15,6 +13,6 @@ public class Json  {
         pressure = tempJsonObject.getAsJsonObject("main").get("pressure").getAsString();
         city = tempJsonObject.get("name").getAsString();
         WriteFile wr = new WriteFile();
-        wr.saveData(city, pressure, LocalDateTime.now().truncatedTo(ChronoUnit.HOURS));
+        wr.saveData(city, pressure, LocalDateTime.now());
     }
 }

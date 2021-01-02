@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Api {
-    public Api() {
+public class ApiController {
+    public ApiController() {
     }
     /**
      * Dichiarazione variabili e oggetti
@@ -35,7 +35,7 @@ public class Api {
         catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        Json json = new Json();
+        JsonParse json = new JsonParse();
         json.parseJsonString(data);
     }
 }
