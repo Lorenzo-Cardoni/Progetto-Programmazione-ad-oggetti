@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Vector;
 
 public class ReadFile {
-
     public ReadFile(){}
     Map<String, String> hashMap;
     ConvertHashMapToVector convert = new ConvertHashMapToVector();

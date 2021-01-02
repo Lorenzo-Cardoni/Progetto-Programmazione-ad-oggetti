@@ -1,12 +1,12 @@
 import Database.ReadFile;
-import Service.Api;
+import Service.ApiController;
 
 public class Main {
     public static void main(String[] args) {
         ReadFile readFile = new ReadFile();
-        Api api=new Api();
-        api.callApi("Pesaro");
-        readFile.readFile("Pesaro");
+        ApiController api=new ApiController();
+            api.callApi("asfasfasfas");
+        readFile.readFile("Fano");
         /**
          * sistemare eccezione file inesistente per read file
          */
