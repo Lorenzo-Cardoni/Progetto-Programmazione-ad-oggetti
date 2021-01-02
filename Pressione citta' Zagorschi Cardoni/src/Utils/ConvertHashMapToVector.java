@@ -32,30 +32,6 @@ public class ConvertHashMapToVector {
             System.out.print(pressures.get(i).value);
             System.out.print("\n");
         }
-        /*
-        Map<String, String> hashMap;
-        hashMap=this.hashMap;
-        String temp;
-        for(int i=0;i<hashMap.size();i++){
-            splitter = (new ArrayList<String>(hashMap.keySet())).get(i).split(";");
-            pressureObject.nameCity=splitter[0];
-            splitter = (new ArrayList<String>(hashMap.keySet())).get(i).split("T");
-            temp=splitter[0];
-            pressureObject.time=splitter[1];
-            splitter = temp.split(";");
-            pressureObject.date = splitter[1];
-            splitter = (new ArrayList<String>(hashMap.values())).get(i).split("");
-            //pressureObject.value = Float.parseFloat(hashMap.va()).get(i));
-            pressures.add(pressureObject);
-        }
-        for(int i=0;i<pressures.size();i++){
-            System.out.print(pressures.get(0).nameCity);
-            System.out.print(pressures.get(0).date);
-            System.out.print(pressures.get(0).time);
-            System.out.print(pressures.get(0).value);
-            System.out.print("\n");
-        }
-        */
         return pressures;
     }
 }
