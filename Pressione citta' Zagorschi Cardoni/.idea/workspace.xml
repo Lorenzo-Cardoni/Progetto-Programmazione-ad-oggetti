@@ -12,9 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modifica convert + api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Database/ReadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Database/ReadFile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Service/Api.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pressureData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pressureData.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/ReadFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
@@ -325,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609602998701</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Modifica convert + api">
+      <created>1609604761682</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1609604761682</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,16 +372,6 @@
     <MESSAGE value="." />
     <MESSAGE value="Modifica convert + api" />
     <option name="LAST_COMMIT_MESSAGE" value="Modifica convert + api" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Pressione_citta__Zagorschi_Cardoni$Progetto_Pressione_Meteo.ic" NAME="Progetto Pressione Meteo Coverage Results" MODIFIED="1609094385025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

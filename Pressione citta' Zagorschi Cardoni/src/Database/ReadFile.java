@@ -31,7 +31,6 @@ public class ReadFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return convert.convertHashMapToVector(hashMap);
     }
 }

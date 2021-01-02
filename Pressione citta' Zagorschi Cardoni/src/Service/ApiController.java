@@ -15,13 +15,17 @@ public class ApiController {
      * @param city
      * @return
      */
-    String cityName = "";
+    String cityName;
     HttpURLConnection con;
-    String data = "";
-    JsonParse json = new JsonParse();
+    String data;
+    JsonParse json;
+    Boolean cityExist;
     static String apiKey = "&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
     public String callApi(String city) {
-        Boolean cityExist=false;
+        cityName="";
+        data="";
+        json = new JsonParse();
+        cityExist=false;
         this.cityName = "q=" + city;
          try {
             URL url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
