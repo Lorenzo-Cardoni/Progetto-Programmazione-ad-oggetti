@@ -18,14 +18,16 @@ public class ApiController {
     String cityName = "";
     HttpURLConnection con;
     String data = "";
+    JsonParse json = new JsonParse();
     static String apiKey = "&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
-    public Boolean callApi(String city) {
+    public String callApi(String city) {
         Boolean cityExist=false;
         this.cityName = "q=" + city;
          try {
             URL url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
             con = (HttpURLConnection) url.openConnection();
             if(con.getResponseCode() == HttpURLConnection.HTTP_OK){
+                cityExist=true;
                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String inputLine;
                 while ((inputLine = in.readLine()) != null)
@@ -36,8 +38,15 @@ public class ApiController {
         catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        JsonParse json = new JsonParse();
-        json.parseJsonString(data);
-        return cityExist;
+         if(cityExist){
+             json.parseJsonString(data);
+         }
+         if(cityExist){
+             System.out.println(json.getPressure());
+             return json.getPressure();
+         }else {
+             System.out.println("ERROR");
+             return "ERROR";
+         }
     }
 }
