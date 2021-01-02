@@ -19,7 +19,8 @@ public class ApiController {
     HttpURLConnection con;
     String data = "";
     static String apiKey = "&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
-    public void callApi(String city) {
+    public Boolean callApi(String city) {
+        Boolean cityExist=false;
         this.cityName = "q=" + city;
          try {
             URL url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
@@ -37,5 +38,6 @@ public class ApiController {
         }
         JsonParse json = new JsonParse();
         json.parseJsonString(data);
+        return cityExist;
     }
 }

@@ -1,17 +1,22 @@
 package Database;
 
+import Model.Pressure;
+import Utils.ConvertHashMapToVector;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Vector;
 
 public class ReadFile {
 
     public ReadFile(){}
     Map<String, String> hashMap;
-    public Map readFile(String cityName){
+    ConvertHashMapToVector convert = new ConvertHashMapToVector();
+    public Vector<Pressure> readFile(String cityName){
         hashMap = new HashMap<>();
         String line;
         String[] data;
@@ -27,6 +32,7 @@ public class ReadFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return hashMap;
+
+        return convert.convertHashMapToVector(hashMap);
     }
 }
