@@ -12,6 +12,12 @@ public class JsonParse {
     String city;
     JsonObject tempJsonObject;
     WriteFile wr;
+
+    /**
+     * Questo metodo estrae dalla stringa info (formattata in Json) inserendoli in un oggetto JsonObject
+     * In seguito tramite l'oggetto WriteFile salva i dati ottenuti
+     * @param info Stringa contenente i dati della chiamata api in formato Json
+     */
     public void parseJsonString(String info){
         tempJsonObject = new JsonParser().parse(info).getAsJsonObject();
         pressure = tempJsonObject.getAsJsonObject("main").get("pressure").getAsString();

@@ -7,11 +7,13 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class WriteFile {
+    /**
+     * @param city Stringa contenente il nome della citta' da inserire nel file pressureData.txt
+     * @param pressure Stringa contenente la pressione da inserire nel file pressureData.txt
+     * @param dateTime Stringa contenente la data da inserire nel file pressureData.txt
+     */
     public void saveData(String city, String pressure, LocalDateTime dateTime) {
         Boolean fileExist = false;
-        /**
-         * Create file if not exist
-         */
         File file = new File("pressureData.txt");
         try {
             if (!file.createNewFile()) {

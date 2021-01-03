@@ -6,24 +6,29 @@ import java.net.URL;
 import java.util.Properties;
 
 public class ApiController {
-    public ApiController() {
-    }
     /**
-     * Dichiarazione variabili e oggetti
-     *
-     * @param city
-     * @return
+     * ApiController() Costruttore vuoto
      */
+    public ApiController() {}
     String cityName;
     HttpURLConnection con;
-    String data;
-    JsonParse json;
+    String apiData;
+    JsonParse jsonParser;
     Boolean cityExist;
-    Properties prop=new Properties();
+    Properties prop;
     static String apiKey;
     InputStream is = null;
 
+    /**
+     *
+     * @param city Stringa contentente nome della citta' di cui si vuole conoscere la pressione attuale
+     * @return
+     */
     public String callApi(String city) {
+        /**
+         * @param prop conterra' la chiave api letta dal file di configurazione config.editorconfig
+         */
+        prop = new Properties();
         try {
             is = new FileInputStream("src/config.editorconfig");
         } catch (FileNotFoundException e) {
@@ -36,8 +41,8 @@ public class ApiController {
             e.printStackTrace();
         }
         cityName="";
-        data="";
-        json = new JsonParse();
+        apiData="";
+        jsonParser = new JsonParse();
         cityExist=false;
         this.cityName = "q=" + city;
          try {
@@ -48,21 +53,26 @@ public class ApiController {
                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String inputLine;
                 while ((inputLine = in.readLine()) != null)
-                    data+=inputLine;
+                    apiData+=inputLine;
                 in.close();
             }
         }
         catch (IOException ioException) {
             ioException.printStackTrace();
         }
-
-         if(cityExist){
-             json.parseJsonString(data);
+        /**
+         * @param jsonParser Se la citta' esiste, l'oggetto jsonParser estrae i dati dalla stringa apiData
+         */
+        if(cityExist){
+             jsonParser.parseJsonString(apiData);
          }
-
-         if(cityExist){
-             System.out.println(json.getPressure());
-             return json.getPressure();
+        /**
+         * Nel caso in cui il nome della citta' richiesta non esistesse nel database di myweather viene ritornata una stringa "ERRORE"
+         * In caso contrario, il metodo ritorna il valore della pressione
+         */
+        if(cityExist){
+             System.out.println(jsonParser.getPressure());
+             return jsonParser.getPressure();
          }else {
              System.out.println("ERROR");
              return "ERROR";

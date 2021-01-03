@@ -7,7 +7,16 @@ import java.util.Set;
 import java.util.Vector;
 
 public class ConvertHashMapToVector {
+    /**
+     * ConvertHashMapToVector() Costruttore vuoto
+     */
     public ConvertHashMapToVector(){}
+
+    /**
+     * convertHashMapToVector(Map tempHashMap) converte un Hashmap in un vettore di oggetti Pressure
+     * @param tempHashMap
+     * @return Vettore oggetti Pressure
+     */
     public Vector<Pressure> convertHashMapToVector (Map tempHashMap){
         Map<String, String> hashMap = tempHashMap;
         Set<String> keys = hashMap.keySet();
