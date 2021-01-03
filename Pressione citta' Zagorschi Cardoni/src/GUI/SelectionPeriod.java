@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Exception.*;
 
 public class SelectionPeriod extends JFrame implements ActionListener {
 
@@ -44,7 +45,6 @@ public class SelectionPeriod extends JFrame implements ActionListener {
         JButton customPressure = new JButton("Custom Pressure");
         customPressure.addActionListener(this);
         panel.add(customPressure);
-
 
         this.setVisible(false);
     }

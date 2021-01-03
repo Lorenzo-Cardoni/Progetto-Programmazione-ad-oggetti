@@ -10,6 +10,6 @@ public class Main {
         /**
          * sistemare eccezione file inesistente per read file
          */
-        System.out.print(" Operazioni finite ");
+
     }
 }

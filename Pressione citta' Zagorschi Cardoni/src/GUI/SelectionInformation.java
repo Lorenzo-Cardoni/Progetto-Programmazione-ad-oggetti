@@ -52,6 +52,7 @@ public class SelectionInformation extends JFrame implements ActionListener {
          */
         setVisible(false);
 
+
     }
 
     @Override
@@ -59,5 +60,6 @@ public class SelectionInformation extends JFrame implements ActionListener {
 
         this.window3 = new SelectionPeriod("Selection period", this.cityName);
         this.window3.setVisible(true);
+
     }
 }

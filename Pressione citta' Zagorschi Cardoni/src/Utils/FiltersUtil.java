@@ -51,9 +51,8 @@ public class FiltersUtil {
                     }
                 }
             } catch (Exception e) {
-                System.out.println("ERRORE.");
-                System.out.println("MESSAGGIO: " + e.getMessage());
-                System.out.println("CAUSA: " + e.getCause());
+                System.out.println("ERROR.");
+                System.out.println("MESSAGE: " + e.getMessage());
             }
 
         return this.pressureFiltred;

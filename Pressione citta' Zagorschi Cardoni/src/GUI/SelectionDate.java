@@ -2,6 +2,7 @@ package GUI;
 
 import Database.ReadFile;
 import Filters.FilterPressureCustomized;
+import Exception.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,23 +16,17 @@ public class SelectionDate extends JFrame implements ActionListener {
     private JTextField startDateText;
     private JTextField endDateText;
     private JButton calculate;
-    private ShowStatsCustomized window4;
 
     private FilterPressureCustomized filter;
     private ReadFile vectorOfPressure = new ReadFile();
 
-    public SelectionDate(String title, String name){
+    public SelectionDate(String title, String name) {
 
         super(title);
         /**
          * Imposta la dimensione della finestra.
          */
-        setSize(600, 400);
-
-        /**
-         *  Specifica che la chiusura della finestra deve far terminare il programma.
-         */
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(600, 150);
 
         /**
          * Specifica che la finestra deve essere centrata.
@@ -70,13 +65,18 @@ public class SelectionDate extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String date1 = startDateText.getText();
-        String date2 = endDateText.getText();
 
-        filter = new FilterPressureCustomized(date1, date2, vectorOfPressure.readFile(this.cityName));
+        try {
+            this.filter = new FilterPressureCustomized(startDateText.getText(), endDateText.getText(), vectorOfPressure.readFile(this.cityName));
+        } catch (PressureException pressureException) {
+            System.out.println();
+        }
 
-        JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+" sono:\n"
-                +this.filter.filtersPressure());
-
+        if(this.filter != null)
+        {
+            JOptionPane.showMessageDialog(null, "Le statistiche della pressione nella citta' " + this.cityName + " sono:\n"
+                    + this.filter.filtersPressure());
+        }
     }
+
 }

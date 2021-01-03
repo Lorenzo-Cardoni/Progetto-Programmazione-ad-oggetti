@@ -2,6 +2,7 @@ package Test.Filters;
 
 import Filters.FilterPressureCustomized;
 import Model.Pressure;
+import Exception.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,7 +42,11 @@ class FilterPressureCustomizedTest {
         this.pressures2.add(this.p3);
         this.pressures2.add(this.p4);
 
-        this.filtro = new FilterPressureCustomized("2020-12-23","2020-12-27",this.pressures1);
+        try {
+            this.filtro = new FilterPressureCustomized("2020-12-23","2020-12-27",this.pressures1);
+        } catch (PressureException e) {
+            e.printStackTrace();
+        }
     }
 
     @AfterEach

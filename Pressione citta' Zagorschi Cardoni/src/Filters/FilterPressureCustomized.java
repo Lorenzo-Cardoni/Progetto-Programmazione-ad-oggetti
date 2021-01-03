@@ -3,10 +3,11 @@ package Filters;
 import Model.Pressure;
 import Statistics.Stats;
 import Utils.FiltersUtil;
+import Exception.*;
 
+import javax.swing.*;
+import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Vector;
 
 /**
@@ -36,9 +37,39 @@ public class FilterPressureCustomized implements Filter{
     private Vector <Pressure> pressures = new Vector<>();
 
 
-    public FilterPressureCustomized(String date1, String date2, Vector<Pressure> allPressures){
-        this.startPeriod = LocalDate.parse(date1);
-        this.endPeriod = LocalDate.parse(date2);
+    public FilterPressureCustomized(String date1, String date2, Vector<Pressure> allPressures) throws PressureException {
+
+        if(date1.equals("")){
+            JOptionPane.showMessageDialog(null,"Inserire la data iniziale");
+            throw new PressureException("MESSAGE: Inserire la data iniziale");
+        }
+
+
+        try
+        {
+            this.startPeriod = LocalDate.parse(date1);
+        }
+        catch (DateTimeException e)
+        {
+            JOptionPane.showMessageDialog(null,"Inserire data iniziale nel formato 'aaaa-mm-dd'");
+            System.out.println("MESSAGE: Formato data iniziale errato");
+        }
+
+        if(date2.equals("")){
+            JOptionPane.showMessageDialog(null,"Inserire la data finale");
+            throw new PressureException("MESSAGE: Inserire la data finale");
+        }
+
+        try
+        {
+           this.endPeriod = LocalDate.parse(date2);
+        }
+        catch (DateTimeException e)
+        {
+            JOptionPane.showMessageDialog(null,"Inserire data finale nel formato 'aaaa-mm-dd'");
+            System.out.println("MESSAGE: Formato data finale errato");
+        }
+
         this.utils = new FiltersUtil();
         this.pressures = allPressures;
     }

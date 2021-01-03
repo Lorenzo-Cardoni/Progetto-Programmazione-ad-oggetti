@@ -29,7 +29,26 @@ public class ShowStatsStandard implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+" sono:\n"
+
+        String message;
+
+        switch (this.days){
+            case  0:
+                message = " di oggi ";
+                break;
+
+            case 7:
+                message = " di questa settimana ";
+                break;
+
+            case 31 | 30:
+                message = " di questo mese ";
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + this.days);
+        }
+
+        JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+message+" sono:\n"
                 +this.filter.filtersPressure());
     }
 }

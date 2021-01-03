@@ -10,7 +10,32 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="sistemato problemi api" />
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modifica convert + api">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Database/ReadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Database/ReadFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionDate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowStatsCustomized.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowStatsStandard.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowStatsStandard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Service/ApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/ApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Service/JsonParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/JsonParse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pressureData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pressureData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionCity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ShowStatsCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowStatsCustomized.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ShowStatsStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowStatsStandard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Test/Filters/FilterPressureCustomizedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Filters/FilterPressureCustomizedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils/FiltersUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/FiltersUtil.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +83,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Programmazione-Ad-Oggetti-master/Programmazione-Ad-Oggetti-master/ProgettoOOP" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -88,6 +113,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FilterPressureCustomizedTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pressione citta' Zagorschi Cardoni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.Filters.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test.Filters" />
+      <option name="MAIN_CLASS_NAME" value="Test.Filters.FilterPressureCustomizedTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FilterPressureCustomizedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Pressione citta' Zagorschi Cardoni" />
       <extension name="coverage">
@@ -98,6 +138,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="Test" />
       <option name="MAIN_CLASS_NAME" value="Test.FilterPressureCustomizedTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FilterPressureStandardTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Pressione citta' Zagorschi Cardoni" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.Filters.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test.Filters" />
+      <option name="MAIN_CLASS_NAME" value="Test.Filters.FilterPressureStandardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,9 +178,13 @@
       <item itemvalue="Application.Progetto Pressione Meteo" />
       <item itemvalue="JUnit.FilterPressureStandardTest" />
       <item itemvalue="JUnit.FilterPressureCustomizedTest" />
+      <item itemvalue="JUnit.FilterPressureCustomizedTest (1)" />
+      <item itemvalue="JUnit.FilterPressureStandardTest (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FilterPressureStandardTest (1)" />
+        <item itemvalue="JUnit.FilterPressureCustomizedTest (1)" />
         <item itemvalue="JUnit.FilterPressureCustomizedTest" />
         <item itemvalue="JUnit.FilterPressureStandardTest" />
       </list>
@@ -308,35 +367,7 @@
       <option name="project" value="LOCAL" />
       <updated>1609602860121</updated>
     </task>
-    <task id="LOCAL-00025" summary="Modifica convert + api">
-      <created>1609602998701</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1609602998701</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Modifica convert + api">
-      <created>1609604761682</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1609604761682</updated>
-    </task>
-    <task id="LOCAL-00027" summary="sistemato problemi api">
-      <created>1609614523806</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1609614523806</updated>
-    </task>
-    <task id="LOCAL-00028" summary="sistemato problemi api">
-      <created>1609614603444</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1609614603444</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,8 +408,17 @@
     <MESSAGE value="Aggiunta classe per convertire da hashmap a vettore di pressioni, piccole correzioni generali nelle altre classi." />
     <MESSAGE value="." />
     <MESSAGE value="Modifica convert + api" />
-    <MESSAGE value="sistemato problemi api" />
-    <option name="LAST_COMMIT_MESSAGE" value="sistemato problemi api" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifica convert + api" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Pressione_citta__Zagorschi_Cardoni$Progetto_Pressione_Meteo.ic" NAME="Progetto Pressione Meteo Coverage Results" MODIFIED="1609094385025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

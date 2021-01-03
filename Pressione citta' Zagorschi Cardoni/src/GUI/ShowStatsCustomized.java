@@ -3,6 +3,7 @@ package GUI;
 import Database.ReadFile;
 import Filters.FilterPressureCustomized;
 import Model.Pressure;
+import Exception.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,8 +14,8 @@ import java.util.Vector;
 
 //Questa classe si può eliminare
 
-public class ShowStatsCustomized extends JFrame implements ActionListener {
-
+//public class ShowStatsCustomized extends JFrame implements ActionListener {
+    /*
     private String cityName;
     private String startDate;
     private String endDate;
@@ -22,7 +23,7 @@ public class ShowStatsCustomized extends JFrame implements ActionListener {
     private FilterPressureCustomized filter;
     private ReadFile vectorOfPressure = new ReadFile();
 
-    public ShowStatsCustomized(String name, String date1, String date2){
+    public ShowStatsCustomized(String name, String date1, String date2) throws GuiException {
 
         this.cityName = name;
         this.startDate = date1;
@@ -35,5 +36,5 @@ public class ShowStatsCustomized extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+" sono:\n"
                 +this.filter.filtersPressure());
-    }
-}
+    }*/
+//}
