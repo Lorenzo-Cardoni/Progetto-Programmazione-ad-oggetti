@@ -5,6 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * GUI a cui all'utente viene chiesto se vuole la pressione attuale della pressione o le
+ * statistiche di un determinato periodo.
+ */
 public class SelectionInformation extends JFrame implements ActionListener {
 
     private String cityName;
@@ -12,6 +16,12 @@ public class SelectionInformation extends JFrame implements ActionListener {
     private SelectionPeriod window3;
     private JPanel panel1;
 
+    /**
+     * Costruttore della classe SelectionInformation.
+     *
+     * @param title nome della finestra.
+     * @param name nome della citta'.
+     */
     public SelectionInformation(String title, String name){
 
         super(title);
@@ -55,6 +65,10 @@ public class SelectionInformation extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * Metodo relativo al button 'Statss of pressure' che apre una finestra contenente altre istruzioni.
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 

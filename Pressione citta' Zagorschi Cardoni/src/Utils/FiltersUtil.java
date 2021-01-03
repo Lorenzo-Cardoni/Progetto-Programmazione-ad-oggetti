@@ -5,6 +5,11 @@ import Model.Pressure;
 import java.time.LocalDate;
 import java.util.Vector;
 
+/**
+ * Classe che mi filtra, dato un certo periodo, un vettore di pressioni e mi
+ * restituisce un vettore di pressioni filtrato.
+ *
+ */
 public class FiltersUtil {
 
     /**
@@ -12,7 +17,13 @@ public class FiltersUtil {
      */
     private Vector<Pressure> pressureFiltred = new Vector<Pressure>();
 
-
+    /**
+     * Metodo per la creazione di un vettore filtrato
+     * @param allPressures vettore di partenza
+     * @param startPeriod data di inizio periodo
+     * @param endPeriod data di fine periodo
+     * @return vettore filtrato
+     */
     public Vector<Pressure> getPressureFiltred(Vector<Pressure> allPressures, LocalDate startPeriod, LocalDate endPeriod)
     {
 

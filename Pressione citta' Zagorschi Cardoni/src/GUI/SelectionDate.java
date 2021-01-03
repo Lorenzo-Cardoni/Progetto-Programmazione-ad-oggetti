@@ -8,6 +8,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * GUI a cui all'utente viene chiesto di inserire il periodo personalizzato
+ * e ritorna le statistiche di quel periodo.
+ *
+ */
 public class SelectionDate extends JFrame implements ActionListener {
     private String cityName;
     private JPanel panel;
@@ -20,6 +25,12 @@ public class SelectionDate extends JFrame implements ActionListener {
     private FilterPressureCustomized filter;
     private ReadFile vectorOfPressure = new ReadFile();
 
+    /**
+     * Costruttore della classe SelectionDate.
+     *
+     * @param title nome della finestra.
+     * @param name nome della citta'.
+     */
     public SelectionDate(String title, String name) {
 
         super(title);
@@ -63,6 +74,10 @@ public class SelectionDate extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * Metodo relativo al button 'Search' che apre una finestra contenente le statistiche.
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 

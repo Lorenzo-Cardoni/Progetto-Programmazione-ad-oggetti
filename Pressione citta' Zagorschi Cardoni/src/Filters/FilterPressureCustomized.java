@@ -32,19 +32,40 @@ public class FilterPressureCustomized implements Filter{
      */
     private LocalDate endPeriod;
 
+    /**
+     * Istanza che mi crea il vettore filtrato
+     *
+     */
     private FiltersUtil utils;
 
+    /**
+     *  Vettore contenente le pressioni di una certa citta'.
+     *
+     */
     private Vector <Pressure> pressures = new Vector<>();
 
-
+    /**
+     * Costruttore che mi controlla le date passate come attributo.
+     *
+     * @param date1 Stringa con la data di inizio periodo
+     * @param date2 Stringa con la data di fine periodo
+     * @param allPressures Vettore contenente le pressioni di una certa citta'.
+     * @throws PressureException
+     */
     public FilterPressureCustomized(String date1, String date2, Vector<Pressure> allPressures) throws PressureException {
 
+        /**
+         * Controlla che la data di inizio non sia vuota
+         */
         if(date1.equals("")){
             JOptionPane.showMessageDialog(null,"Inserire la data iniziale");
             throw new PressureException("MESSAGE: Inserire la data iniziale");
         }
 
-
+        /**
+         * Parsa la stringa della data di inizio attraverso un metodo della libreria java.time
+         *
+         */
         try
         {
             this.startPeriod = LocalDate.parse(date1);
@@ -55,11 +76,18 @@ public class FilterPressureCustomized implements Filter{
             System.out.println("MESSAGE: Formato data iniziale errato");
         }
 
+        /**
+         * Controlla che la data di fine non sia vuota
+         */
         if(date2.equals("")){
             JOptionPane.showMessageDialog(null,"Inserire la data finale");
             throw new PressureException("MESSAGE: Inserire la data finale");
         }
 
+        /**
+         * Parsa la stringa della data di fine attraverso un metodo della libreria java.time
+         *
+         */
         try
         {
            this.endPeriod = LocalDate.parse(date2);
@@ -74,7 +102,10 @@ public class FilterPressureCustomized implements Filter{
         this.pressures = allPressures;
     }
 
-
+    /**
+     * Metodo che mi ritorna in output una stringa con le statistiche
+     * @return
+     */
     public String filtersPressure() {
 
         this.pressureFiltred = this.utils.getPressureFiltred(this.pressures,this.startPeriod,this.endPeriod);

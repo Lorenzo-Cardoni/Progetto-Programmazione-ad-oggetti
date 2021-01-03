@@ -31,14 +31,29 @@ public class FilterPressureStandard implements Filter {
      */
     private LocalDate startPeriod;
 
+    /**
+     * Data di fine periodo.
+     */
     private LocalDate endPeriod;
 
+    /**
+     * Vettore contenente le pressioni di una determinata citta'.
+     */
     private Vector <Pressure> pressures = new Vector<>();
+
 
     private CalculateDay calculateDay = new CalculateDay();
 
     private FiltersUtil util;
 
+    /**
+     * Costruttore della classe FilterPressureStandard
+     *
+     * @param days giorni della durata del periodo personalizzato.
+     * @param name nome della citta'.
+     * @param allPressures Vettore di pressioni di una determinata citta'.
+     *
+     */
     public FilterPressureStandard(int days, String name, Vector<Pressure> allPressures){
         this.cityName = name;
         this.startPeriod = this.calculateDay.getDate(days);
@@ -47,7 +62,10 @@ public class FilterPressureStandard implements Filter {
         this.pressures = allPressures;
     }
 
-
+    /**
+     * Metodo che mi ritorna in output una stringa con le statistiche
+     * @return
+     */
     @Override
     public String filtersPressure() {
 

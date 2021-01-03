@@ -5,12 +5,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import Exception.*;
 
+/**
+ * GUI con quattro button relativi al periodo a quale si vuole fare riferimento.
+ */
 public class SelectionPeriod extends JFrame implements ActionListener {
 
     private String cityName;
     private SelectionDate window5;
     private JPanel panel;
 
+    /**
+     * Costruttore della classe SelectionPeriod
+     *
+     * @param title nome della finestra.
+     * @param name nome della citta'.
+     */
     public SelectionPeriod(String title, String name){
 
         super(title);
@@ -49,6 +58,10 @@ public class SelectionPeriod extends JFrame implements ActionListener {
         this.setVisible(false);
     }
 
+    /**
+     * Metodo relativo al button 'Custom Pressure' che apre una finestra contenente altre istruzioni.
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         this.window5 = new SelectionDate("Selection date", this.cityName);

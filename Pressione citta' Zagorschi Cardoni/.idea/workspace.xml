@@ -10,30 +10,28 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Modifica convert + api">
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto package exception e sistemato gui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Database/ReadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Database/ReadFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Exception/GuiException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Filters/FilterPressureCustomized.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionDate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionPeriod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowInformation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowStatsCustomized.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowStatsStandard.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowStatsStandard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Service/ApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/ApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Service/JsonParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/JsonParse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Test/Filters/FilterPressureCustomizedTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Test/Filters/FilterPressureCustomizedTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Utils/FiltersUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Utils/FiltersUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pressureData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pressureData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureCustomized.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/FilterPressureStandard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionCity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/SelectionDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/SelectionInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionInformation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionPeriod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ShowStatsCustomized.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowStatsCustomized.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ShowInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ShowStatsCustomized.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ShowStatsStandard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowStatsStandard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test/Filters/FilterPressureCustomizedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test/Filters/FilterPressureCustomizedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Pressure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pressure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Statistics/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics/Stats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Utils/CalculateDay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/CalculateDay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utils/FiltersUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/FiltersUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -367,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609602860121</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Aggiunto package exception e sistemato gui">
+      <created>1609674484920</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1609674484920</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -408,7 +413,8 @@
     <MESSAGE value="Aggiunta classe per convertire da hashmap a vettore di pressioni, piccole correzioni generali nelle altre classi." />
     <MESSAGE value="." />
     <MESSAGE value="Modifica convert + api" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifica convert + api" />
+    <MESSAGE value="Aggiunto package exception e sistemato gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto package exception e sistemato gui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

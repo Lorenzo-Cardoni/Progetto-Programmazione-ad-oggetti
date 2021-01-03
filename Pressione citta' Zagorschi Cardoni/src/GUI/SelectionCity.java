@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
+/**
+ * GUI principale a cui l'utente viene chiesto di inserire il nome della citta'.
+ */
 public class SelectionCity extends JFrame implements ActionListener {
 
     private SelectionInformation window2;
@@ -20,6 +23,10 @@ public class SelectionCity extends JFrame implements ActionListener {
     private ApiController api = new ApiController();
     private ReadFile readFile = new ReadFile();
 
+    /**
+     * Costruttore della classe SelectionCity
+     * @param title
+     */
     public SelectionCity(String title) {
 
         /**
@@ -45,11 +52,6 @@ public class SelectionCity extends JFrame implements ActionListener {
         this.add(panel);
 
 
-        /**
-         * Inizializzo la casella di input dove verra' inserito il nome
-         * della citta'.
-         *
-         */
         citylabel = new JLabel("Name city ");
         panel.add(citylabel);
 
@@ -62,7 +64,6 @@ public class SelectionCity extends JFrame implements ActionListener {
         panel.add(search);
 
 
-
         /**
          * Visualizza la finestra.
          */
@@ -70,29 +71,36 @@ public class SelectionCity extends JFrame implements ActionListener {
 
     }
 
-
+    /**
+     * Metodo relativo al button 'Search' che apre una finestra contenente altre istruzioni.
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
         String cityName = nameCityText.getText();
-        try {
-            if(this.api.callApi(cityName) != "ERROR") {
-
-                this.setVisible(false);
-
-                this.window2 = new SelectionInformation("Selection information", cityName);
-                window2.setVisible(true);
-
-            }
-            else
-                JOptionPane.showMessageDialog(null,"ERROR\nCity not found");
-
+        if(nameCityText.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Insert the name of city");
         }
-        catch(Exception ecc)
+        else
         {
-            System.out.println("ERRORE.");
-            System.out.println("MESSAGGIO: " + ecc.getMessage());
-            System.out.println("CAUSA: " + ecc.getCause());
+            try {
+                if (this.api.callApi(cityName) != "ERROR") {
+
+                    this.setVisible(false);
+
+                    this.window2 = new SelectionInformation("Selection information", cityName);
+                    window2.setVisible(true);
+
+                } else
+                    JOptionPane.showMessageDialog(null, "ERROR\nCity not found");
+
+            } catch (Exception ecc) {
+                System.out.println("ERRORE.");
+                System.out.println("MESSAGGIO: " + ecc.getMessage());
+                System.out.println("CAUSA: " + ecc.getCause());
+            }
         }
 
     }

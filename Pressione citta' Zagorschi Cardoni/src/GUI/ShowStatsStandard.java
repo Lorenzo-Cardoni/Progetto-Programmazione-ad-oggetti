@@ -12,6 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
+/**
+ * Classe che mostra le statistiche di un periodo standard.
+ *
+ */
 public class ShowStatsStandard implements ActionListener {
 
     private String cityName;
@@ -20,13 +24,22 @@ public class ShowStatsStandard implements ActionListener {
     private FilterPressureStandard filter;
     private ReadFile vectorOfPressure = new ReadFile();
 
-
+    /**
+     * Costruttore della classe ShowStatsStandard
+     *
+     * @param days numero giorni del periodo.
+     * @param name nome della citta'.
+     */
     public ShowStatsStandard(int days, String name){
         this.cityName = name;
         this.days = days;
         filter = new FilterPressureStandard(this.days, this.cityName, this.vectorOfPressure.readFile(this.cityName) );
     }
 
+    /**
+     *  Metodo che mostra le statistiche di un periodo standard.
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
