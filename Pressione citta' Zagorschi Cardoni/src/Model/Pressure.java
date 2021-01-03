@@ -23,7 +23,10 @@ public class Pressure {
      * Data della misurazione.
      */
     public String date;
-
+    /**
+     * Costruttore vuoto della classe Pressure
+     */
+    public Pressure(){}
     /**
      * Costruttore della classe Pressure
      * @param valuePressure

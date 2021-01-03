@@ -25,13 +25,6 @@ public class ConvertHashMapToVector {
             pressureObject.value= Float.parseFloat((hashMap.get(array[i].toString())));
             pressures.add(pressureObject);
         }
-        for(int i=0;i<pressures.size();i++){
-            System.out.print(pressures.get(i).nameCity);
-            System.out.print(pressures.get(i).date);
-            System.out.print(pressures.get(i).time);
-            System.out.print(pressures.get(i).value);
-            System.out.print("\n");
-        }
         return pressures;
     }
 }

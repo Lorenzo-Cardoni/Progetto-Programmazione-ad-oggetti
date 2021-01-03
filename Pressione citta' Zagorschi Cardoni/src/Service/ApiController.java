@@ -1,10 +1,9 @@
 package Service;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Properties;
 
 public class ApiController {
     public ApiController() {
@@ -20,8 +19,22 @@ public class ApiController {
     String data;
     JsonParse json;
     Boolean cityExist;
-    static String apiKey = "&appid=39b2f77fcfc40aa96026fc4d80eb9bb0";
+    Properties prop=new Properties();
+    static String apiKey;
+    InputStream is = null;
+
     public String callApi(String city) {
+        try {
+            is = new FileInputStream("src/config.editorconfig");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            prop.load(is);
+            apiKey="&appid=" + prop.getProperty("apiKey");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         cityName="";
         data="";
         json = new JsonParse();
