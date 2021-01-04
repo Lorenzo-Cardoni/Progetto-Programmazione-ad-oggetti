@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Vector;
 
@@ -29,17 +30,15 @@ public class ReadFile {
      * @return Vettore oggetti Pressure
      */
     public Vector<Pressure> readFile(String cityName){
+        cityName=cityName.toLowerCase(Locale.ROOT); //Converte tutti i caratteri maiuscoli di cityName in minuscoli per evitare errori di lettura.
         hashMap = new HashMap<>();
         String line;
         String[] data;
         try (BufferedReader br = new BufferedReader(new FileReader("pressureData.txt"))) {
             while ((line = br.readLine()) != null) {
-                /**
-                 * La riga letta dal file viene splittata in 3 parti: Nome citta', data, valore pressione
-                 */
-                data = line.split(";");
-                if(data[0].equals(cityName)){
-                    hashMap.put((data[0]+";"+data[1]), data[2]);
+                data = line.split(";"); //La riga letta dal file viene splittata in 3 parti: Nome citta', data, valore pressione
+                if(data[0].equals(cityName)){ //Controllo per filtrare la citta' di interesse
+                    hashMap.put((data[0]+";"+data[1]), data[2]); //Popola hashMap
                 }
             }
         } catch (FileNotFoundException e) {
@@ -47,6 +46,6 @@ public class ReadFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return convert.convertHashMapToVector(hashMap);
+        return convert.convertHashMapToVector(hashMap); //Ritorna un vettore di oggetti Pressure richiamando una funzione dell'oggetto convert, che converte l'hashmap contenente i dati
     }
 }

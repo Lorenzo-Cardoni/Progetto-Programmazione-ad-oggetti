@@ -10,11 +10,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Aggiunto file di configurazione, da sistemare caratteri maiuscoli/minuscoli per citta'">
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="JavaDoc aggiunto">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_12_2020_16_38_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Database/ReadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Database/ReadFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Database/WriteFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Database/WriteFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Service/ApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/ApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Service/JsonParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/JsonParse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Utils/ConvertHashMapToVector.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Utils/ConvertHashMapToVector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pressureData.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/ReadFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/WriteFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/WriteFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/JsonParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/JsonParse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utils/ConvertHashMapToVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/ConvertHashMapToVector.java" afterDir="false" />
     </list>
@@ -350,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609701632735</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="JavaDoc aggiunto">
+      <created>1609703495092</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1609703495092</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -393,7 +406,8 @@
     <MESSAGE value="Modifica convert + api" />
     <MESSAGE value="sistemato problemi api" />
     <MESSAGE value="Aggiunto file di configurazione, da sistemare caratteri maiuscoli/minuscoli per citta'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunto file di configurazione, da sistemare caratteri maiuscoli/minuscoli per citta'" />
+    <MESSAGE value="JavaDoc aggiunto" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc aggiunto" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Pressione_citta__Zagorschi_Cardoni$Progetto_Pressione_Meteo.ic" NAME="Progetto Pressione Meteo Coverage Results" MODIFIED="1609094385025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

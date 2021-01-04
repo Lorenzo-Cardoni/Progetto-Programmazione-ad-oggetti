@@ -23,9 +23,11 @@ public class JsonParse {
         pressure = tempJsonObject.getAsJsonObject("main").get("pressure").getAsString();
         city = tempJsonObject.get("name").getAsString();
         wr = new WriteFile();
-        wr.saveData(city, pressure, LocalDateTime.now().truncatedTo(ChronoUnit.HOURS));
+        wr.saveData(city, pressure, LocalDateTime.now().truncatedTo(ChronoUnit.HOURS)); //Tronca la data ricevuta da LocalDateTime.now() eliminando millisecondi, secondi e minuti
     }
-
+    /**
+     * get del valore della pressione pressure
+     */
     public String getPressure(){
         return pressure;
     }

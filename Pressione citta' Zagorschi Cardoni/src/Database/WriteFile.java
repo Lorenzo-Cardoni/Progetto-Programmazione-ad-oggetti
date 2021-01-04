@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Locale;
 
 public class WriteFile {
     /**
@@ -14,6 +15,7 @@ public class WriteFile {
      */
     public void saveData(String city, String pressure, LocalDateTime dateTime) {
         Boolean fileExist = false;
+        city = city.toLowerCase(Locale.ROOT); //Converte tutti i caratteri maiuscoli di cityName in minuscoli per evitare errori nella futura fase di lettura.
         File file = new File("pressureData.txt");
         try {
             if (!file.createNewFile()) {
@@ -25,7 +27,6 @@ public class WriteFile {
         String data = "";
         if (fileExist) data += "\n";
         data += city + ";" + dateTime + ";" + pressure + ";";
-
         FileWriter fr = null;
         try {
             fr = new FileWriter("pressureData.txt", true);
