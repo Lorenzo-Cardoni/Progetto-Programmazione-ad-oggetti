@@ -1,15 +1,14 @@
-import Database.ReadFile;
 import GUI.SelectionCity;
-import Service.ApiController;
 
 public class Main {
     public static void main(String[] args) {
+        /*
+        ApiController api = new ApiController();
+        api.callApi("Pesaro");
+        ReadFile readFile = new ReadFile();
+        readFile.readFile("Pesaro");
 
-        SelectionCity window1 = new SelectionCity("City Name");
-
-        /**
-         * sistemare eccezione file inesistente per read file
          */
-
+        SelectionCity window1 = new SelectionCity("City Name");
     }
 }

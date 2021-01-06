@@ -71,7 +71,6 @@ public class ApiController {
          * In caso contrario, il metodo ritorna il valore della pressione
          */
         if(cityExist){
-             System.out.println(jsonParser.getPressure());
              return jsonParser.getPressure();
          }else {
              System.out.println("ERROR");

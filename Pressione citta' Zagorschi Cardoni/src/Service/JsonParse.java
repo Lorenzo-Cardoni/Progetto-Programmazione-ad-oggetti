@@ -6,11 +6,12 @@ import com.google.gson.JsonParser;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 public class JsonParse {
     String pressure;
     String city;
-    JsonObject tempJsonObject;
+    JsonObject tempJsonObject, jsonObject;
     WriteFile wr;
 
     /**
@@ -21,9 +22,13 @@ public class JsonParse {
     public void parseJsonString(String info){
         tempJsonObject = new JsonParser().parse(info).getAsJsonObject();
         pressure = tempJsonObject.getAsJsonObject("main").get("pressure").getAsString();
-        city = tempJsonObject.get("name").getAsString();
+        city = tempJsonObject.get("name").getAsString().toLowerCase(Locale.ROOT);
+        jsonObject = new JsonObject();
+        jsonObject.addProperty("city", city);
+        jsonObject.addProperty("pressure", pressure);
+        jsonObject.addProperty("date", LocalDateTime.now().truncatedTo(ChronoUnit.HOURS).toString());
         wr = new WriteFile();
-        wr.saveData(city, pressure, LocalDateTime.now().truncatedTo(ChronoUnit.HOURS)); //Tronca la data ricevuta da LocalDateTime.now() eliminando millisecondi, secondi e minuti
+        wr.saveData(jsonObject); //Tronca la data ricevuta da LocalDateTime.now() eliminando millisecondi, secondi e minuti
     }
     /**
      * get del valore della pressione pressure

@@ -1,20 +1,30 @@
 package Database;
 
+import com.google.gson.JsonObject;
+import org.json.simple.JSONArray;
+
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.Locale;
+import java.io.PrintWriter;
 
 public class WriteFile {
-    /**
-     * @param city Stringa contenente il nome della citta' da inserire nel file pressureData.txt
-     * @param pressure Stringa contenente la pressione da inserire nel file pressureData.txt
-     * @param dateTime Stringa contenente la data da inserire nel file pressureData.txt
-     */
-    public void saveData(String city, String pressure, LocalDateTime dateTime) {
+    public void saveData(JsonObject tempJsonObject) {
+        ReadFile fr = new ReadFile();
+        JSONArray jsonArray = new JSONArray();
+        jsonArray = fr.readFile();
+        jsonArray.add(tempJsonObject);
+        try {
+            PrintWriter file_output = new PrintWriter(new BufferedWriter(new FileWriter("pressureData.txt")));
+            file_output.println(jsonArray);
+            file_output.close();
+            System.out.println("File salvato!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*
         Boolean fileExist = false;
+        tempJsonObject.getAsJsonObject("main").get("pressure").getAsString();
         city = city.toLowerCase(Locale.ROOT); //Converte tutti i caratteri maiuscoli di cityName in minuscoli per evitare errori nella futura fase di lettura.
         File file = new File("pressureData.txt");
         try {
@@ -27,7 +37,6 @@ public class WriteFile {
         String data = "";
         if (fileExist) data += "\n";
         data += city + ";" + dateTime + ";" + pressure + ";";
-        FileWriter fr = null;
         try {
             fr = new FileWriter("pressureData.txt", true);
             BufferedWriter br = new BufferedWriter(fr);
@@ -37,5 +46,6 @@ public class WriteFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
     }
 }
