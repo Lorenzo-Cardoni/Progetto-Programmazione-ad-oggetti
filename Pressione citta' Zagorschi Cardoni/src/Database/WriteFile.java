@@ -1,7 +1,7 @@
 package Database;
 
-import com.google.gson.JsonObject;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -9,11 +9,22 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class WriteFile {
-    public void saveData(JsonObject tempJsonObject) {
+    public void saveData(JSONObject tempJsonObject) {
+        Boolean flag=false;
         ReadFile fr = new ReadFile();
         JSONArray jsonArray = new JSONArray();
         jsonArray = fr.readFile();
-        jsonArray.add(tempJsonObject);
+        for(int i=0;i<jsonArray.size();i++){
+            JSONObject job = new JSONObject();
+            job = (JSONObject) jsonArray.get(i);
+            if(job.get("city").toString().equals(tempJsonObject.get("city").toString())){
+                if(job.get("date").toString().equals(tempJsonObject.get("date").toString())){
+                    jsonArray.set(i,tempJsonObject);
+                    flag=true;
+                }
+            }
+        }
+        if(!flag)jsonArray.add(tempJsonObject);
         try {
             PrintWriter file_output = new PrintWriter(new BufferedWriter(new FileWriter("pressureData.txt")));
             file_output.println(jsonArray);
