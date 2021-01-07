@@ -10,16 +10,19 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment=".">
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Sistemato problema caratteri maiuscoli/minuscoli in lettura/scrittura. Aggiunti commenti">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_12_2020_21_17_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_12_2020_13_45_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_12_2020_16_31_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Database/ReadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Database/ReadFile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionCity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/SelectionInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/SelectionInformation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/GUI/ShowInformation.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/GUI/ShowInformation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pressureData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pressureData.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database/WriteFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/WriteFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/JsonParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/JsonParse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Filters/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Filters/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionCity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionCity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/SelectionInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SelectionInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/ShowInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ShowInformation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,8 +134,8 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Progetto Pressione Meteo" />
-      <item itemvalue="JUnit.FilterPressureStandardTest" />
       <item itemvalue="JUnit.FilterPressureCustomizedTest" />
+      <item itemvalue="JUnit.FilterPressureStandardTest" />
     </list>
     <recent_temporary>
       <list>
@@ -367,14 +370,7 @@
       <option name="project" value="LOCAL" />
       <updated>1609787923427</updated>
     </task>
-    <task id="LOCAL-00032" summary=".">
-      <created>1609844265517</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1609844265517</updated>
-    </task>
-    <option name="localTasksCounter" value="33" />
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,29 +409,13 @@
     <MESSAGE value="Modifica Json e Api, Aggiunto package Database" />
     <MESSAGE value="Modifica classe readfile" />
     <MESSAGE value="Aggiunta classe per convertire da hashmap a vettore di pressioni, piccole correzioni generali nelle altre classi." />
+    <MESSAGE value="." />
     <MESSAGE value="Modifica convert + api" />
     <MESSAGE value="sistemato problemi api" />
     <MESSAGE value="Aggiunto file di configurazione, da sistemare caratteri maiuscoli/minuscoli per citta'" />
     <MESSAGE value="JavaDoc aggiunto" />
     <MESSAGE value="Sistemato problema caratteri maiuscoli/minuscoli in lettura/scrittura. Aggiunti commenti" />
-    <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Database/ReadFile.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="((org.json.simple.JSONArray)((HashMap.Node)job.entrySet().toArray()[0]).getValue()).get(1)" custom="org.json.simple.JSONArray,java.util.HashMap.Node" />
-      </configuration>
-    </watches-manager>
+    <option name="LAST_COMMIT_MESSAGE" value="Sistemato problema caratteri maiuscoli/minuscoli in lettura/scrittura. Aggiunti commenti" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Pressione_citta__Zagorschi_Cardoni$Progetto_Pressione_Meteo.ic" NAME="Progetto Pressione Meteo Coverage Results" MODIFIED="1609094385025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

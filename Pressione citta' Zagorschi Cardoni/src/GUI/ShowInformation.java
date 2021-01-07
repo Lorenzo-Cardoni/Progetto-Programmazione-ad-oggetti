@@ -11,14 +11,16 @@ import java.awt.event.ActionListener;
  */
 public class ShowInformation implements ActionListener {
     private String cityName;
-    private ApiController valueOfPressure = new ApiController();
+    private String valuePressure;
 
     /**
      * Costruttore della classe ShowInformation
      * @param name nome della citta'.
      */
-    public ShowInformation(String name){
+    public ShowInformation(String name, String valuePressure){
         this.cityName = name;
+        this.valuePressure = valuePressure;
+
     }
 
     /**
@@ -28,6 +30,6 @@ public class ShowInformation implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(null,"La pressione nella citta' "+this.cityName+" e': "
-                +this.valueOfPressure.callApi(this.cityName)+"Pa");
+                +this.valuePressure+" Pa");
     }
 }

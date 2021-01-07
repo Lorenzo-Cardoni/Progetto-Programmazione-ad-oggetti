@@ -86,20 +86,21 @@ public class SelectionCity extends JFrame implements ActionListener {
         else
         {
             try {
-                if (this.api.callApi(cityName) != "ERROR") {
+
+                String support = this.api.callApi(cityName);
+                if (support != "ERROR") {
 
                     this.setVisible(false);
 
-                    this.window2 = new SelectionInformation("Selection information", cityName);
+                    this.window2 = new SelectionInformation("Selection information", cityName,support);
                     window2.setVisible(true);
 
                 } else
                     JOptionPane.showMessageDialog(null, "ERROR\nCity not found");
 
             } catch (Exception ecc) {
-                System.out.println("ERRORE.");
-                System.out.println("MESSAGGIO: " + ecc.getMessage());
-                System.out.println("CAUSA: " + ecc.getCause());
+                System.out.println("ERROR.");
+                System.out.println("MESSAGGE: " + ecc.getMessage());
             }
         }
 

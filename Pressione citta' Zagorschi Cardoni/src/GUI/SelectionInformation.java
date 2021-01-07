@@ -1,5 +1,7 @@
 package GUI;
 
+import Service.ApiController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,6 +17,7 @@ public class SelectionInformation extends JFrame implements ActionListener {
     private float pressureValue;
     private SelectionPeriod window3;
     private JPanel panel1;
+    private String valuePressure;
 
     /**
      * Costruttore della classe SelectionInformation.
@@ -22,9 +25,11 @@ public class SelectionInformation extends JFrame implements ActionListener {
      * @param title nome della finestra.
      * @param name nome della citta'.
      */
-    public SelectionInformation(String title, String name){
+    public SelectionInformation(String title, String name, String valuePressureApi){
 
         super(title);
+
+        this.valuePressure = valuePressureApi;
         /**
          * Imposta la dimensione della finestra.
          *
@@ -49,7 +54,7 @@ public class SelectionInformation extends JFrame implements ActionListener {
         this.cityName = name;
 
         JButton current_pressure = new JButton("Current pressure");
-        current_pressure.addActionListener(new ShowInformation(this.cityName));
+        current_pressure.addActionListener(new ShowInformation(this.cityName,this.valuePressure));
         panel.add(current_pressure, BorderLayout.WEST);
 
         JButton statsPressure = new JButton("Stats of pressure");
