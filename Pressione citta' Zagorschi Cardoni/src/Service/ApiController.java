@@ -10,14 +10,14 @@ public class ApiController {
      * ApiController() Costruttore vuoto
      */
     public ApiController() {}
-    String cityName;
-    HttpURLConnection con;
-    String apiData;
-    JsonParse jsonParser;
-    Boolean cityExist;
-    Properties prop;
-    static String apiKey;
-    InputStream is = null;
+    private String cityName;
+    private HttpURLConnection con;
+    private String apiData;
+    private JsonParse jsonParser;
+    private Boolean cityExist;
+    private Properties prop;
+    private static String apiKey;
+    private InputStream is = null;
 
     /**
      *

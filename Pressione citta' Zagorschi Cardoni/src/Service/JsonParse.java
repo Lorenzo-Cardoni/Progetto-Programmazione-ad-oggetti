@@ -10,10 +10,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.Locale;
 
 public class JsonParse {
-    String pressure;
-    String city;
-    JSONObject tempJsonObject, jsonObject;
-    WriteFile wr;
+    private String pressure;
+    private String city;
+    private JSONObject tempJsonObject, jsonObject;
+    private WriteFile wr;
 
     /**
      * Questo metodo estrae dalla stringa info (formattata in Json) inserendoli in un oggetto JSONObject

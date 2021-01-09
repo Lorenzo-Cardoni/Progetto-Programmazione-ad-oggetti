@@ -21,7 +21,7 @@ public class ReadFile {
      */
     Map<String, String> hashMap;
     ConvertHashMapToVector convert = new ConvertHashMapToVector();
-    JSONArray jsonArray;
+    private JSONArray jsonArray;
 
     /**
      * @return Ritorna un JSONArray contenente tutti i dati letti dal file in formato JSON
