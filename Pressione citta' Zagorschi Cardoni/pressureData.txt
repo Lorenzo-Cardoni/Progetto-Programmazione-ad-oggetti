@@ -1,1 +1,0 @@
-[{"date":"2021-01-07T15:00","city":"pesaro","pressure":"1057"},{"date":"2021-01-07T16:00","city":"pesaro","pressure":"1023"},{"date":"2021-01-07T17:00","city":"pesaro","pressure":"1040"},{"date":"2021-01-07T18:00","city":"pesaro","pressure":"1013"},{"date":"2021-01-07T17:00","city":"fano","pressure":"1015"},{"date":"2021-01-07T18:00","city":"fano","pressure":"1014"}]

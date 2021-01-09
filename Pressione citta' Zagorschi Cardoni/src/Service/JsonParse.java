@@ -29,9 +29,9 @@ public class JsonParse {
             jsonObject = new JSONObject();
             jsonObject.put("city",city.toLowerCase(Locale.ROOT));
             jsonObject.put("pressure",pressure);
-            jsonObject.put("date", LocalDateTime.now().truncatedTo(ChronoUnit.HOURS).toString());
+            jsonObject.put("date", LocalDateTime.now().truncatedTo(ChronoUnit.HOURS).toString()); //Tronca la data ricevuta da LocalDateTime.now() eliminando millisecondi, secondi e minuti
             wr = new WriteFile();
-            wr.saveData(jsonObject); //Tronca la data ricevuta da LocalDateTime.now() eliminando millisecondi, secondi e minuti
+            wr.saveData(jsonObject);
 
         } catch (ParseException e) {
             e.printStackTrace();

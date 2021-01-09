@@ -25,9 +25,6 @@ public class ApiController {
      * @return
      */
     public String callApi(String city) {
-        /**
-         * @param prop conterra' la chiave api letta dal file di configurazione config.editorconfig
-         */
         prop = new Properties();
         try {
             is = new FileInputStream("src/config.editorconfig");

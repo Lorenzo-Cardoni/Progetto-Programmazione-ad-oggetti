@@ -10,15 +10,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment=".">
+    <list default="true" id="c8633d02-6b56-4fde-8f62-11596602f44e" name="Default Changelist" comment="Sistemato problema salvataggio multiplo dati nel file da chiamata api nella stessa ora, utilizzo di json simple in tutte le classi anziche' gson">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Database/ReadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Database/ReadFile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Database/WriteFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Database/WriteFile.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Service/ApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/ApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Service/JsonParse.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Service/JsonParse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pressureData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pressureData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pressureData.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Database/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/ReadFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Database/WriteFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Database/WriteFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/JsonParse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/JsonParse.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -374,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609844265517</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Sistemato problema salvataggio multiplo dati nel file da chiamata api nella stessa ora, utilizzo di json simple in tutte le classi anziche' gson">
+      <created>1610040894196</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1610040894196</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -419,7 +428,8 @@
     <MESSAGE value="JavaDoc aggiunto" />
     <MESSAGE value="Sistemato problema caratteri maiuscoli/minuscoli in lettura/scrittura. Aggiunti commenti" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Sistemato problema salvataggio multiplo dati nel file da chiamata api nella stessa ora, utilizzo di json simple in tutte le classi anziche' gson" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sistemato problema salvataggio multiplo dati nel file da chiamata api nella stessa ora, utilizzo di json simple in tutte le classi anziche' gson" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
