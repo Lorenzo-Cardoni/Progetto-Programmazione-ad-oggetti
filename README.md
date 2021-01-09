@@ -5,13 +5,13 @@ Il progetto permette all'utente di visualizzare la pressione di una certa città
 In fase di progettazione sono stati disegnati i seguenti diagrammi UML. Durante la realizzazione del progetto sono state eseguite varie modifiche a seconda delle esigenze. Le modifiche effettuate sono riportate sotto al proprio diagramma UML.
 
 # Use case diagram
-!(./images/UseCase1.jpg)
+![](./images/UseCase1.jpg)
 * l'utente si interfaccia al programma attraverso una GUI, a seconda dell'operazione scelta si esegue una certa richiesta. 
   Show Stats applica un filtro ai dati nel database, che vengono parsati da un'apposita classe. Succesivamente si creano le statistiche che vengono mostrate all'utente.
   I dati presenti nel database sono ottenuti, in formato JSON, da delle chiamate API.
   
 # Class diagram
-!(./images/ClassDiagram.jpg)
+![](./images/ClassDiagram.jpg)
 * Model: package contenente il formato dei dati.
 * GUI: package con classi che implementano la GUI con cui l'utente interagirà.
 * Service: package che si interfaccia all'API Openwheter, ottenendo i dati e parsandoli a seconda della necessità.
@@ -23,7 +23,7 @@ Nota: Nell'UML non sono presenti i seguenti package
 * Utils: package contenente delle classi che sono richiamate in altri classi.
 
 # Sequence diagram
-!(./images/SequenceDiagram.jpg)
+![](./images/SequenceDiagram.jpg)
 La GUI richiamail metodo getpressure della classe APIController che effettuerà un richiesta all'API di OpenWeather ottenedo in risposta i dati in formato JSON. I dati saranno parsati dalla classe JsonParse e scritti nel dataBase. La pressione ricevuta e parsata sarà visualizzata dalla GUI.
 
 La GUI richiama con il metodo getStats della classe Filter che leggerà i dati presenti nel dataBase attraverso il metodo readData. I dati saranno ritornati come un vettore di pressioni costruito dalla classe BuildinVectorPressure. Successivamente con i dati ottenuti si creano le statistiche richiamando il metodo createStats della classe Stats. Una volta ottenute le statistiche veranno visualizzate dalla GUI. 
