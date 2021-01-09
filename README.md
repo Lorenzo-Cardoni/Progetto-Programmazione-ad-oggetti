@@ -5,7 +5,7 @@ Il progetto permette all'utente di visualizzare la pressione di una certa città
 In fase di progettazione sono stati disegnati i seguenti diagrammi UML. Durante la realizzazione del progetto sono state eseguite varie modifiche a seconda delle esigenze. Le modifiche effettuate sono riportate sotto al proprio diagramma UML.
 
 # Use case diagram
-![](./images/UseCase1.jpg)
+![](./images/UsaCase1.jpg)
 * l'utente si interfaccia al programma attraverso una GUI, a seconda dell'operazione scelta si esegue una certa richiesta. 
   Show Stats applica un filtro ai dati nel database, che vengono parsati da un'apposita classe. Succesivamente si creano le statistiche che vengono mostrate all'utente.
   I dati presenti nel database sono ottenuti, in formato JSON, da delle chiamate API.
