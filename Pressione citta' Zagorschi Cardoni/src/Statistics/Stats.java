@@ -76,7 +76,7 @@ public class Stats {
 
     /**
      * Getter della media.
-     * @return
+     * @return media
      */
     public float getAverage(){
         return this.average;
@@ -84,14 +84,15 @@ public class Stats {
 
     /**
      * Getter della Varianza
-     * @return
+     * @return Varianza
      */
     public float getVariance(){
 
         this.average = this.getAverage();
-
+        this.count = 0;
         for(Pressure p : pressure){
-            this.variance += (p.getValue()-this.average)*(p.getValue()-this.average);
+            this.variance += Math.pow(p.getValue()-this.average,2);
+            this.count++;
         }
 
         return this.variance /= this.count;
@@ -99,13 +100,13 @@ public class Stats {
 
     /**
      * Getter del valore minimo
-     * @return
+     * @return Valore minimo
      */
     public float getVal_min(){ return this.val_min;}
 
     /**
      * getter del valore massimo
-     * @return
+     * @return Valore massimo
      */
     public float getVal_max(){ return this.val_max;}
 

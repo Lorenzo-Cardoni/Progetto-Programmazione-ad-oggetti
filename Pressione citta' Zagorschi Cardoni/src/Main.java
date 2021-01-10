@@ -1,10 +1,18 @@
 import GUI.SelectionCity;
 
+/**
+ * Classe Main del programma che gestisce l'avvio del programma
+ */
 public class Main {
+    /**
+     * Metodo main che fa partire l'applicazione
+     * @param args nome della finestra principale
+     */
     public static void main(String[] args) {
 
-        //ApiController api = new ApiController();
-        //api.callApi("Pesaro");
-        SelectionCity window1 = new SelectionCity("City Name");
+        /**
+         * Finestra principale della GUI-
+         */
+        new SelectionCity("City Name");
     }
 }

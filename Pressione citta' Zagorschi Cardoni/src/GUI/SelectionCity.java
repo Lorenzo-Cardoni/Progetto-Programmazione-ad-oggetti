@@ -92,7 +92,7 @@ public class SelectionCity extends JFrame implements ActionListener {
 
                     this.setVisible(false);
 
-                    this.window2 = new SelectionInformation("Selection information", cityName,support);
+                    this.window2 = new SelectionInformation(cityName, cityName,support);
                     window2.setVisible(true);
 
                 } else

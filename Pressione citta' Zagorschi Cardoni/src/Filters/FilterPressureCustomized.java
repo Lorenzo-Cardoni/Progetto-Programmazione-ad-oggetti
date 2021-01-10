@@ -98,6 +98,7 @@ public class FilterPressureCustomized implements Filter{
             System.out.println("MESSAGE: Formato data finale errato");
         }
 
+
         this.utils = new FiltersUtil();
         this.pressures = allPressures;
     }
@@ -107,6 +108,18 @@ public class FilterPressureCustomized implements Filter{
      * @return
      */
     public String filtersPressure() {
+
+        /**
+         * Se l'utente inserisce le date nell'ordine scorretto, il programma non fara' partire
+         * una eccezione, ma invertira' le date.
+         *
+         */
+        if(this.endPeriod.isBefore(this.startPeriod)){
+            LocalDate appoggio;
+            appoggio = this.endPeriod;
+            this.endPeriod = this.startPeriod;
+            this.startPeriod = appoggio;
+        }
 
         this.pressureFiltred = this.utils.getPressureFiltred(this.pressures,this.startPeriod,this.endPeriod);
 

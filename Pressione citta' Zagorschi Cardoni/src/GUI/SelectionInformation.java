@@ -77,7 +77,7 @@ public class SelectionInformation extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        this.window3 = new SelectionPeriod("Selection period", this.cityName);
+        this.window3 = new SelectionPeriod("Selection period of "+this.cityName, this.cityName);
         this.window3.setVisible(true);
 
     }
