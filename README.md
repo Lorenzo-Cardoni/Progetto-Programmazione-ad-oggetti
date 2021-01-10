@@ -1,6 +1,20 @@
 ## Progetto OPENWEATHER - Città, pressione 
 Il progetto permette all'utente di visualizzare la pressione di una certa città e le statistiche di un determinato periodo.
 
+## Come usare l'applicazione
+1. Scaricare codice sorgente
+2. Aprire il progetto tramite un IDE
+3. Aprire la cartella src del progetto
+4. Fare il run della classe main
+* Una volta avviato comparira' la seguente schermata che chiedera' all'utente di inserire un nome di una citta'(come ad esempio Agugliano o Pesaro). Se la citta' non esiste comparira' un messaggio.
+* Verra' chiesto all'utente se vuole visualizzare la pressione attuale o le statistiche di un determinato periodo.
+* La pressione attuale verra' mostrata con una finestra
+* Per visualizzare le statistiche di un periodo, si possono scegliere tra 3 periodi già pre-ipostati(giornaliero, settimanale e mensile) oppure un periodo personalizzato dall'utente.
+* Schermata statistiche
+* Per scegliere un periodo personalizzato ci sar' una apposita finestra dove inserire la data iniziale e la data finale. Se non si inseriscono le date, l'applicazione fara' comparire un messaggio di errore. Le date dovranno essere inserite nel formato "aaaa-mm-dd" e se verrano inserite in un formato errato l'utente sara' allertato da un messaggio.
+L'ordine delle due date e' irrilevante, in quanto sara' il programma ad occuparsi di quale data viene prima o dopo.
+* Per chiudere il programma chiudere tutte le finestre.
+
 ## UML
 In fase di progettazione sono stati disegnati i seguenti diagrammi UML. Durante la realizzazione del progetto sono state eseguite varie modifiche a seconda delle esigenze. Le modifiche effettuate sono riportate sotto al proprio diagramma UML.
 
