@@ -53,9 +53,9 @@ In fase di progettazione sono stati disegnati i seguenti diagrammi UML. Durante 
 * GUI: package con classi che implementano la GUI con cui l'utente interagirà.
 * Service: package che si interfaccia all'API Openwheter, ottenendo i dati e parsandoli a seconda della necessità.
 * Filters: package contenente una interfaccia per le classi filterPressureStandard e filterPressureCustomized. Le classi prenderanno in input un periodo, una città e i dati presenti nel database e in output un vettore contenente le pressioni filtrate. Il fitro standard avrà un periodo predefinito dal programmatore (un giorno, una settimana ed un mese), mentre il filtro personalizzato filtrerà i dati a seconda di un periodo deciso dall'utente.
-*Statistics: package contenente la classe Stats che prende in input un vettore di pressioni e ne genera le relative statistice.
+* Statistics: package contenente la classe Stats che prende in input un vettore di pressioni e ne genera le relative statistice.
 
-Nota: Nell'UML non sono presenti i seguenti package
+**Note**: Nell'UML non sono presenti i seguenti package
 * DataBase: package che permette di gestire i dati in un file .txt
 * Utils: package contenente delle classi che sono richiamate in altri classi.
 
@@ -66,7 +66,9 @@ La GUI richiamail metodo getpressure della classe APIController che effettuerà 
 
 La GUI richiama con il metodo getStats della classe Filter che leggerà i dati presenti nel dataBase attraverso il metodo readData. I dati saranno ritornati come un vettore di pressioni costruito dalla classe BuildinVectorPressure. Successivamente con i dati ottenuti si creano le statistiche richiamando il metodo createStats della classe Stats. Una volta ottenute le statistiche veranno visualizzate dalla GUI. 
 
-Nota: durente la scrittura del codice sono stati cambiati i nomi di alcuni metodi/classi, ma le loro funzionalità sono rimaste invariate.
+**Note**: 
+* Durente la scrittura del codice sono stati cambiati i nomi di alcuni metodi/classi, ma le loro funzionalità sono rimaste invariate.
+* Nel diagramma delle sequenze è un metodo della classe filtro che restituisce le statistiche, mentre nel codice le statistiche sono create direttamente nella GUI.
 
 ## GUI
 L'interfaccia grafica è molto semplice ed è stata inserita per testare il funzionamento del programma. Per ogni operazione dell'utente si apre una nuova finestra e la chiusura della finestra SelectionInformation ferma l'esecuzione del programma. Ogni classe della GUI estende JFrame. 
@@ -92,13 +94,13 @@ In fase di progettazione la classe stats per ogni valore da trovare aveva il pro
 ![](./images/formula-varianza.gif)
 
 ## Filters
-Si sono creati due diversi filtri. Entrambe le classi creano le statistiche al loro interno tramite una istanza della classe Stats e fornisce in output le varie statistiche a seconda del periodo scelto.
-* Il *filtro standard* è stato progettato per dare all'utente dei periodi già predefiniti. La classe prende in input il numero di giorni del periodo, il nome della città e il vettore contenente tutte le pressioni di una determinata città. Il periodo che si va a filtrare può essere il giorno attuale, l'ultima settimana (7 giorni) o l'ultimo mese (31 giorni che possono essere cambiati in 30 giorni nel codice). Quindi il primo filtro prende la data attuale, che sarà la data di fine periodo, e da quest'ultima si sottraggono il numero di giorni che si vogliono misurare, ottenedo la data di inizio periodo.
-* Il *filtro personalizzato* prende in input le date del periodo da filtrare (il filtraggio comprende le date inserite) e il vettore contenente le pressioni di una città.In output si ottengono le statistiche relative a quel periodo. Le date dovranno essere inserite nel fomato "aaaa-mm-dd", in caso contrario si riscontrera in un errore. All'interno del costruttore si verifica che le due date inserite siano nel formato corretto, in caso contrario si avvisa l'utente dell'errore con un messaggio.
+Si sono creati due diversi filtri. Entrambe le classi forniscono in output i vettori con le pressioni filtrate.
+* Il *filtro standard* è stato progettato per dare all'utente dei periodi già predefiniti. La classe prende in input il numero di giorni del periodo e il vettore contenente tutte le pressioni di una determinata città. Il periodo che si va a filtrare può essere il giorno attuale, l'ultima settimana (7 giorni) o l'ultimo mese (31 giorni che possono essere cambiati in 30 giorni nel codice). Quindi il primo filtro prende la data attuale, che sarà la data di fine periodo, e da quest'ultima si sottraggono il numero di giorni che si vogliono misurare, ottenedo la data di inizio periodo.
+* Il *filtro personalizzato* prende in input le date del periodo da filtrare (il filtraggio comprende le date inserite) e il vettore contenente le pressioni di una città. Le date dovranno essere inserite nel fomato "aaaa-mm-dd", in caso contrario si riscontrera in un errore. All'interno del costruttore si verifica che le due date inserite siano nel formato corretto, in caso contrario si avvisa l'utente dell'errore con un messaggio.
 
 **Note**: 
 * Il nome della città inserito in input non è utilizzato all'interno delle classi, in quanto si occuperà un'altra classe a filtrare il nome della città. 
-* In fase di progettazione le due classi non dovevano fornire le statistiche in output, ma solamente il vettore filtrato. 
+* In fase di progettazione i metodi delle due classi dovevano fornire le statistiche in output e non solamente il vettore filtrato. 
 * La crezione del vettore filtrato avviene mediante la classe *FiltersUtil* presente nel package *Utils*
 
 ## Test
@@ -107,7 +109,6 @@ Nel progetto è presente un package test contenete dei test per testare delle cl
 **Nota**: Il test della classe FilterPressureStandard per risultare corretto, si devono cambiare le date delle pressioni inserite, in quanto filtra le pressioni dell'ultima settimana attuale.
 
 ## Possibili miglioramenti
-* Creare le statistiche direttamente nella GUI e non nella classe filtro
 * Migliorare la GUI
 
 ## Autori
