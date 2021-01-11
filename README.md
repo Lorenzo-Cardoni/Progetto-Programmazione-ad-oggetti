@@ -62,13 +62,28 @@ In fase di progettazione sono stati disegnati i seguenti diagrammi UML. Durante 
 # Sequence diagram
 
 ![](./images/SequenceDiagram.jpg)
-La GUI richiamail metodo getpressure della classe APIController che effettuerà un richiesta all'API di OpenWeather ottenedo in risposta i dati in formato JSON. I dati saranno parsati dalla classe JsonParse e scritti nel dataBase. La pressione ricevuta e parsata sarà visualizzata dalla GUI.
+La GUI richiama il metodo callApi della classe APIController che effettuerà un richiesta all'API di OpenWeather ottenedo in risposta i dati in formato JSON. I dati saranno parsati dalla classe JsonParse e scritti nel dataBase (prima della scrittura viene effettuata una lettura del file per verificare che non ci siano dati uguali a quelli che devono essere salvati, in modo da non creare duplicati). La pressione ricevuta e parsata sarà visualizzata dalla GUI.
 
-La GUI richiama con il metodo getStats della classe Filter che leggerà i dati presenti nel dataBase attraverso il metodo readData. I dati saranno ritornati come un vettore di pressioni costruito dalla classe BuildinVectorPressure. Successivamente con i dati ottenuti si creano le statistiche richiamando il metodo createStats della classe Stats. Una volta ottenute le statistiche veranno visualizzate dalla GUI. 
+La GUI richiama con il metodo getStats della classe Filter che leggerà i dati presenti nel dataBase attraverso il metodo readFile. I dati saranno ritornati come un vettore di tipo Pressure (contenente pressione e relativa chiave in formato String) costruito dalla classe BuildinVectorPressure. Successivamente con i dati ottenuti si creano le statistiche richiamando il metodo createStats della classe Stats. Una volta ottenute le statistiche veranno visualizzate dalla GUI. 
 
 **Note**: 
 * Durente la scrittura del codice sono stati cambiati i nomi di alcuni metodi/classi, ma le loro funzionalità sono rimaste invariate.
 * Nel diagramma delle sequenze è un metodo della classe filtro che restituisce le statistiche, mentre nel codice le statistiche sono create direttamente nella GUI.
+
+## SERVICE
+Questo package contiene le due classi ApiController e JsonParse utilizzate rispettivamente per effettuare una chiamata api e parsare la risposta da String (formattata in Json) all'interno di un oggetto JSONObject.
+
+*ApiController Utilizza come metodo di chiamata api callApi avente come parametro il nome della città. La connessione viene effettuata a openweathermap utilizzando una chiave salvata nel file di configurazione config.editorconfig presente all'interno della cartella src del progetto. Una volta effettuata la connessione e scaricati i dati, questi vengono poi parsati grazie all'oggetto jsonParser. ApiController presenta inoltre un altro metodo startApi() che avvia un timer grazie al quale ogni ora vengono effettuate chiamate api in modo automatico (utilizzando una lista di citta' predefinite: pesaro, fano, agugliano).
+
+*JsonParse attraverso il metodo parseJsonString() avente come parametro una stringa contenente i dati della chiamata api li inserisce in un oggetto JSONObject.
+Il metodo richiama poi WriteFile grazie al quale salvera' l'oggetto JSONObject nel file pressureData.txt
+
+## DATABASE
+Questo package si occupa della lettura/scrittura dei dati all'interno del file pressureData.txt contenente dati formattati in Json.
+
+*ReadFile presenta due metodi readFile() e readFile(tempCityName) per leggere il file pressureData.txt, il primo ritorna un elenco completo delle pressioni con relativa citta' e data, mentre il secondo applica un filtro per quanto riguarda la citta'. Il metodo readFile() viene utilizzato dall'oggetto WriteFile, ritornando un JSONArray contenente i dati, mentre Il metodo readFile(tempCityName) utilizza un hashmap per salvare temporaneamente i dati, per poi ritornare attraverso l'oggetto convert di tipo ConvertHashMapToVector un vettore di tipo Pressure (readFile(tempCityName) viene utilizzato dalla GUI per creare delle statistiche).
+
+*WriteFile presenta un unico metodo saveData(JSONObject tempJsonObject) avente come parametro un JSONObject. Prima di salvare i dati viene effettuata una lettura del file pressureData.txt con l'oggetto ReadFile che ritorna un JSONArray. I due oggetti JSONObject e JSONArray (opportunamente gestito) vengono confrontati per verificare se esistono dati uguali (quindi stessa citta' e stessa data/orario) in modo da non creare duplicati. In seguito il JSONObject viene aggiunto al JSONArray e salvato nel file. Esempio di eventuale eccezione, come l'inesistenza del file e' stata gestita in modo opportuno, con la creazione di un nuovo file pressureData.txt
 
 ## GUI
 L'interfaccia grafica è molto semplice ed è stata inserita per testare il funzionamento del programma. Per ogni operazione dell'utente si apre una nuova finestra e la chiusura della finestra SelectionInformation ferma l'esecuzione del programma. Ogni classe della GUI estende JFrame. 
