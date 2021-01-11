@@ -4,6 +4,7 @@ package GUI;
 import Database.ReadFile;
 import Filters.FilterPressureStandard;
 import Model.Pressure;
+import Statistics.Stats;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -43,6 +44,19 @@ public class ShowStatsStandard implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        /**
+         * crea un riferimento alla classe dove risiedono i metodi delle statistiche.
+         *
+         */
+        Stats statistics = new Stats(this.filter.filtersPressure());
+
+        /**
+         * crea le varie statistiche.
+         *
+         */
+        statistics.createStats();
+
+
         String message;
 
         switch (this.days){
@@ -62,6 +76,7 @@ public class ShowStatsStandard implements ActionListener {
         }
 
         JOptionPane.showMessageDialog(null,"Le statistiche della pressione nella citta' "+this.cityName+message+" sono:\n"
-                +this.filter.filtersPressure());
+                +"Minimum value is "+statistics.getVal_min()+"\nMaximum value is "+statistics.getVal_max()+
+                "\nAvarege is "+statistics.getAverage()+"\nVariance is "+statistics.getVariance());
     }
 }

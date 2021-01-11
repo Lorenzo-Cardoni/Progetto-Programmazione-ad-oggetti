@@ -104,10 +104,10 @@ public class FilterPressureCustomized implements Filter{
     }
 
     /**
-     * Metodo che mi ritorna in output una stringa con le statistiche
+     * Metodo che mi ritorna in output il vettore di pressioni filtrato
      * @return
      */
-    public String filtersPressure() {
+    public Vector<Pressure> filtersPressure() {
 
         /**
          * Se l'utente inserisce le date nell'ordine scorretto, il programma non fara' partire
@@ -123,23 +123,6 @@ public class FilterPressureCustomized implements Filter{
 
         this.pressureFiltred = this.utils.getPressureFiltred(this.pressures,this.startPeriod,this.endPeriod);
 
-        /**
-         * crea un riferimento alla classe dove risiedono i metodi delle statistiche.
-         *
-         */
-        Stats statistics = new Stats(this.pressureFiltred);
-
-        /**
-         * crea le varie statistiche.
-         *
-         */
-        statistics.createStats();
-
-        /**
-         * Output di tipo stringa composto dai metodi della classe Stats.
-         *
-         */
-        return "Minimum value is "+statistics.getVal_min()+"\nMaximum value is "+statistics.getVal_max()+
-                "\nAvarege is "+statistics.getAverage()+"\nVariance is "+statistics.getVariance();
+        return this.pressureFiltred;
     }
 }

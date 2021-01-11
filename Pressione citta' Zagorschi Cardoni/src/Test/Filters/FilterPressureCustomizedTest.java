@@ -56,7 +56,6 @@ class FilterPressureCustomizedTest {
     @Test
     public void testFiltersPressure() {
 
-        assertEquals("Minimum value is 1000.0\nMaximum value is 1100.0\nAvarege is 1050.0\nVariance is 2500.0",
-                this.filtro.filtersPressure());
+        assertEquals(this.pressures1, this.filtro.filtersPressure());
     }
 }

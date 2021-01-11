@@ -3,6 +3,7 @@ package GUI;
 import Database.ReadFile;
 import Filters.FilterPressureCustomized;
 import Exception.*;
+import Statistics.Stats;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -81,6 +82,7 @@ public class SelectionDate extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+
         try {
             this.filter = new FilterPressureCustomized(startDateText.getText(), endDateText.getText(), vectorOfPressure.readFile(this.cityName));
         } catch (PressureException pressureException) {
@@ -89,8 +91,13 @@ public class SelectionDate extends JFrame implements ActionListener {
 
         if(this.filter != null)
         {
+            Stats statistics = new Stats(this.filter.filtersPressure());
+
+            statistics.createStats();
+
             JOptionPane.showMessageDialog(null, "Le statistiche della pressione nella citta' " + this.cityName + " sono:\n"
-                    + this.filter.filtersPressure());
+                    + "Minimum value is "+statistics.getVal_min()+"\nMaximum value is "+statistics.getVal_max()+
+                    "\nAvarege is "+statistics.getAverage()+"\nVariance is "+statistics.getVariance());
         }
     }
 

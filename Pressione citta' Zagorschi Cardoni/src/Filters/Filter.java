@@ -1,5 +1,9 @@
 package Filters;
 
+import Model.Pressure;
+
+import java.util.Vector;
+
 public interface Filter {
 
     /**
@@ -7,6 +11,6 @@ public interface Filter {
      * @return
      *
      */
-    public String filtersPressure();
+    public Vector<Pressure> filtersPressure();
 
 }
