@@ -73,7 +73,9 @@ La GUI richiama con il metodo getStats della classe Filter che leggerà i dati p
 ## SERVICE
 Questo package contiene le due classi ApiController e JsonParse utilizzate rispettivamente per effettuare una chiamata api e parsare la risposta da String (formattata in Json) all'interno di un oggetto JSONObject.
 
-*ApiController Utilizza come metodo di chiamata api callApi avente come parametro il nome della città. La connessione viene effettuata a openweathermap utilizzando una chiave salvata nel file di configurazione config.editorconfig presente all'interno della cartella src del progetto. Una volta effettuata la connessione e scaricati i dati, questi vengono poi parsati grazie all'oggetto jsonParser. ApiController presenta inoltre un altro metodo startApi() che avvia un timer grazie al quale ogni ora vengono effettuate chiamate api in modo automatico (utilizzando una lista di citta' predefinite: pesaro, fano, agugliano).
+*ApiController Utilizza come metodo di chiamata api callApi avente come parametro il nome della città. La connessione viene effettuata a openweathermap utilizzando una chiave salvata nel file di configurazione config.editorconfig presente all'interno della cartella src del progetto.
+Una volta effettuata la connessione e scaricati i dati, questi vengono poi parsati grazie all'oggetto jsonParser.
+ApiController presenta inoltre un altro metodo startApi() che avvia un timer grazie al quale ogni ora vengono effettuate chiamate api in modo automatico (utilizzando una lista di citta' predefinite: pesaro, fano, agugliano).
 
 *JsonParse attraverso il metodo parseJsonString() avente come parametro una stringa contenente i dati della chiamata api li inserisce in un oggetto JSONObject.
 Il metodo richiama poi WriteFile grazie al quale salvera' l'oggetto JSONObject nel file pressureData.txt
@@ -81,11 +83,16 @@ Il metodo richiama poi WriteFile grazie al quale salvera' l'oggetto JSONObject n
 ## DATABASE
 Questo package si occupa della lettura/scrittura dei dati all'interno del file pressureData.txt contenente dati formattati in Json.
 
-*ReadFile presenta due metodi readFile() e readFile(tempCityName) per leggere il file pressureData.txt, il primo ritorna un elenco completo delle pressioni con relativa citta' e data, mentre il secondo applica un filtro per quanto riguarda la citta'. Il metodo readFile() viene utilizzato dall'oggetto WriteFile, ritornando un JSONArray contenente i dati, mentre Il metodo readFile(tempCityName) utilizza un hashmap per salvare temporaneamente i dati, per poi ritornare attraverso l'oggetto convert di tipo ConvertHashMapToVector un vettore di tipo Pressure (readFile(tempCityName) viene utilizzato dalla GUI per creare delle statistiche).
+*ReadFile presenta due metodi readFile() e readFile(tempCityName) per leggere il file pressureData.txt, il primo ritorna un elenco completo delle pressioni con relativa citta' e data, mentre il secondo applica un filtro per quanto riguarda la citta'.
+Il metodo readFile() viene utilizzato dall'oggetto WriteFile, ritornando un JSONArray contenente i dati, mentre Il metodo readFile(tempCityName) utilizza un hashmap per salvare temporaneamente i dati, per poi ritornare attraverso l'oggetto convert di tipo ConvertHashMapToVector un vettore di tipo Pressure (readFile(tempCityName) viene utilizzato dalla GUI per creare delle statistiche).
 
-*WriteFile presenta un unico metodo saveData(JSONObject tempJsonObject) avente come parametro un JSONObject. Prima di salvare i dati viene effettuata una lettura del file pressureData.txt con l'oggetto ReadFile che ritorna un JSONArray. I due oggetti JSONObject e JSONArray (opportunamente gestito) vengono confrontati per verificare se esistono dati uguali (quindi stessa citta' e stessa data/orario) in modo da non creare duplicati. In seguito il JSONObject viene aggiunto al JSONArray e salvato nel file. Esempio di eventuale eccezione, come l'inesistenza del file e' stata gestita in modo opportuno, con la creazione di un nuovo file pressureData.txt
+*WriteFile presenta un unico metodo saveData(JSONObject tempJsonObject) avente come parametro un JSONObject. Prima di salvare i dati viene effettuata una lettura del file pressureData.txt con l'oggetto ReadFile che ritorna un JSONArray. I due oggetti JSONObject e JSONArray (opportunamente gestito) vengono confrontati per verificare se esistono dati uguali (quindi stessa citta' e stessa data/orario) in modo da non creare duplicati.
+In seguito il JSONObject viene aggiunto al JSONArray e salvato nel file. Esempio di eventuale eccezione, come l'inesistenza del file e' stata gestita in modo opportuno, con la creazione di un nuovo file pressureData.txt
 
-## GUI
+## ConvertHashMapToVector
+Questa classe ha il compito di convertire un oggetto HashMap in un vettore contenenti oggetti Pressure utilizzato poi dalla GUI in fase di lettura del file pressureData.txt
+
+## GUIConvertHashMapToVector
 L'interfaccia grafica è molto semplice ed è stata inserita per testare il funzionamento del programma. Per ogni operazione dell'utente si apre una nuova finestra e la chiusura della finestra SelectionInformation ferma l'esecuzione del programma. Ogni classe della GUI estende JFrame. 
 * SelectionCity permette all'utente di scegliere la città. Il nome della città inserita viene controllato se esiste, effettuando una chiamata alla API di OpenWeather. In caso contrario uscirà un messaggio di errore. Se l'utente non inserisce alcuna città verrà avvisato con un apposito messaggio. Se la città inserita è corretta, tramite il pulsante *search* si passerà alla finestra SelectionInformation. Per evitare troppe chiamate consecutive alla API, solamente in questa classe del package GUI verrà effettuata la chiamata prendendo il valore della pressione attuale da passare alle GUI successive (ovvero Selection Information). Eseguendo la chiamata alla API, verranno scritti i dati registrati nel database.
 
@@ -117,6 +124,7 @@ Si sono creati due diversi filtri. Entrambe le classi forniscono in output i vet
 * Il nome della città inserito in input non è utilizzato all'interno delle classi, in quanto si occuperà un'altra classe a filtrare il nome della città. 
 * In fase di progettazione i metodi delle due classi dovevano fornire le statistiche in output e non solamente il vettore filtrato. 
 * La crezione del vettore filtrato avviene mediante la classe *FiltersUtil* presente nel package *Utils*
+* La chiave utilizzata nella chiamata api è salvata all'interno del file di configurazione config.editorconfig
 
 ## Test
 Nel progetto è presente un package test contenete dei test per testare delle classi. I test sono stati effettuati con Junit. Per effettuare il test abbiamo creato, con valori a piacere, dei modelli di pressione (contenenti valore pressione, nome città, data e tempo di registrazione) e si è verificato se i valori in uscita erano uguali a quelli aspettati.
