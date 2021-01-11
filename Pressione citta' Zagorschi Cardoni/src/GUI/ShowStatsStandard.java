@@ -33,7 +33,7 @@ public class ShowStatsStandard implements ActionListener {
     public ShowStatsStandard(int days, String name){
         this.cityName = name;
         this.days = days;
-        filter = new FilterPressureStandard(this.days, this.cityName, this.vectorOfPressure.readFile(this.cityName) );
+        filter = new FilterPressureStandard(this.days, this.vectorOfPressure.readFile(this.cityName) );
     }
 
     /**
