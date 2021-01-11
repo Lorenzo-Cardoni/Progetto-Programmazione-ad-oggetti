@@ -89,6 +89,15 @@ Il metodo readFile() viene utilizzato dall'oggetto WriteFile, ritornando un JSON
 *WriteFile presenta un unico metodo saveData(JSONObject tempJsonObject) avente come parametro un JSONObject. Prima di salvare i dati viene effettuata una lettura del file pressureData.txt con l'oggetto ReadFile che ritorna un JSONArray. I due oggetti JSONObject e JSONArray (opportunamente gestito) vengono confrontati per verificare se esistono dati uguali (quindi stessa citta' e stessa data/orario) in modo da non creare duplicati.
 In seguito il JSONObject viene aggiunto al JSONArray e salvato nel file. Esempio di eventuale eccezione, come l'inesistenza del file e' stata gestita in modo opportuno, con la creazione di un nuovo file pressureData.txt
 
+Esempio contenuto del file pressureData.txt
+![](./images/img12.png)
+
+Contenuto del file pressureData.txt opportunamente indentato in modo da capirne meglio la struttura.
+* date: Contiene data e orario del momento in cui la chiamata api e' stata effettuata, questo dato viene utilizzato assieme a city per creare una chiave univoca. 
+* city: Identifica la citta' relativa alla chiamata effettuata.
+* pressure: Pressione presente in una determinata citta' nel momento della chiamata api.
+![](./images/img13.png)
+
 ## ConvertHashMapToVector
 Questa classe ha il compito di convertire un oggetto HashMap in un vettore contenenti oggetti Pressure utilizzato poi dalla GUI in fase di lettura del file pressureData.txt
 
