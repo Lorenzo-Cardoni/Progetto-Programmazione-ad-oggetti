@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Properties;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ApiController {
     /**
@@ -18,7 +20,19 @@ public class ApiController {
     private Properties prop;
     private static String apiKey;
     private InputStream is = null;
-
+    private String[] cityVector = {"pesaro", "fano", "agugliano", };
+    private Timer timer = new Timer("Timer");
+    private long delay = 1000L;
+    private TimerTask task = new TimerTask() {
+        public void run() {
+            callApi(cityVector[0]);
+            callApi(cityVector[1]);
+            callApi(cityVector[2]);
+        }
+    };
+    public void startApi(){
+        timer.scheduleAtFixedRate(task, delay, 1 * 3600 * 1000);
+    }
     /**
      *
      * @param city Stringa contentente nome della citta' di cui si vuole conoscere la pressione attuale
