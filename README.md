@@ -68,6 +68,48 @@ La GUI richiama con il metodo getStats della classe Filter che leggerà i dati p
 
 Nota: durente la scrittura del codice sono stati cambiati i nomi di alcuni metodi/classi, ma le loro funzionalità sono rimaste invariate.
 
+## GUI
+L'interfaccia grafica è molto semplice ed è stata inserita per testare il funzionamento del programma. Per ogni operazione dell'utente si apre una nuova finestra e la chiusura della finestra SelectionInformation ferma l'esecuzione del programma. Ogni classe della GUI estende JFrame. 
+* SelectionCity permette all'utente di scegliere la città. Il nome della città inserita viene controllato se esiste, effettuando una chiamata alla API di OpenWeather. In caso contrario uscirà un messaggio di errore. Se l'utente non inserisce alcuna città verrà avvisato con un apposito messaggio. Se la città inserita è corretta, tramite il pulsante *search* si passerà alla finestra SelectionInformation. Per evitare troppe chiamate consecutive alla API, solamente in questa classe del package GUI verrà effettuata la chiamata prendendo il valore della pressione attuale da passare alle GUI successive (ovvero Selection Information). Eseguendo la chiamata alla API, verranno scritti i dati registrati nel database.
+
+![](./images/img9.jpg) ![](./images/img8.jpg)
+* SelectionInformation contiene due pulsati. Il pulsante *current pressur* permette di visualizzare la pressione attuale con un messaggio. *Stats* farà passare alla finestra *SelectionPeriod*.
+
+* SelectionPeriod possiede quattro possibili scelte: this day, this week, this month and period customized. I primi tre pulsati mostreranno tramite la GUI showStatsStandard le statistiche relative al periodo selezionato. Mentre *period customized* passerà ad una nuova finestra, *SelectionDate*.
+
+* SelectionDate permette di scrivere le date del periodo personalizzato. Se le date sono corrette mostrerà le statistiche, altrimenti uscirà un apposito messaggio relativo all'errore effettuato.
+
+![](./images/img10.jpg) ![](./images/img11.jpg)
+
+## Statistics
+In fase di progettazione la classe stats per ogni valore da trovare aveva il proprio metodo con il proprio calcolo, successivamente si è inserito un metodo che crea le statistiche (createStast()) e i vari getter. Le pressioni sulle quali effettuare le statistiche sono contenute in un vettore. Le statistiche erano le seguenti:
+
+* Il *valore massimo* contenente il valore di pressione più alto registrato 
+* Il *valore minimo* contenente il valore di pressione più basso registrato
+* La *media* delle varie pressioni
+* La *varianza* delle pressioni trovata con la seguente formula
+
+![](./images/formula-varianza.gif)
+
+## Filters
+Si sono creati due diversi filtri. Entrambe le classi creano le statistiche al loro interno tramite una istanza della classe Stats e fornisce in output le varie statistiche a seconda del periodo scelto.
+* Il *filtro standard* è stato progettato per dare all'utente dei periodi già predefiniti. La classe prende in input il numero di giorni del periodo, il nome della città e il vettore contenente tutte le pressioni di una determinata città. Il periodo che si va a filtrare può essere il giorno attuale, l'ultima settimana (7 giorni) o l'ultimo mese (31 giorni che possono essere cambiati in 30 giorni nel codice). Quindi il primo filtro prende la data attuale, che sarà la data di fine periodo, e da quest'ultima si sottraggono il numero di giorni che si vogliono misurare, ottenedo la data di inizio periodo.
+* Il *filtro personalizzato* prende in input le date del periodo da filtrare (il filtraggio comprende le date inserite) e il vettore contenente le pressioni di una città.In output si ottengono le statistiche relative a quel periodo. Le date dovranno essere inserite nel fomato "aaaa-mm-dd", in caso contrario si riscontrera in un errore. All'interno del costruttore si verifica che le due date inserite siano nel formato corretto, in caso contrario si avvisa l'utente dell'errore con un messaggio.
+
+**Note**: 
+* Il nome della città inserito in input non è utilizzato all'interno delle classi, in quanto si occuperà un'altra classe a filtrare il nome della città. 
+* In fase di progettazione le due classi non dovevano fornire le statistiche in output, ma solamente il vettore filtrato. 
+* La crezione del vettore filtrato avviene mediante la classe *FiltersUtil* presente nel package *Utils*
+
+## Test
+Nel progetto è presente un package test contenete dei test per testare delle classi. I test sono stati effettuati con Junit. Per effettuare il test abbiamo creato, con valori a piacere, dei modelli di pressione (contenenti valore pressione, nome città, data e tempo di registrazione) e si è verificato se i valori in uscita erano uguali a quelli aspettati.
+
+**Nota**: Il test della classe FilterPressureStandard per risultare corretto, si devono cambiare le date delle pressioni inserite, in quanto filtra le pressioni dell'ultima settimana attuale.
+
+## Possibili miglioramenti
+* Creare le statistiche direttamente nella GUI e non nella classe filtro
+* Migliorare la GUI
+
 ## Autori
 
 | Autori         | Email | Contributo |
