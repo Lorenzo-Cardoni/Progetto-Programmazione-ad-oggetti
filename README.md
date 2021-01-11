@@ -111,6 +111,13 @@ Nel progetto è presente un package test contenete dei test per testare delle cl
 ## Possibili miglioramenti
 * Migliorare la GUI
 
+## Software utilizzati
+| Software       | Utilizzo | link |
+|----------------|-------|------------|
+| IntelliJ IDEA| Scrittura codice & avvio programma| https://www.jetbrains.com/idea/ |
+| StarUML | Creazione diagrammi UML | https://staruml.io/ |
+| Postman | Visualizzazione del formato dei dati ricevuti in output dalla API | https://www.postman.com/ |
+
 ## Autori
 
 | Autori         | Email | Contributo |
