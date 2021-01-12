@@ -31,7 +31,7 @@ public class ApiController {
         }
     };
     public void startApi(){
-        timer.scheduleAtFixedRate(task, delay, 1 * 3600 * 1000);
+        this.timer.scheduleAtFixedRate(this.task, this.delay, 1 * 3600 * 1000);
     }
     /**
      *
@@ -39,32 +39,34 @@ public class ApiController {
      * @return
      */
     public String callApi(String city) {
-        prop = new Properties();
-        try {
-            is = new FileInputStream("src/config.editorconfig");
-        } catch (FileNotFoundException e) {
+        this.prop = new Properties();
+        try
+        {
+            this.is = new FileInputStream("src/config.editorconfig");
+        }
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         try {
-            prop.load(is);
-            apiKey="&appid=" + prop.getProperty("apiKey");
+            this.prop.load(is);
+            this.apiKey="&appid=" + prop.getProperty("apiKey");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        cityName="";
-        apiData="";
-        jsonParser = new JsonParse();
-        cityExist=false;
+        this.cityName="";
+        this.apiData="";
+        this.jsonParser = new JsonParse();
+        this.cityExist=false;
         this.cityName = "q=" + city;
          try {
             URL url = new URL("http://api.openweathermap.org/data/2.5/weather?"+cityName+apiKey);
-            con = (HttpURLConnection) url.openConnection();
-            if(con.getResponseCode() == HttpURLConnection.HTTP_OK){
-                cityExist=true;
+            this.con = (HttpURLConnection) url.openConnection();
+            if(this.con.getResponseCode() == HttpURLConnection.HTTP_OK){
+                this.cityExist=true;
                 BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String inputLine;
                 while ((inputLine = in.readLine()) != null)
-                    apiData+=inputLine;
+                    this.apiData+=inputLine;
                 in.close();
             }
         }
@@ -74,15 +76,15 @@ public class ApiController {
         /**
          * @param jsonParser Se la citta' esiste, l'oggetto jsonParser estrae i dati dalla stringa apiData
          */
-        if(cityExist){
-             jsonParser.parseJsonString(apiData);
+        if(this.cityExist){
+             this.jsonParser.parseJsonString(this.apiData);
          }
         /**
          * Nel caso in cui il nome della citta' richiesta non esistesse nel database di myweather viene ritornata una stringa "ERRORE"
          * In caso contrario, il metodo ritorna il valore della pressione
          */
-        if(cityExist){
-             return jsonParser.getPressure();
+        if(this.cityExist){
+             return this.jsonParser.getPressure();
          }else {
              System.out.println("ERROR");
              return "ERROR";
