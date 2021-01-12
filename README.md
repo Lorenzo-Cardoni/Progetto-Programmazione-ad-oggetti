@@ -159,8 +159,6 @@ Nel progetto è presente un package test contenete dei test per testare delle cl
 
 **Nota**: Il test della classe FilterPressureStandard per risultare corretto, si devono cambiare le date delle pressioni inserite, in quanto filtra le pressioni dell'ultima settimana attuale.
 
-## Possibili miglioramenti
-* Migliorare la GUI
 
 ## Software & Framework utilizzati
 | Software       | Utilizzo | link |
