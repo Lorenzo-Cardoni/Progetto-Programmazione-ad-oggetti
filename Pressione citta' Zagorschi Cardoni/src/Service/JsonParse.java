@@ -22,6 +22,7 @@ public class JsonParse {
      */
     public void parseJsonString(String info){
         try {
+
             this.tempJsonObject = (JSONObject) JSONValue.parseWithException(info);//main pressure
             JSONObject mainJson = (JSONObject) this.tempJsonObject.get("main");
             this.pressure = mainJson.get("pressure").toString();
