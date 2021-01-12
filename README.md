@@ -1,5 +1,5 @@
 ## Progetto OPENWEATHER - Città, pressione 
-Il programma permette all'utente di visualizzare la pressione di una determinata città e le statistiche di un determinato periodo.
+Il programma implementa un servizio meteo che permette all'utente di visualizzare la pressione di una determinata città e le statistiche di un determinato periodo. Le informazioni sulla pressione saranno salvate ogni ora.
 
 ## Come usare l'applicazione
 1. Scaricare codice sorgente
@@ -68,7 +68,7 @@ La GUI richiama con il metodo getStats della classe Filter che leggerà i dati p
 
 **Note**: 
 * Durente la scrittura del codice sono stati cambiati i nomi di alcuni metodi/classi, ma le loro funzionalità sono rimaste invariate.
-* Nel diagramma delle sequenze è un metodo della classe filtro che restituisce le statistiche, mentre nel codice le statistiche sono create direttamente nella GUI.
+* Nel diagramma delle sequenze il metodo della classe filtro restituisce le statistiche, mentre nel codice le statistiche sono create direttamente nella GUI.
 
 ## SERVICE
 Questo package contiene le due classi ApiController e JsonParse utilizzate rispettivamente per effettuare una chiamata api e parsare la risposta da String (formattata in Json) all'interno di un oggetto JSONObject.
@@ -81,6 +81,9 @@ Struttura della API call: **api.openweathermap.org/data/2.5/weather?q={city name
 
 * JsonParse attraverso il metodo parseJsonString() avente come parametro una stringa contenente i dati della chiamata api li inserisce in un oggetto JSONObject.
 Il metodo richiama poi WriteFile grazie al quale salvera' l'oggetto JSONObject nel file pressureData.txt
+
+**Nota**: 
+* La chiave utilizzata nella chiamata api è salvata all'interno del file di configurazione config.editorconfig
 
 ## DATABASE
 Questo package si occupa della lettura/scrittura dei dati all'interno del file pressureData.txt contenente dati formattati in Json.
@@ -152,22 +155,23 @@ Si sono creati due diversi filtri. Entrambe le classi forniscono in output i vet
 * Il nome della città inserito in input non è utilizzato all'interno delle classi, in quanto si occuperà un'altra classe a filtrare il nome della città. 
 * In fase di progettazione i metodi delle due classi dovevano fornire le statistiche in output e non solamente il vettore filtrato. 
 * La crezione del vettore filtrato avviene mediante la classe *FiltersUtil* presente nel package *Utils*
-* La chiave utilizzata nella chiamata api è salvata all'interno del file di configurazione config.editorconfig
+
 
 ## Test
 Nel progetto è presente un package test contenete dei test per testare delle classi. I test sono stati effettuati con Junit. Per effettuare il test abbiamo creato, con valori a piacere, dei modelli di pressione (contenenti valore pressione, nome città, data e tempo di registrazione) e si è verificato se i valori in uscita erano uguali a quelli aspettati.
 
-**Nota**: Il test della classe FilterPressureStandard per risultare corretto, si devono cambiare le date delle pressioni inserite, in quanto filtra le pressioni dell'ultima settimana attuale.
+**Note**: Il test della classe FilterPressureStandard per risultare corretto, si devono cambiare le date delle pressioni inserite, in quanto filtra le pressioni dell'ultima settimana attuale.
 
 
 ## Software & Framework utilizzati
-| Software       | Utilizzo | link |
+| Name       | Utilizzo | link |
 |----------------|-------|------------|
-| IntelliJ IDEA| Scrittura codice & avvio programma| https://www.jetbrains.com/idea/ |
+| IntelliJ IDEA| Compilazione programma| https://www.jetbrains.com/idea/ |
 | StarUML | Creazione diagrammi UML | https://staruml.io/ |
 | Postman | Visualizzazione del formato dei dati ricevuti in output dalla API | https://www.postman.com/ |
-| JUnit | framework per testare le classi | https://junit.org/junit5/ |
+| JUnit | Framework per testare le classi | https://junit.org/junit5/ |
 | Json-simple | Parsing dei dati | https://github.com/fangyidong/json-simple |
+| GitHub Desktop | | https://desktop.github.com/ |
 
 ## Autori
 
