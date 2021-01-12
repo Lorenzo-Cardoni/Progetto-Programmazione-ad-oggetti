@@ -19,21 +19,21 @@ public class ReadFile {
      * hashMap Hashmap che conterra' i dati letti dal file
      * convert Oggetto che converte da HashMap a Vettore contenente oggetti Pressure
      */
-    Map<String, String> hashMap;
-    ConvertHashMapToVector convert = new ConvertHashMapToVector();
+    private Map<String, String> hashMap;
+    private ConvertHashMapToVector convert = new ConvertHashMapToVector();
     private JSONArray jsonArray;
 
     /**
      * @return Ritorna un JSONArray contenente tutti i dati letti dal file in formato JSON
      */
     public  JSONArray readFile(){
-        jsonArray=new JSONArray();//JSONArray che conterra' i dati
+        this.jsonArray=new JSONArray();//JSONArray che conterra' i dati
         try {
             File newFile = new File("pressureData.txt");
             if(newFile.length()>0) { //Legge il file solo nel caso in cui contenga dati, altrimenti il metodo readFile ritorna un JSONArray vuoto
                 Scanner file_input = new Scanner(new BufferedReader(new FileReader("pressureData.txt")));
                 String str = file_input.nextLine();
-                jsonArray = (org.json.simple.JSONArray) JSONValue.parseWithException(str); //Parsa stringa letta
+                this.jsonArray = (org.json.simple.JSONArray) JSONValue.parseWithException(str); //Parsa stringa letta
                 file_input.close();
             }
         } catch (FileNotFoundException e) {
@@ -41,7 +41,7 @@ public class ReadFile {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return jsonArray;
+        return this.jsonArray;
     }
 
     /**]
@@ -50,13 +50,13 @@ public class ReadFile {
      */
     public  Vector<Pressure> readFile(String tempCityName){
         tempCityName=tempCityName.toLowerCase(Locale.ROOT);
-        jsonArray = new JSONArray();
-        hashMap = new HashMap<>();
+        this.jsonArray = new JSONArray();
+        this.hashMap = new HashMap<>();
         String tempCity, tempDate, tempPressure;
         try {
             Scanner file_input = new Scanner(new BufferedReader(new FileReader("pressureData.txt")));
             String str = file_input.nextLine();
-            jsonArray = (JSONArray)JSONValue.parseWithException(str);//Parsa stringa letta
+            this.jsonArray = (JSONArray)JSONValue.parseWithException(str);//Parsa stringa letta
             file_input.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -64,16 +64,16 @@ public class ReadFile {
             e.printStackTrace();
         }
         //Riempimento HashMap
-        for(int i=0;i<jsonArray.size();i++){
+        for(int i=0;i<this.jsonArray.size();i++){
             JSONObject job = new JSONObject(); //job viene resettato ad ogni iterazione del ciclo for
-            job = (JSONObject) jsonArray.get(i);
+            job = (JSONObject) this.jsonArray.get(i);
             tempCity = job.get("city").toString();
             if(tempCity.equals(tempCityName)){ //Controlla se la citta' letta corrisponde al parametro iniziale tempCityName
                 tempDate = job.get("date").toString();
                 tempPressure = job.get("pressure").toString();
-                hashMap.put(tempCity+";"+tempDate,tempPressure); //hashMap viene riempito
+                this.hashMap.put(tempCity+";"+tempDate,tempPressure); //hashMap viene riempito
             }
         }
-        return convert.convertHashMapToVector(hashMap);
+        return this.convert.convertHashMapToVector(this.hashMap);
     }
 }

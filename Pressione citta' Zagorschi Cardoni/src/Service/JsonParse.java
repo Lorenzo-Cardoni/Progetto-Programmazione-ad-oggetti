@@ -22,16 +22,16 @@ public class JsonParse {
      */
     public void parseJsonString(String info){
         try {
-            tempJsonObject = (JSONObject) JSONValue.parseWithException(info);//main pressure
-            JSONObject mainJson = (JSONObject) tempJsonObject.get("main");
-            pressure = mainJson.get("pressure").toString();
-            city = tempJsonObject.get("name").toString();
-            jsonObject = new JSONObject();
-            jsonObject.put("city",city.toLowerCase(Locale.ROOT));
-            jsonObject.put("pressure",pressure);
-            jsonObject.put("date", LocalDateTime.now().truncatedTo(ChronoUnit.HOURS).toString()); //Tronca la data ricevuta da LocalDateTime.now() eliminando millisecondi, secondi e minuti
-            wr = new WriteFile();
-            wr.saveData(jsonObject);
+            this.tempJsonObject = (JSONObject) JSONValue.parseWithException(info);//main pressure
+            JSONObject mainJson = (JSONObject) this.tempJsonObject.get("main");
+            this.pressure = mainJson.get("pressure").toString();
+            this.city = this.tempJsonObject.get("name").toString();
+            this.jsonObject = new JSONObject();
+            this.jsonObject.put("city",this.city.toLowerCase(Locale.ROOT));
+            this.jsonObject.put("pressure",this.pressure);
+            this.jsonObject.put("date", LocalDateTime.now().truncatedTo(ChronoUnit.HOURS).toString()); //Tronca la data ricevuta da LocalDateTime.now() eliminando millisecondi, secondi e minuti
+            this.wr = new WriteFile();
+            this.wr.saveData(jsonObject);
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -41,6 +41,6 @@ public class JsonParse {
      * get del valore della pressione pressure
      */
     public String getPressure(){
-        return pressure;
+        return this.pressure;
     }
 }
